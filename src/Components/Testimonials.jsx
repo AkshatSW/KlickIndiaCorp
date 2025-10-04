@@ -45,7 +45,7 @@ const Testimonials = () => {
       company: "Mumbai",
       image: testimonialImage1,
       rating: 5,
-      testimonial: "DesignCraft transformed our office space beyond our expectations. Their attention to detail and innovative approach created a workspace that truly reflects our company culture. The team was professional, timely, and delivered exceptional results."
+      testimonial: "KlickIndia transformed our office space beyond our expectations. Their attention to detail and innovative approach created a workspace that truly reflects our company culture. The team was professional, timely, and delivered exceptional results."
     },
     {
       id: 2,
@@ -54,7 +54,7 @@ const Testimonials = () => {
       company: "Delhi",
       image: testimonialImage2,
       rating: 5,
-      testimonial: "Working with DesignCraft was an absolute pleasure. They designed our luxury residential project with creativity and precision. The modern aesthetics combined with functional design exceeded all our expectations. Highly recommended!"
+      testimonial: "Working with KlickIndia was an absolute pleasure. They designed our luxury residential project with creativity and precision. The modern aesthetics combined with functional design exceeded all our expectations. Highly recommended!"
     },
     {
       id: 3,
@@ -63,7 +63,7 @@ const Testimonials = () => {
       company: "Gujarat",
       image: testimonialImage3,
       rating: 5,
-      testimonial: "The industrial complex they designed for us is both functional and aesthetically pleasing. DesignCraft understood our requirements perfectly and delivered a space that improved our operational efficiency significantly."
+      testimonial: "The industrial complex they designed for us is both functional and aesthetically pleasing. KlickIndia understood our requirements perfectly and delivered a space that improved our operational efficiency significantly."
     }
   ]
 

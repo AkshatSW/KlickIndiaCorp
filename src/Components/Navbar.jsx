@@ -73,7 +73,7 @@ const Navbar = () => {
               isScrolled ? 'text-gray-900' : 'text-white'
             }`}
           >
-            Design Craft
+            KlickIndia
           </motion.div>
 
           {/* Desktop Navigation Links */}

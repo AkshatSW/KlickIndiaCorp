@@ -16,7 +16,7 @@ const Footer = () => {
             className="lg:col-span-1"
           >
             <h3 className="mb-4 text-2xl font-bold text-white">
-              Design Craft
+              KlickIndia
             </h3>
             <p className="text-gray-400 leading-relaxed">
               Designing India's Best Homes & Businesses Since 1992
@@ -158,7 +158,7 @@ const Footer = () => {
                   href="mailto:klickiniacorp@gmail.com"
                   className="text-gray-400 transition-colors duration-300 hover:text-white"
                 >
-                  designcraft@gmail.com
+                  KlickIndia@gmail.com
                 </a>
               </div>
             </div>
