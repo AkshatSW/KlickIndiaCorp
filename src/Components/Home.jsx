@@ -59,7 +59,7 @@ const Home = () => {
 
       {/* Content */}
       <div className="relative z-10 flex min-h-screen items-center justify-center px-6">
-        <div className="text-center text-white">
+        <div className="text-center text-white max-w-4xl">
           <motion.h1
             initial={{ opacity: 0, y: 100, scale: 0.8 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -81,7 +81,7 @@ const Home = () => {
             </motion.span>
             <br />
             <motion.span 
-              className="bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent"
+              className="gradient-text"
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.7 }}
@@ -123,7 +123,7 @@ const Home = () => {
             }}
           >
             <motion.button 
-              className="group relative overflow-hidden rounded-full bg-white px-8 py-4 text-lg font-semibold text-gray-900 transition-all duration-500 hover:bg-gray-100 hover:shadow-2xl"
+              className="group relative overflow-hidden brand-button px-8 py-4 text-lg font-semibold"
               whileHover={{ 
                 scale: 1.05,
                 boxShadow: "0 20px 40px rgba(0,0,0,0.3)"
@@ -154,10 +154,10 @@ const Home = () => {
                 </motion.svg>
               </motion.span>
               
-              {/* Button ripple effect */}
+              {/* Soft overlay on hover */}
               <motion.div 
-                className="absolute inset-0 bg-gradient-to-r from-amber-400 to-orange-500 opacity-0"
-                whileHover={{ opacity: 0.1 }}
+                className="absolute inset-0 bg-white/10 opacity-0"
+                whileHover={{ opacity: 1 }}
                 transition={{ duration: 0.3 }}
               />
             </motion.button>

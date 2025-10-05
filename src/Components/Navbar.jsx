@@ -59,7 +59,7 @@ const Navbar = () => {
       transition={{ duration: 0.6 }}
       className={`fixed top-0 z-50 w-full transition-all duration-300 ${
         isScrolled 
-          ? 'bg-white/95 backdrop-blur-md shadow-lg' 
+          ? 'bg-slate-900/70 backdrop-blur-xl shadow-lg border-b border-white/10' 
           : 'bg-transparent'
       }`}
     >
@@ -70,7 +70,7 @@ const Navbar = () => {
             whileHover={{ scale: 1.05 }}
             onClick={() => scrollToSection('home')}
             className={`cursor-pointer text-xl sm:text-2xl font-bold transition-colors duration-300 ${
-              isScrolled ? 'text-gray-900' : 'text-white'
+              isScrolled ? 'gradient-text' : 'gradient-text'
             }`}
           >
             KlickIndia
@@ -83,8 +83,8 @@ const Navbar = () => {
                 key={item.name}
                 onClick={() => scrollToSection(item.id)}
                 whileHover={{ y: -2 }}
-                className={`transition-colors duration-300 hover:text-red-500 ${
-                  isScrolled ? 'text-gray-700' : 'text-white/90'
+                className={`transition-colors duration-300 hover:text-white ${
+                  isScrolled ? 'text-gray-300' : 'text-white/80'
                 }`}
               >
                 {item.name}
@@ -97,7 +97,7 @@ const Navbar = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={openWhatsAppChat}
-            className="hidden md:block rounded-full bg-gradient-to-r from-red-500 to-red-600 px-4 sm:px-6 py-2 text-sm sm:text-base text-white font-medium shadow-lg transition-shadow duration-300 hover:shadow-xl"
+            className="hidden md:block brand-button px-4 sm:px-6 py-2 text-sm sm:text-base font-medium shadow-lg transition-shadow duration-300 hover:shadow-xl"
           >
             Get Quote
           </motion.button>
@@ -107,7 +107,7 @@ const Navbar = () => {
             whileTap={{ scale: 0.95 }}
             onClick={toggleMobileMenu}
             className={`md:hidden relative z-50 flex flex-col justify-center items-center w-8 h-8 ${
-              isScrolled ? 'text-gray-900' : 'text-white'
+              isScrolled ? 'text-white' : 'text-white'
             }`}
           >
             <motion.span
@@ -144,11 +144,7 @@ const Navbar = () => {
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
-              className={`md:hidden overflow-hidden ${
-                isScrolled 
-                  ? 'bg-white/95 backdrop-blur-md' 
-                  : 'bg-black/90 backdrop-blur-md'
-              }`}
+              className={`md:hidden overflow-hidden bg-slate-900/90 backdrop-blur-xl border-b border-white/10`}
             >
               <div className="px-4 py-4 space-y-4">
                 {navItems.map((item, index) => (
@@ -158,9 +154,7 @@ const Navbar = () => {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.1 }}
                     onClick={() => scrollToSection(item.id)}
-                    className={`block w-full text-left py-2 px-2 rounded-lg transition-colors duration-300 hover:bg-red-500/10 ${
-                      isScrolled ? 'text-gray-700 hover:text-red-500' : 'text-white/90 hover:text-red-400'
-                    }`}
+                    className={`block w-full text-left py-2 px-2 rounded-lg transition-colors duration-300 hover:bg-white/5 text-white/90 hover:text-white`}
                   >
                     {item.name}
                   </motion.button>
@@ -173,7 +167,7 @@ const Navbar = () => {
                   transition={{ delay: navItems.length * 0.1 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={openWhatsAppChat}
-                  className="w-full mt-4 rounded-full bg-gradient-to-r from-red-500 to-red-600 px-6 py-3 text-white font-medium shadow-lg"
+                  className="w-full mt-4 brand-button px-6 py-3 font-medium shadow-lg"
                 >
                   Get Quote
                 </motion.button>
