@@ -49,7 +49,7 @@ const Navbar = () => {
       transition={{ duration: 0.6 }}
       className="fixed top-0 z-50 w-full transition-all duration-300"
       style={{
-        backgroundColor: isScrolled ? 'rgba(49,72,122,0.8)' : 'transparent',
+        backgroundColor: isScrolled ? 'rgba(17, 19, 44, 0.9)' : 'transparent', // #11132c
         backdropFilter: isScrolled ? 'blur(10px)' : 'none',
         borderBottom: isScrolled ? '1px solid rgba(255,255,255,0.1)' : 'none',
       }}
@@ -62,7 +62,7 @@ const Navbar = () => {
             onClick={() => scrollToSection('home')}
             className="cursor-pointer flex items-center"
           >
-            <img src={logo} alt="Klick India Logo" className="h-12 w-auto sm:h-14" />
+            <img src={logo} alt="Klick India Logo" className="h-10 w-auto sm:h-12" />
           </motion.div>
 
           {/* Desktop Navigation */}
@@ -123,7 +123,7 @@ const Navbar = () => {
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
-              className="md:hidden overflow-hidden bg-[#31487a]/80 backdrop-blur-xl border-b border-white/10"
+              className="md:hidden overflow-hidden bg-[#11132c]/90 backdrop-blur-xl border-b border-white/10"
             >
               <div className="px-4 py-4 space-y-4">
                 {navItems.map((item, index) => (

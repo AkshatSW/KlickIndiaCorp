@@ -4,7 +4,7 @@ import logo from '../assets/KlickIndiaLogoTransparent.PNG';
 
 const Footer = () => {
   return (
-    <footer style={{ backgroundColor: '#31487a', padding: '1.5rem 1rem' }}>
+    <footer style={{ backgroundColor: '#11132c', padding: '1.5rem 1rem' }}>
       <div
         style={{
           maxWidth: '1200px',
