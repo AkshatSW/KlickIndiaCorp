@@ -1,93 +1,52 @@
 import React from "react";
+import img1 from "../assets/services/img1.png";
+import img2 from "../assets/services/img2.png";
+import img3 from "../assets/services/img3.png";
+import img4 from "../assets/services/img4.png";
+import img5 from "../assets/services/img5.png";
+import img6 from "../assets/services/img6.png";
 
 const servicesData = [
-  {
-    title: "Architecture & Masterplanning",
-    bgImage:
-      "https://images.unsplash.com/photo-1465101046530-73398c7f28ca",
-    overlayColor: "bg-[#314870]",
-    textColor: "text-white",
-  },
-  {
-    title: "Building Planning & Design",
-    bgImage:
-      "https://images.unsplash.com/photo-1464983953574-0892a716854b",
-    overlayColor: "bg-[#11132c]",
-    textColor: "text-[#eeb821]",
-  },
-  {
-    title: "Interior Design",
-    bgImage:
-      "https://images.unsplash.com/photo-1519710164239-da123dc03ef4",
-    overlayColor: "bg-[#b3cfe4]",
-    textColor: "text-[#11132c]",
-  },
-  {
-    title: "Landscape Design",
-    bgImage:
-      "https://images.unsplash.com/photo-1470770841072-f978cf4d019e",
-    overlayColor: "bg-[#9b5c26]",
-    textColor: "text-white",
-  },
-  {
-    title: "MEP Engineering",
-    bgImage:
-      "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2",
-    overlayColor: "bg-[#314870]",
-    textColor: "text-[#efefef]",
-  },
-  {
-    title: "Project Planning & Control",
-    bgImage:
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb",
-    overlayColor: "bg-[#bcc3d3]",
-    textColor: "text-[#11132c]",
-  },
+  { name: "Architecture & Masterplanning", img: img1, text: "Designing spaces that inspire and endure." },
+  { name: "Building Planning & Design", img: img2, text: "Efficient, functional, and aesthetic building layouts." },
+  { name: "Interior Design", img: img3, text: "Transforming interiors into elegant and practical spaces." },
+  { name: "Landscape Design", img: img4, text: "Creating sustainable and beautiful outdoor environments." },
+  { name: "MEP Engineering", img: img5, text: "Mechanical, electrical, and plumbing systems designed for efficiency." },
+  { name: "Project Planning & Control", img: img6, text: "Ensuring timely, budget-friendly, and high-quality project delivery." }
 ];
 
 const Services = () => {
   return (
-    <section className="flex flex-col items-center py-16 bg-[#efefef]">
-      {/* Heading */}
-      <h2 className="text-3xl md:text-4xl font-semibold text-[#314870] mb-2 tracking-wide text-center">
-        Our Services
-      </h2>
-      <p className="text-lg text-[#314870] mb-10 text-center">
-        End-to-end solutions for homes and commercial projects
-      </p>
+    <section id="services" className="bg-white py-20">
+      <div className="container mx-auto px-6 text-center max-w-6xl">
+        {/* Section Title */}
+        <div className="mb-12">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4" style={{ color: "#31487a" }}>
+            Our Services
+          </h2>
+          <p className="text-lg sm:text-xl text-gray-700">
+            We provide end-to-end solutions for architecture, design, and project management.
+          </p>
+        </div>
 
-      {/* Services Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full max-w-7xl px-4 mb-10">
-        {servicesData.map((service, idx) => (
-          <div
-            key={idx}
-            className={`relative h-72 flex items-center justify-center rounded-lg border-2 border-gray-300 bg-cover bg-center shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer`}
-            style={{ backgroundImage: `url(${service.bgImage})` }}
-          >
+        {/* Services Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+          {servicesData.map((service, index) => (
             <div
-              className={`absolute inset-0 ${service.overlayColor} opacity-60 rounded-lg`}
-            ></div>
-            <span
-              className={`relative z-10 font-bold text-lg md:text-xl text-center ${service.textColor}`}
+              key={index}
+              className="bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition-shadow duration-300 flex flex-col items-center text-center"
             >
-              {service.title.split(" ").map((line, i) => (
-                <React.Fragment key={i}>
-                  {line}
-                  <br />
-                </React.Fragment>
-              ))}
-            </span>
-          </div>
-        ))}
+              <div className="w-20 h-20 mb-4">
+                <img src={service.img} alt={service.name} className="w-full h-full object-contain" />
+              </div>
+              <h3 className="text-xl font-semibold mb-2" style={{ color: "#31487a" }}>
+                {service.name}
+              </h3>
+              <p className="text-gray-700">{service.text}</p>
+            </div>
+          ))}
+        </div>
       </div>
-
-      {/* CTA Button */}
-      <a
-        href="/services"
-        className="inline-block mt-2 px-7 py-3 rounded-full shadow text-lg font-semibold bg-[#eeb821] text-[#11132c] hover:bg-[#314870] hover:text-[#eeb821] transition-all duration-200"
-      >
-        Discover More
-      </a>
     </section>
   );
 };

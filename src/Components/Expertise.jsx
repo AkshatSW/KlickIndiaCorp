@@ -34,7 +34,7 @@ const Expertise = () => {
           className="text-4xl md:text-5xl font-bold mb-4"
           style={{ color: '#FFFFFF' }}
         >
-          Expertise
+         Our Expertise
         </motion.h2>
 
         {/* Subheading */}
@@ -60,7 +60,7 @@ const Expertise = () => {
                 transition={{ duration: 0.6, delay: 0.1 * index }}
                 className="rounded-xl p-8 hover:-translate-y-2 transition-transform duration-300 cursor-pointer shadow-md"
                 style={{
-                  backgroundColor: '#fdf6ec',
+                  backgroundColor: '#ffffff',
                   border: '2px solid #e3d6b5'
                 }}
               >
