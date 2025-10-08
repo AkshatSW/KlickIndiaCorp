@@ -163,12 +163,15 @@ const Home = () => {
                 We combine innovation, sustainability and a client-oriented approach to create projects that are unique, site-specific and executed with precision. 
                 Our work is a testament to our vision of redefining architecture in India while leaving a lasting legacy of iconic structures.
               </p>
-              <button
-                className="px-10 py-4 text-lg font-semibold rounded-full shadow-lg"
-                style={{ backgroundColor: "#31487a", color: "#ffffff" }}
-              >
-                Get in Touch
-              </button>
+              <div className="text-center mt-6">
+                <button
+                  className="px-10 py-4 text-lg font-semibold rounded-full shadow-lg"
+                  style={{ backgroundColor: "#31487a", color: "#ffffff" }}
+                >
+                  Get in Touch
+                </button>
+              </div>
+
             </motion.div>
           </div>
         </div>
