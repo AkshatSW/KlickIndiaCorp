@@ -31,11 +31,11 @@ const Home = () => {
     return () => clearInterval(interval)
   }, [backgroundImages.length])
 
-  // Update image height to match text height
+  // Update image height to match text height on desktop
   useEffect(() => {
     const updateHeight = () => {
       if (textRef.current) {
-        setTextHeight(textRef.current.offsetHeight)
+        setTextHeight(textRef.current.offsetHeight + 'px')
       }
     }
     updateHeight()
@@ -127,10 +127,28 @@ const Home = () => {
       <section className="relative py-20 bg-white">
         <div className="container mx-auto px-6 max-w-6xl">
           <div className="flex flex-col md:flex-row items-start gap-10">
-            {/* Left: Text (2.5/4 width ~ 62.5%) */}
+            {/* Image on right (top on mobile) */}
+            <motion.div
+              className="w-full md:w-[37.5%] order-1 md:order-2"
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <img
+              src={aboutImg}
+              alt="About Us"
+              className="w-full rounded-2xl shadow-md object-cover" // <-- use object-cover
+              style={{
+                height: window.innerWidth >= 768 ? textHeight : '200px', // height matches text on desktop
+              }}
+             />
+
+            </motion.div>
+
+            {/* Text */}
             <motion.div
               ref={textRef}
-              className="w-full md:w-[62.5%]"
+              className="w-full md:w-[62.5%] order-2 md:order-1"
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
@@ -151,21 +169,6 @@ const Home = () => {
               >
                 Get in Touch
               </button>
-            </motion.div>
-
-            {/* Right: Image (1.5/4 width ~ 37.5%) */}
-            <motion.div
-              className="w-full md:w-[37.5%]"
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              <img
-                src={aboutImg}
-                alt="About Us"
-                className="w-full object-cover rounded-2xl shadow-md"
-                style={{ height: textHeight }}
-              />
             </motion.div>
           </div>
         </div>
