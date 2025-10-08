@@ -1,85 +1,139 @@
-import React, { useRef, useState } from 'react'
-import { motion } from 'motion/react'
+import React from "react";
 
-const ProjectCard = ({ project, index }) => {
-  const cardRef = useRef(null)
-  const [isHover, setIsHover] = useState(false)
-  const [pointer, setPointer] = useState({ x: 0, y: 0 })
+// Import project images (make sure these paths exist)
+import multiStoreyed from "../assets/Projects/MultiStoreyedBuilding.png";
+import mdCityHospital from "../assets/Projects/mdcityhospital.png";
+import hotelLandmark from "../assets/Projects/hotellandmark.png";
 
-  const handleMouseMove = (e) => {
-    const rect = cardRef.current?.getBoundingClientRect()
-    if (!rect) return
-    const x = e.clientX - rect.left
-    const y = e.clientY - rect.top
-    setPointer({ x, y })
-  }
+const featuredProjects = [
+  {
+    title: "Multi Storeyed Building",
+    location: "L-1-2, Connaught Place, Delhi",
+    image: multiStoreyed,
+  },
+  {
+    title: "MD City Hospital",
+    location: "Model Town, Delhi",
+    image: mdCityHospital,
+  },
+  {
+    title: "Hotel Landmark",
+    location: "Kanpur",
+    image: hotelLandmark,
+  },
+];
 
-  const tilt = () => {
-    const rect = cardRef.current?.getBoundingClientRect()
-    if (!rect) return { rotateX: 0, rotateY: 0 }
-    const relX = (pointer.x / rect.width) * 2 - 1
-    const relY = (pointer.y / rect.height) * 2 - 1
-    return { rotateY: relX * 8, rotateX: -relY * 8 }
-  }
-
+const FeaturedProjects = () => {
   return (
-    <motion.div
-      ref={cardRef}
-      onMouseEnter={() => setIsHover(true)}
-      onMouseLeave={() => setIsHover(false)}
-      onMouseMove={handleMouseMove}
-      initial={{ opacity: 0, y: 30, scale: 0.96, rotateX: 8 }}
-      whileInView={{ opacity: 1, y: 0, scale: 1, rotateX: 0 }}
-      viewport={{ once: true, margin: "-10px" }}
-      transition={{ duration: 0.3, delay: index * 0.03, type: "spring", stiffness: 500, damping: 28 }}
-      animate={isHover ? tilt() : { rotateX: 0, rotateY: 0 }}
-      whileHover={{ z: 20 }}
-      className="group cursor-pointer overflow-hidden rounded-3xl bg-white/10 backdrop-blur-lg border border-white/20 shadow-2xl transition-all duration-300 hover:shadow-purple-500/25 relative"
-      style={{ transformStyle: "preserve-3d", perspective: 1000 }}
-    >
-      <div className="relative overflow-hidden">
-        <motion.img src={project.image} alt={project.title} className="h-52 sm:h-64 w-full object-cover" initial={{ scale: 1.05, filter: "brightness(0.95)" }} whileInView={{ scale: 1, filter: "brightness(1)" }} animate={isHover ? { scale: 1.08, filter: "brightness(1.12) saturate(1.12)" } : {}} transition={{ duration: 0.3, ease: "easeOut" }} />
-      </div>
-      <motion.div className="p-6 relative z-10">
-        <motion.h3 className="mb-3 text-xl font-bold text-white">{project.title}</motion.h3>
-        <motion.p className="flex items-center text-gray-300 mb-4">{project.location}</motion.p>
-        <motion.p className="text-sm text-gray-400 mb-4 line-clamp-2">
-          Exceptional {project.category.toLowerCase()} design showcasing modern architecture.
-        </motion.p>
-        <motion.button className="px-4 py-2 rounded-2xl brand-button text-white font-medium text-sm" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-          View Project
-        </motion.button>
-      </motion.div>
-    </motion.div>
-  )
-}
+    <section style={{ padding: "5rem 0", backgroundColor: "#31487a" }}>
+      <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 1rem" }}>
+        {/* Heading */}
+        <div style={{ textAlign: "center", marginBottom: "4rem" }}>
+          <h2
+            style={{
+              fontSize: "2.25rem",
+              fontWeight: "700",
+              color: "#ffffff",
+              marginBottom: "1rem",
+            }}
+          >
+            Featured Projects
+          </h2>
+          <p
+            style={{
+              fontSize: "1.125rem",
+              color: "#fdf6ec",
+              maxWidth: "600px",
+              margin: "0 auto",
+            }}
+          >
+            A glimpse of our architectural achievements
+          </p>
+        </div>
 
-const Projects = () => {
-  const projects = [
-    { id: 1, image: "/assets/1.jpg", title: "Luxury Residence", location: "New Delhi", category: "Residential" },
-    { id: 2, image: "/assets/2.jpeg", title: "Commercial Plaza", location: "Gurugram", category: "Commercial" },
-    { id: 3, image: "/assets/3.jpg", title: "Hotel Landmark", location: "Mumbai", category: "Hospitality" },
-    { id: 4, image: "/assets/4.jpg", title: "Industrial Complex", location: "Faridabad", category: "Industrial" },
-    { id: 5, image: "/assets/5.jpg", title: "Educational Campus", location: "Noida", category: "Educational" },
-    { id: 6, image: "/assets/6.webp", title: "Landscape Design", location: "Chandigarh", category: "Landscape" }
-  ]
-
-  return (
-    <section style={{ backgroundColor: '#efefef' }} className="py-16">
-      <div className="mx-auto max-w-7xl px-6">
-        <motion.div className="mb-12 text-center" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
-          <h2 className="mb-4 text-3xl font-bold md:text-4xl" style={{ color: '#31487a' }}>Featured Projects</h2>
-          <p className="text-lg text-gray-700">A glimpse of our architectural achievements</p>
-        </motion.div>
-
-        <motion.div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.2 }}>
-          {projects.map((project, index) => (
-            <ProjectCard key={project.id} project={project} index={index} />
+        {/* Projects Grid */}
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+            gap: "2rem",
+          }}
+        >
+          {featuredProjects.map((project, index) => (
+            <div
+              key={index}
+              style={{
+                overflow: "hidden",
+                borderRadius: "1rem",
+                backgroundColor: "#ffffff",
+                border: "2px solid #e3d6b5",
+                boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
+                cursor: "pointer",
+                transition: "all 0.3s ease",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.boxShadow = "0 12px 24px rgba(0,0,0,0.2)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.boxShadow = "0 4px 12px rgba(0,0,0,0.1)";
+              }}
+            >
+              <div
+                style={{
+                  position: "relative",
+                  height: "16rem",
+                  overflow: "hidden",
+                }}
+              >
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    transition: "transform 0.5s",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = "scale(1.1)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = "scale(1)";
+                  }}
+                />
+              </div>
+              <div style={{ padding: "1.5rem" }}>
+                <h3
+                  style={{
+                    fontSize: "1.25rem",
+                    fontWeight: "600",
+                    marginBottom: "0.5rem",
+                    color: "#31487a",
+                  }}
+                >
+                  {project.title}
+                </h3>
+                <p style={{ color: "#31487a" }}>{project.location}</p>
+              </div>
+            </div>
           ))}
-        </motion.div>
+        </div>
+
+        {/* Explore More Button */}
+        <div style={{ textAlign: "center", marginTop: "3rem" }}>
+         <button
+          className="px-12 py-4 text-lg font-semibold rounded-full shadow-lg transition-transform duration-300 hover:scale-105"
+            style={{
+              backgroundColor: '#ffffff',
+              color: '#314870'
+            }}
+          >
+            Explore More Projects
+          </button>
+        </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Projects
+export default FeaturedProjects;

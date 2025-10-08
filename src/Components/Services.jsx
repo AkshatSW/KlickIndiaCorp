@@ -30,7 +30,7 @@ const Services = () => {
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mb-12">
           {servicesData.map((service, index) => (
             <div
               key={index}
@@ -45,6 +45,34 @@ const Services = () => {
               <p className="text-gray-700">{service.text}</p>
             </div>
           ))}
+        </div>
+
+        {/* CTA Button */}
+        <div style={{ textAlign: "center" }}>
+          <button
+            style={{
+              backgroundColor: "#31487a",
+              color: "#ffffff",
+              padding: "1rem 3rem",
+              fontSize: "1.125rem",
+              fontWeight: "600",
+              border: "none",
+              borderRadius: "9999px",
+              cursor: "pointer",
+              boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
+              transition: "all 0.3s ease",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = "#263b5c";
+              e.currentTarget.style.transform = "scale(1.05)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = "#31487a";
+              e.currentTarget.style.transform = "scale(1)";
+            }}
+          >
+            Discover More
+          </button>
         </div>
       </div>
     </section>

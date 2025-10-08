@@ -1,55 +1,45 @@
 import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
+import logo from '../assets/KlickIndiaLogoTransparent.PNG'
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20)
-    }
-    
+    const handleScroll = () => setIsScrolled(window.scrollY > 20)
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Smooth scroll function
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId)
     if (element) {
-      const navbarHeight = 80 // Account for fixed navbar height
-      const elementPosition = element.offsetTop - navbarHeight
-      
-      window.scrollTo({
-        top: elementPosition,
-        behavior: 'smooth'
-      })
+      const navbarHeight = 80
+      window.scrollTo({ top: element.offsetTop - navbarHeight, behavior: 'smooth' })
     }
-    // Close mobile menu after navigation
     setIsMobileMenuOpen(false)
   }
 
-  // WhatsApp function
   const openWhatsAppChat = () => {
-    const phoneNumber = import.meta.env.VITE_WHATSAPP_NUMBER 
-    const message = "Hello! I'm interested in your architectural design services. Could you please provide more information?"
-    const whatsappUrl = `https://wa.me/${phoneNumber.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(message)}`
+    const phoneNumber = '+919873693425'
+    const message =
+      "Hello! I'm interested in your architectural design services. Could you please provide more information?"
+    const whatsappUrl = `https://wa.me/${phoneNumber.replace(
+      /[^0-9]/g,
+      ''
+    )}?text=${encodeURIComponent(message)}`
     window.open(whatsappUrl, '_blank')
-    // Close mobile menu after action
     setIsMobileMenuOpen(false)
   }
 
-  // Toggle mobile menu
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen)
-  }
+  const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen)
 
   const navItems = [
     { name: 'Home', id: 'home' },
     { name: 'Projects', id: 'projects' },
     { name: 'About', id: 'about' },
-    { name: 'Services', id: 'services' }
+    { name: 'Services', id: 'services' },
   ]
 
   return (
@@ -57,11 +47,12 @@ const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6 }}
-      className={`fixed top-0 z-50 w-full transition-all duration-300 ${
-        isScrolled 
-          ? 'bg-slate-900/70 backdrop-blur-xl shadow-lg border-b border-white/10' 
-          : 'bg-transparent'
-      }`}
+      className="fixed top-0 z-50 w-full transition-all duration-300"
+      style={{
+        backgroundColor: isScrolled ? 'rgba(49,72,122,0.8)' : 'transparent',
+        backdropFilter: isScrolled ? 'blur(10px)' : 'none',
+        borderBottom: isScrolled ? '1px solid rgba(255,255,255,0.1)' : 'none',
+      }}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="flex h-16 items-center justify-between">
@@ -69,69 +60,57 @@ const Navbar = () => {
           <motion.div
             whileHover={{ scale: 1.05 }}
             onClick={() => scrollToSection('home')}
-            className={`cursor-pointer text-xl sm:text-2xl font-bold transition-colors duration-300 ${
-              isScrolled ? 'gradient-text' : 'gradient-text'
-            }`}
+            className="cursor-pointer flex items-center"
           >
-            KlickIndia
+            <img src={logo} alt="Klick India Logo" className="h-12 w-auto sm:h-14" />
           </motion.div>
 
-          {/* Desktop Navigation Links */}
-          <div className="hidden md:flex space-x-8">
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex space-x-8 items-center">
             {navItems.map((item) => (
               <motion.button
                 key={item.name}
                 onClick={() => scrollToSection(item.id)}
                 whileHover={{ y: -2 }}
                 className={`transition-colors duration-300 hover:text-white ${
-                  isScrolled ? 'text-gray-300' : 'text-white/80'
+                  isScrolled ? 'text-gray-200' : 'text-white/90'
                 }`}
               >
                 {item.name}
               </motion.button>
             ))}
+
+            {/* Top Corner CTA */}
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={openWhatsAppChat}
+              className="ml-4 px-4 sm:px-6 py-2 text-sm sm:text-base font-medium text-white bg-[#263b5c] rounded-full shadow-lg transition-shadow duration-300 hover:shadow-xl"
+            >
+              Call Us
+            </motion.button>
           </div>
 
-          {/* Desktop CTA Button */}
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={openWhatsAppChat}
-            className="hidden md:block brand-button px-4 sm:px-6 py-2 text-sm sm:text-base font-medium shadow-lg transition-shadow duration-300 hover:shadow-xl"
-          >
-            Get Quote
-          </motion.button>
-
-          {/* Mobile Hamburger Button */}
+          {/* Mobile Hamburger */}
           <motion.button
             whileTap={{ scale: 0.95 }}
             onClick={toggleMobileMenu}
-            className={`md:hidden relative z-50 flex flex-col justify-center items-center w-8 h-8 ${
-              isScrolled ? 'text-white' : 'text-white'
-            }`}
+            className="md:hidden relative z-50 flex flex-col justify-center items-center w-8 h-8 text-white"
           >
             <motion.span
-              animate={{
-                rotate: isMobileMenuOpen ? 45 : 0,
-                y: isMobileMenuOpen ? 0 : -4
-              }}
+              animate={{ rotate: isMobileMenuOpen ? 45 : 0, y: isMobileMenuOpen ? 0 : -4 }}
               transition={{ duration: 0.3 }}
-              className={`w-6 h-0.5 bg-current transform origin-center transition-all duration-300`}
+              className="w-6 h-0.5 bg-current transform origin-center transition-all duration-300"
             />
             <motion.span
-              animate={{
-                opacity: isMobileMenuOpen ? 0 : 1
-              }}
+              animate={{ opacity: isMobileMenuOpen ? 0 : 1 }}
               transition={{ duration: 0.3 }}
-              className={`w-6 h-0.5 bg-current mt-1 transition-all duration-300`}
+              className="w-6 h-0.5 bg-current mt-1 transition-all duration-300"
             />
             <motion.span
-              animate={{
-                rotate: isMobileMenuOpen ? -45 : 0,
-                y: isMobileMenuOpen ? -8 : 4
-              }}
+              animate={{ rotate: isMobileMenuOpen ? -45 : 0, y: isMobileMenuOpen ? -8 : 4 }}
               transition={{ duration: 0.3 }}
-              className={`w-6 h-0.5 bg-current mt-1 transform origin-center transition-all duration-300`}
+              className="w-6 h-0.5 bg-current mt-1 transform origin-center transition-all duration-300"
             />
           </motion.button>
         </div>
@@ -144,7 +123,7 @@ const Navbar = () => {
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
-              className={`md:hidden overflow-hidden bg-slate-900/90 backdrop-blur-xl border-b border-white/10`}
+              className="md:hidden overflow-hidden bg-[#31487a]/80 backdrop-blur-xl border-b border-white/10"
             >
               <div className="px-4 py-4 space-y-4">
                 {navItems.map((item, index) => (
@@ -154,22 +133,22 @@ const Navbar = () => {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.1 }}
                     onClick={() => scrollToSection(item.id)}
-                    className={`block w-full text-left py-2 px-2 rounded-lg transition-colors duration-300 hover:bg-white/5 text-white/90 hover:text-white`}
+                    className="block w-full text-left py-2 px-2 rounded-lg transition-colors duration-300 hover:bg-white/5 text-white/90 hover:text-white"
                   >
                     {item.name}
                   </motion.button>
                 ))}
-                
-                {/* Mobile CTA Button */}
+
+                {/* Mobile CTA */}
                 <motion.button
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: navItems.length * 0.1 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={openWhatsAppChat}
-                  className="w-full mt-4 brand-button px-6 py-3 font-medium shadow-lg"
+                  className="w-full mt-4 px-6 py-3 font-medium rounded-full text-white bg-[#263b5c] shadow-lg hover:shadow-xl"
                 >
-                  Get Quote
+                  Call Us
                 </motion.button>
               </div>
             </motion.div>

@@ -10,6 +10,7 @@ import Footer from './Components/Footer'
 import Services from './Components/Services'
 import USP from './Components/USP'
 import WhyChooseUs from './Components/WhyChooseUs'
+import FeaturedProjects from './Components/Projects'
 
 function App() {
   return (
@@ -21,8 +22,7 @@ function App() {
       <Expertise />
       <Services />
       <WhyChooseUs />
-      <Projects />
-      <About />
+      <FeaturedProjects />
       <Testimonials />
       <Footer />
     </>
