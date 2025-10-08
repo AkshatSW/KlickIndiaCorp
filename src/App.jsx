@@ -12,6 +12,7 @@ import USP from './Components/USP'
 import WhyChooseUs from './Components/WhyChooseUs'
 import FeaturedProjects from './Components/Projects'
 
+
 function App() {
   return (
     <>

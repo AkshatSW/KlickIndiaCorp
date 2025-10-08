@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import logo from '../assets/KlickIndiaLogoTransparent.PNG';
+import logo from '../assets/KlickIndiaLogoTransparent.png';
 
 const Footer = () => {
   return (

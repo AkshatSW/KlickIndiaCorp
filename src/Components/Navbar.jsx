@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
-import logo from '../assets/KlickIndiaLogoTransparent.PNG'
+import logo from '../assets/KlickIndiaLogoTransparent.png'
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false)
