@@ -1,51 +1,96 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import { motion, useInView } from 'motion/react'
-import bg from '../assets/4.jpg'
 
 const stats = [
-  { value: '50', label: 'Design Experts' },
-  { value: '24/7', label: 'Floor Plan' },
-  { value: '15+', label: 'Years of Experience' },
-  { value: '2000+', label: 'Happy Clients' }
+  { number: 30, suffix: '+', label: 'Years' },
+  { number: 100, suffix: '+', label: 'Homes' },
+  { number: 200, suffix: '+', label: 'Factories' },
+  { number: 10, suffix: '+', label: 'Cities' }
 ]
+
+// Animated Counter Component
+const AnimatedCounter = ({ end, duration = 2, suffix = "" }) => {
+  const [count, setCount] = useState(0)
+  const counterRef = useRef(null)
+  const isInView = useInView(counterRef, { once: true })
+
+  useEffect(() => {
+    if (isInView) {
+      let startTime = null
+      const animateCount = (timestamp) => {
+        if (!startTime) startTime = timestamp
+        const progress = Math.min((timestamp - startTime) / (duration * 1000), 1)
+        setCount(Math.floor(progress * end))
+        if (progress < 1) requestAnimationFrame(animateCount)
+        else setCount(end)
+      }
+      requestAnimationFrame(animateCount)
+    }
+  }, [isInView, end, duration])
+
+  return (
+    <span
+      ref={counterRef}
+      className="font-extrabold text-3xl sm:text-4xl md:text-5xl mb-1 sm:mb-2 flex justify-center w-full"
+      style={{ color: '#31487a', textAlign: 'center' }}
+    >
+      {count}{suffix}
+    </span>
+  )
+}
 
 const WhyChoose = () => {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-100px' })
 
   return (
-    <section id="why-choose" className="relative overflow-hidden py-16 md:py-20">
-      <div 
-        className="absolute inset-0 bg-center bg-cover"
-        style={{ backgroundImage: `url(${bg})` }}
+    <section
+      className="relative overflow-hidden py-20 md:py-24"
+      style={{ backgroundColor: '#ffffff' }} // white base
+    >
+      {/* Soft blue tint overlay */}
+      <div
+        className="absolute inset-0"
+        style={{ backgroundColor: 'rgba(179, 207, 228, 0.1)', zIndex: 0 }}
       />
-      <div className="absolute inset-0 bg-slate-900/70" />
 
-      <div ref={ref} className="relative mx-auto max-w-7xl px-4 sm:px-6 text-center text-white">
+      {/* Content */}
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 text-center">
+        {/* Heading */}
         <motion.h2
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-2xl sm:text-3xl md:text-4xl font-extrabold mb-8 md:mb-10"
+          transition={{ duration: 0.8 }}
+          className="mb-14 text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight"
+          style={{ color: '#000000' }}
         >
-          Why Indian Architect?
+          Architecture that blends Legacy with Innovation
         </motion.h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+        {/* Stats */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 md:gap-12">
           {stats.map((s, i) => (
             <motion.div
               key={s.label}
-              initial={{ opacity: 0, y: 20, scale: 0.95 }}
+              initial={{ opacity: 0, y: 30, scale: 0.95 }}
               animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="py-6"
+              transition={{ duration: 0.6, delay: i * 0.15 }}
+              className="py-6 flex flex-col items-center"
             >
-              <div className="text-3xl sm:text-4xl md:text-5xl font-extrabold gradient-text mb-1 sm:mb-2 drop-shadow-[0_2px_8px_rgba(0,0,0,0.4)]">
-                {s.value}
-              </div>
-              <div className="text-xs sm:text-sm md:text-base text-slate-100/90 drop-shadow-[0_1px_6px_rgba(0,0,0,0.45)]">
+              <AnimatedCounter end={s.number} suffix={s.suffix} duration={2.5} />
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: i * 0.2 }}
+                className="font-semibold mt-3 text-lg sm:text-xl md:text-xl"
+                style={{
+                  color: '#31487a',
+                  textAlign: 'center',
+                  letterSpacing: '0.5px',
+                }}
+              >
                 {s.label}
-              </div>
+              </motion.div>
             </motion.div>
           ))}
         </div>
@@ -55,5 +100,3 @@ const WhyChoose = () => {
 }
 
 export default WhyChoose
-
-
