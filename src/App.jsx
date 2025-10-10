@@ -12,10 +12,10 @@ import FeaturedProjects from './Components/Projects';
 import Testimonials from './Components/Testimonials';
 
 // Pages
-import About from './assets/pages/About';
-import ServicesPage from './assets/pages/ServicesPage';
-import ProjectsPage from './assets/pages/projectsPage';
-import ContactPage from './assets/pages/ContactPage';
+import About from './Components/pages/About';
+import ServicesPage from './Components/pages/ServicesPage';
+import ProjectsPage from './Components/pages/projectsPage';
+import ContactPage from './Components/pages/ContactPage';
 
 // Footer
 import Footer from './Components/Footer';
