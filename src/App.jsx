@@ -13,9 +13,9 @@ import Testimonials from './Components/Testimonials';
 
 // Pages
 import About from './Components/pages/About';
-import ServicesPage from './Components/pages/ServicesPage';
+import ServicesPage from './Components/pages/servicesPage';
 import ProjectsPage from './Components/pages/projectsPage';
-import ContactPage from './Components/pages/ContactPage';
+import ContactPage from './Components/pages/ContactPage'; 
 
 // Footer
 import Footer from './Components/Footer';
