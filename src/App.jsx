@@ -1,3 +1,4 @@
+// src/App.jsx
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -11,11 +12,11 @@ import WhyChooseUs from './Components/WhyChooseUs';
 import FeaturedProjects from './Components/Projects';
 import Testimonials from './Components/Testimonials';
 
-// Pages
+// Pages (import names match file names exactly)
 import About from './Components/pages/About';
-import ServicesPage from './Components/pages/servicesPage';
-import ProjectsPage from './Components/pages/projectsPage';
-import ContactPage from './Components/pages/ContactPage'; 
+import ServicesPage from './Components/pages/servicesPage';      // file: servicesPage.jsx
+import ProjectsPage from './Components/pages/projectsPage';      // file: projectsPage.jsx
+import ContactPage from './Components/pages/contactPage';        // file: contactPage.jsx
 
 // Footer
 import Footer from './Components/Footer';
@@ -86,7 +87,7 @@ function App() {
             <>
               <ContactPage />
               <Footer />
-              </>
+            </>
           }
         />
       </Routes>
