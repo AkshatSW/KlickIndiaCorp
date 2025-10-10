@@ -1,7 +1,7 @@
 import React from "react";
 import { Mail, Phone, MapPin, MessageSquare } from "lucide-react";
-import Navbar from "../Navbar";
-import Footer from "../Footer";
+import Navbar from "../../Components/Navbar";
+import Footer from "../../Components/Footer";
 import { motion } from "framer-motion";
 import heroImg from "../../assets/2.png";
 
