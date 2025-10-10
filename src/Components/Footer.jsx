@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
+import { Link } from 'react-router-dom';
 import logo from '../assets/KlickIndiaLogoTransparent.png';
 
 const Footer = () => {
@@ -15,7 +16,7 @@ const Footer = () => {
           gap: '1.5rem',
         }}
       >
-        {/* Logo & Tagline aligned left */}
+        {/* Logo & Tagline */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -31,11 +32,17 @@ const Footer = () => {
           <img
             src={logo}
             alt="KlickIndia Logo"
-            style={{ height: '150px', width: 'auto', marginBottom: '0.25rem' }} // Huge logo
+            style={{ height: '150px', width: 'auto', marginBottom: '0.25rem' }}
           />
-          <p style={{ color: '#bcc3d3', fontSize: '0.85rem', lineHeight: '1.4rem' }}>
+          <h3 
+            className="text-xl font-bold mb-4" 
+            style={{ 
+              fontFamily: "'Playfair Display', serif",
+              color: '#fff' 
+            }}
+          >
             Designing India's Best Homes & Businesses Since 1992
-          </p>
+          </h3>
         </motion.div>
 
         {/* Quick Links */}
@@ -49,16 +56,27 @@ const Footer = () => {
             Quick Links
           </h4>
           <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-            {['Home', 'About Us', 'Expertise', 'Projects', 'Contact'].map((link, index) => (
+            {[
+              { name: 'Home', path: '/' },
+              { name: 'About', path: '/about' },
+              { name: 'Services', path: '/servicepage' },
+              { name: 'Projects', path: '/projects' },
+              { name: 'Contact', path: '/contact' },
+            ].map((link, index) => (
               <li key={index} style={{ marginBottom: '0.25rem' }}>
-                <a
-                  href={`#${link.toLowerCase().replace(' ', '-')}`}
-                  style={{ color: '#bcc3d3', textDecoration: 'none', transition: 'color 0.3s', fontSize: '0.85rem' }}
+                <Link
+                  to={link.path}
+                  style={{
+                    color: '#bcc3d3',
+                    textDecoration: 'none',
+                    transition: 'color 0.3s',
+                    fontSize: '0.85rem',
+                  }}
                   onMouseEnter={(e) => (e.currentTarget.style.color = '#ffffff')}
                   onMouseLeave={(e) => (e.currentTarget.style.color = '#bcc3d3')}
                 >
-                  {link}
-                </a>
+                  {link.name}
+                </Link>
               </li>
             ))}
           </ul>
@@ -76,14 +94,14 @@ const Footer = () => {
             {['Architecture Design', 'Interior Design', 'Landscape Design', 'MEP Engineering', 'Project Planning'].map(
               (service, index) => (
                 <li key={index} style={{ marginBottom: '0.25rem' }}>
-                  <a
-                    href="#services"
+                  <Link
+                    to="/servicepage"
                     style={{ color: '#bcc3d3', textDecoration: 'none', transition: 'color 0.3s', fontSize: '0.85rem' }}
                     onMouseEnter={(e) => (e.currentTarget.style.color = '#ffffff')}
                     onMouseLeave={(e) => (e.currentTarget.style.color = '#bcc3d3')}
                   >
                     {service}
-                  </a>
+                  </Link>
                 </li>
               )
             )}
@@ -98,7 +116,6 @@ const Footer = () => {
           style={{ flex: '1 1 250px' }}
         >
           <h4 style={{ fontWeight: '600', marginBottom: '0.75rem', color: '#ffffff', fontSize: '0.95rem' }}>Contact Us</h4>
-
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.3rem' }}>
             <p style={{ fontWeight: '600', color: '#ffffff', fontSize: '0.85rem', margin: 0 }}>Email</p>
             <a
@@ -134,13 +151,13 @@ const Footer = () => {
 
             <p style={{ fontWeight: '600', color: '#ffffff', fontSize: '0.85rem', margin: '0.25rem 0 0 0' }}>Address</p>
             <p style={{ color: '#bcc3d3', fontSize: '0.85rem', margin: 0 }}>
-              R-138, Second Floor, GK-1, Delhi- 110048
+              R-138, Second Floor, GK-1, Delhi-110048
             </p>
           </div>
         </motion.div>
       </div>
 
-      {/* Bottom Copyright */}
+      {/* Copyright */}
       <div
         style={{
           borderTop: '1px solid rgba(255,255,255,0.2)',

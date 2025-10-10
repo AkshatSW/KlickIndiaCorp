@@ -76,10 +76,19 @@ const WhyChooseUs = () => {
           <div className="md:w-1/2 w-full flex flex-col justify-center" ref={boxesRef}>
             {/* Heading + Subheading */}
             <div className="text-center mb-8">
-              <h2 className="text-3xl sm:text-4xl font-bold mb-4" style={{ color: "#000000" }}>
+              <h2 
+                className="text-3xl md:text-4xl font-bold mb-6" 
+                style={{ 
+                  fontFamily: "'Playfair Display', serif",
+                  color: '#11132c' 
+                }}
+              >
                 Why Choose Us
               </h2>
-              <p className="text-base sm:text-lg max-w-xl mx-auto" style={{ color: "#000000" }}>
+              <p 
+                className="text-base md:text-lg" 
+                style={{ fontFamily: "'Poppins', sans-serif" }}
+              >
                 We design and build spaces that blend functionality, aesthetics and sustainability,
                 delivering excellence every step of the way.
               </p>

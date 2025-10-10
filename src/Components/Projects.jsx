@@ -30,18 +30,18 @@ const FeaturedProjects = () => {
         {/* Heading */}
         <div style={{ textAlign: "center", marginBottom: "4rem" }}>
           <h2
+            className="text-3xl md:text-4xl font-bold mb-8"
             style={{
-              fontSize: "2.25rem",
-              fontWeight: "700",
+              fontFamily: "'Playfair Display', serif",
               color: "#ffffff",
-              marginBottom: "1rem",
             }}
           >
             Featured Projects
           </h2>
           <p
+            className="text-lg mb-12"
             style={{
-              fontSize: "1.125rem",
+              fontFamily: "'Poppins', sans-serif",
               color: "#fdf6ec",
               maxWidth: "600px",
               margin: "0 auto",
@@ -122,7 +122,7 @@ const FeaturedProjects = () => {
         {/* Explore More Button */}
         <div style={{ textAlign: "center", marginTop: "3rem" }}>
          <button
-          className="px-12 py-4 text-lg font-semibold rounded-full shadow-lg transition-transform duration-300 hover:scale-105"
+          className="px-12 py-4 text-lg font-semibold shadow-lg transition-transform duration-300 hover:scale-105 *:hover:shadow-2xl rounded-lg"
             style={{
               backgroundColor: '#ffffff',
               color: '#314870'

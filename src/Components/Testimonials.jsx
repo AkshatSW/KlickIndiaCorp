@@ -24,15 +24,13 @@ const Testimonials = () => {
       <div style={{ maxWidth: "1200px", margin: "0 auto", textAlign: "center" }}>
         {/* Heading */}
         <h2
+          className="text-3xl md:text-4xl font-bold mb-8"
           style={{
-            fontSize: "2.5rem",
-            fontWeight: "700",
-            marginBottom: "2rem",
-            color: "#000000",
-            fontFamily: "Helvetica, Arial, sans-serif",
+            fontFamily: "'Playfair Display', serif",
+            color: "#11132c",
           }}
         >
-          What Our Clients Say
+          Client Testimonials
         </h2>
 
         {/* Testimonials Grid */}

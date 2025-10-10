@@ -57,12 +57,16 @@ const Home = () => {
       />
     </AnimatePresence>
 
-    {/* NEW GRADIENT OVERLAY */}
+    {/* DARK BLUE GRADIENT OVERLAY */}
     <div
       className="absolute inset-0 pointer-events-none"
       style={{
         background:
-          "linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.15) 35%, rgba(0,0,0,0.15) 65%, rgba(0,0,0,0.6) 100%)",
+          `linear-gradient(to bottom, 
+            rgba(49, 72, 112, 0.85) 0%, 
+            rgba(49, 72, 112, 0.75) 35%, 
+            rgba(49, 72, 112, 0.75) 65%, 
+            rgba(49, 72, 112, 0.85) 100%)`
       }}
     />
   </div>
@@ -73,7 +77,13 @@ const Home = () => {
         initial={{ opacity: 0, y: 100, scale: 0.8 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         transition={{ duration: 1.2, delay: 0.3, type: "spring", stiffness: 100, damping: 15 }}
-        className="mb-6 text-4xl font-bold leading-tight md:text-6xl lg:text-7xl text-white"
+        className="mb-6 text-4xl font-bold leading-tight md:text-6xl lg:text-7xl"
+        style={{
+          fontFamily: "'Playfair Display', serif",
+          fontWeight: 800,
+          color: "#fff",
+          letterSpacing: "-0.02em"
+        }}
       >
         <motion.span
           initial={{ opacity: 0, x: -50 }}
@@ -87,9 +97,6 @@ const Home = () => {
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.7 }}
-          style={{
-            color: "#31487a"
-          }}
         >
           Homes & Businesses
         </motion.span>
@@ -103,25 +110,22 @@ const Home = () => {
         </motion.span>
       </motion.h1>
 
-      <motion.p
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 1.1, type: "spring", stiffness: 80 }}
-        className="mb-8 text-lg md:text-xl lg:text-2xl text-white"
-      >
-        Creating exceptional spaces that inspire and transform lives
-      </motion.p>
-
       <motion.div
         initial={{ opacity: 0, y: 50, scale: 0.8 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         transition={{ duration: 0.8, delay: 1.3, type: "spring", stiffness: 100 }}
       >
+        {/* Update button font */}
         <motion.button
-          className="group relative overflow-hidden brand-button px-8 py-4 text-lg font-semibold"
+          className="group relative overflow-hidden brand-button px-8 py-4 text-lg font-semibold rounded-lg"
           whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(0,0,0,0.3)" }}
           whileTap={{ scale: 0.95 }}
-          style={{ background: "#31487a", color: "#fff", border: "none" }}
+          style={{ 
+            background: "#31487a", 
+            color: "#fff", 
+            border: "none",
+            fontFamily: "'Poppins', sans-serif"
+          }}
         >
           Explore Our Journey
         </motion.button>
@@ -130,7 +134,53 @@ const Home = () => {
   </div>
 </div>
 
-      {/* ================= ABOUT US SECTION ================= */}
+{/* Tagline Section with Enhanced Aesthetics */}
+<section className="relative py-16 md:py-20" style={{ backgroundColor: '#efefef' }}>
+  <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-white to-transparent opacity-40" />
+  <motion.div 
+    className="container mx-auto px-6 max-w-4xl text-center relative"
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.8 }}
+  >
+    <div className="relative inline-block">
+      <motion.div
+        className="absolute -inset-1 bg-gradient-to-r from-[#314870]/10 to-transparent blur-xl"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+      />
+      {/* Update tagline font */}
+      <p 
+        className="relative text-2xl md:text-3xl lg:text-4xl leading-relaxed"
+        style={{ 
+          fontFamily: "'Poppins', sans-serif",
+          fontWeight: 300,
+          color: '#11132c',
+          letterSpacing: "-0.02em",
+          textShadow: '0 2px 4px rgba(17, 19, 44, 0.08)'
+        }}
+      >
+        Creating exceptional spaces that
+        <br className="hidden md:block" />
+        <span className="italic"> inspire and transform </span> 
+        lives
+      </p>
+    </div>
+    <motion.div
+      className="absolute inset-0 pointer-events-none"
+      initial={{ scale: 0.95, opacity: 0 }}
+      whileInView={{ scale: 1, opacity: 1 }}
+      transition={{ duration: 1 }}
+    >
+      <div className="absolute inset-0 bg-[#314870]/5 blur-3xl transform -rotate-3" />
+    </motion.div>
+  </motion.div>
+  <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-white to-transparent opacity-40" />
+</section>
+
+{/* ================= ABOUT US SECTION ================= */}
       <section className="relative py-20 bg-white">
         <div className="container mx-auto px-6 max-w-6xl">
           <div className="flex flex-col md:flex-row items-start gap-10">
@@ -159,10 +209,15 @@ const Home = () => {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-black">
-                About Klick India Corporation
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#11132c]"
+                style={{ fontFamily: "'Playfair Display', serif" }}
+              >
+                About Us
               </h2>
-              <p className="text-base md:text-lg leading-relaxed text-justify mb-6 text-black">
+              {/* Update About Us paragraph */}
+              <p className="text-base md:text-lg leading-relaxed text-justify mb-6 text-black"
+                style={{ fontFamily: "'Poppins', sans-serif" }}
+              >
                 Klick India Corporation, led by Mr Suneet Pasricha in 1992 and headquartered in New Delhi, has been delivering architectural and design excellence for over three decades. 
                 With more than 100+ homes and 200+ factories designed across India and internationally, our capabilities span architecture, interiors and planning across diverse typologies including Residential, Commercial, Institutional, Hospitality & Industrial amongst others.
                 <br /><br />
@@ -172,9 +227,14 @@ const Home = () => {
 
               {/* Button aligned left on desktop, centered on mobile */}
               <div className="mt-6 text-center md:text-left">
+                {/* Update Get in Touch button */}
                 <button
-                  className="px-10 py-4 text-lg font-semibold rounded-full shadow-lg"
-                  style={{ backgroundColor: "#31487a", color: "#ffffff" }}
+                  className="px-10 py-4 text-lg font-semibold shadow-lg transition-transform duration-300 hover:scale-105 *:hover:shadow-2xl rounded-lg"
+                  style={{ 
+                    backgroundColor: "#31487a", 
+                    color: "#ffffff",
+                    fontFamily: "'Poppins', sans-serif"
+                  }}
                 >
                   Get in Touch
                 </button>

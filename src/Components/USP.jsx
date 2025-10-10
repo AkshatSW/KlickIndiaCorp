@@ -29,7 +29,11 @@ const AnimatedCounter = ({ end, duration = 2, suffix = "", trigger }) => {
   return (
     <span
       className="font-extrabold text-3xl sm:text-4xl md:text-5xl mb-1 sm:mb-2 flex justify-center w-full"
-      style={{ color: '#31487a', textAlign: 'center' }}
+      style={{ 
+        color: '#31487a', 
+        textAlign: 'center',
+        fontFamily: "'Poppins', sans-serif"
+      }}
     >
       {count}{suffix}
     </span>
@@ -44,33 +48,26 @@ const USP = () => {
     <section
       ref={ref}
       className="relative overflow-hidden py-20 md:py-24"
-      style={{ backgroundColor: '#ffffff' }}
+      style={{ backgroundColor: '#efefef' }}
     >
-      {/* Soft blue tint overlay */}
-      <div
-        className="absolute inset-0"
-        style={{
-          backgroundColor: 'rgba(179, 207, 228, 0.05)',
-          zIndex: 0,
-          pointerEvents: 'none'
-        }}
-      />
-
       {/* Heading Container */}
-      <div className="container mx-auto px-6 max-w-6xl text-center relative z-10">
+      <div className="container mx-auto px-6 max-w-6xl text-center">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
           className="mb-14 text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight"
-          style={{ color: '#000000' }}
+          style={{ 
+            color: '#11132c',
+            fontFamily: "'Playfair Display', serif"
+          }}
         >
           Architecture that blends Legacy with Innovation
         </motion.h2>
       </div>
 
       {/* Stats */}
-      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 text-center">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 text-center">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 md:gap-12">
           {stats.map((s, i) => (
             <motion.div
@@ -90,6 +87,7 @@ const USP = () => {
                   color: '#31487a',
                   textAlign: 'center',
                   letterSpacing: '0.5px',
+                  fontFamily: "'Poppins', sans-serif"
                 }}
               >
                 {s.label}
@@ -103,4 +101,3 @@ const USP = () => {
 }
 
 export default USP
- 

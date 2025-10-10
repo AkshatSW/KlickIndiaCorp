@@ -53,13 +53,19 @@ const expertiseList = [
 
 const Expertise = () => {
   return (
-    <section className="py-20" style={{ backgroundColor: "#314870" }}>
+    <section className="py-20" style={{ backgroundColor: "#31487a" }}>
       <div className="max-w-6xl mx-auto px-6 text-center">
         {/* Heading */}
-        <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
+        <h2
+          className="text-3xl md:text-4xl font-bold mb-8"
+          style={{ fontFamily: "'Playfair Display', serif", color: "#ffffff" }}
+        >
           Our Expertise
         </h2>
-        <p className="text-lg md:text-xl mb-12 text-[#fdf6ec]">
+        <p
+          className="text-lg mb-12"
+          style={{ fontFamily: "'Poppins', sans-serif" }}
+        >
           Expertise that turns ideas into landmark spaces
         </p>
 
@@ -88,7 +94,7 @@ const Expertise = () => {
         {/* CTA Button */}
         <div className="mt-12">
          <button
-          className="px-12 py-4 text-lg font-semibold rounded-full shadow-lg transition-transform duration-300 hover:scale-105"
+          className="px-12 py-4 text-lg font-semibold shadow-lg transition-transform duration-300 hover:scale-105 *:hover:shadow-2xl rounded-lg"
             style={{
               backgroundColor: '#ffffff',
               color: '#314870'

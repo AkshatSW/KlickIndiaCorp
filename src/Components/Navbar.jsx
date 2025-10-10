@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
 import logo from '../assets/KlickIndiaLogoTransparent.png'
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const location = useLocation()
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20)
@@ -12,34 +14,13 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId)
-    if (element) {
-      const navbarHeight = 80
-      window.scrollTo({ top: element.offsetTop - navbarHeight, behavior: 'smooth' })
-    }
-    setIsMobileMenuOpen(false)
-  }
-
-  const openWhatsAppChat = () => {
-    const phoneNumber = '+919873693425'
-    const message =
-      "Hello! I'm interested in your architectural design services. Could you please provide more information?"
-    const whatsappUrl = `https://wa.me/${phoneNumber.replace(
-      /[^0-9]/g,
-      ''
-    )}?text=${encodeURIComponent(message)}`
-    window.open(whatsappUrl, '_blank')
-    setIsMobileMenuOpen(false)
-  }
-
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen)
 
   const navItems = [
-    { name: 'Home', id: 'home' },
-    { name: 'Projects', id: 'projects' },
-    { name: 'About', id: 'about' },
-    { name: 'Services', id: 'services' },
+    { name: 'Home', path: '/' },
+    { name: 'About', path: '/about' },
+    { name: 'Services', path: '/servicepage' },
+    { name: 'Projects', path: '/projects' },
   ]
 
   return (
@@ -49,46 +30,50 @@ const Navbar = () => {
       transition={{ duration: 0.6 }}
       className="fixed top-0 z-50 w-full transition-all duration-300"
       style={{
-        backgroundColor: isScrolled ? 'rgba(17, 19, 44, 0.9)' : 'transparent', // #11132c
+        backgroundColor: isScrolled ? 'rgba(17, 19, 44, 0.9)' : 'transparent',
         backdropFilter: isScrolled ? 'blur(10px)' : 'none',
         borderBottom: isScrolled ? '1px solid rgba(255,255,255,0.1)' : 'none',
       }}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <div className="flex h-16 items-center justify-between">
+        <div className="flex h-20 items-center justify-between">
           {/* Logo */}
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            onClick={() => scrollToSection('home')}
-            className="cursor-pointer flex items-center"
-          >
-            <img src={logo} alt="Klick India Logo" className="h-10 w-auto sm:h-12" />
-          </motion.div>
+          <Link to="/" className="flex items-center">
+            <motion.img
+              src={logo}
+              alt="Klick India Logo"
+              whileHover={{ scale: 1.05 }}
+              className="h-16 w-auto sm:h-20"
+            />
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8 items-center">
             {navItems.map((item) => (
-              <motion.button
+              <Link
                 key={item.name}
-                onClick={() => scrollToSection(item.id)}
-                whileHover={{ y: -2 }}
-                className={`transition-colors duration-300 hover:text-white ${
-                  isScrolled ? 'text-gray-200' : 'text-white/90'
+                to={item.path}
+                className={`transition-colors duration-300 ${
+                  location.pathname === item.path
+                    ? 'text-[#ffffff] font-semibold' // <-- Active tab color
+                    : isScrolled
+                    ? 'text-gray-200 hover:text-white'
+                    : 'text-white/90 hover:text-white'
                 }`}
               >
                 {item.name}
-              </motion.button>
+              </Link>
             ))}
 
-            {/* Top Corner CTA */}
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={openWhatsAppChat}
-              className="ml-4 px-4 sm:px-6 py-2 text-sm sm:text-base font-medium text-white bg-[#263b5c] rounded-full shadow-lg transition-shadow duration-300 hover:shadow-xl"
-            >
-              Call Us
-            </motion.button>
+            {/* CTA Button */}
+            <motion.a
+  href="/contact"
+  whileHover={{ scale: 1.05 }}
+  whileTap={{ scale: 0.95 }}
+  className="ml-4 px-4 sm:px-6 py-2 text-sm sm:text-base font-medium text-[#11132c] bg-[#ffffff] rounded-lg shadow-lg transition-shadow duration-300 hover:shadow-xl inline-block text-center"
+>
+  Contact Us
+</motion.a>
           </div>
 
           {/* Mobile Hamburger */}
@@ -126,29 +111,29 @@ const Navbar = () => {
               className="md:hidden overflow-hidden bg-[#11132c]/90 backdrop-blur-xl border-b border-white/10"
             >
               <div className="px-4 py-4 space-y-4">
-                {navItems.map((item, index) => (
-                  <motion.button
+                {navItems.map((item) => (
+                  <Link
                     key={item.name}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                    onClick={() => scrollToSection(item.id)}
-                    className="block w-full text-left py-2 px-2 rounded-lg transition-colors duration-300 hover:bg-white/5 text-white/90 hover:text-white"
+                    to={item.path}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className={`block w-full text-left py-2 px-2 rounded-lg transition-colors duration-300 ${
+                      location.pathname === item.path
+                        ? 'text-[#bcc3d3] font-semibold'
+                        : 'text-white/90 hover:text-white'
+                    }`}
                   >
                     {item.name}
-                  </motion.button>
+                  </Link>
                 ))}
 
                 {/* Mobile CTA */}
                 <motion.button
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: navItems.length * 0.1 }}
                   whileTap={{ scale: 0.95 }}
-                  onClick={openWhatsAppChat}
-                  className="w-full mt-4 px-6 py-3 font-medium rounded-full text-white bg-[#263b5c] shadow-lg hover:shadow-xl"
+                  className="w-full mt-4 px-6 py-3 font-medium rounded-full text-white bg-[#31487a] shadow-lg hover:shadow-xl"
                 >
-                  Call Us
+                  <Link to="/contact">Contact Us</Link>
                 </motion.button>
               </div>
             </motion.div>
