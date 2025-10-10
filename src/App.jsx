@@ -14,7 +14,7 @@ import Testimonials from './Components/Testimonials';
 
 // Pages (import names match file names exactly)
 import About from './Components/pages/About';
-// import ServicesPage from './Components/pages/servicesPage';      // file: servicesPage.jsx
+import ServicesPage from './Components/pages/servicesPage';      // file: servicesPage.jsx
 import ProjectsPage from './Components/pages/projectsPage';      // file: projectsPage.jsx
 import ContactPage from './Components/pages/contactPage';        // file: contactPage.jsx
 
@@ -59,7 +59,7 @@ function App() {
         />
 
         {/* Services Page */}
-        {/* <Route
+        <Route
           path="/servicepage"
           element={
             <>
@@ -67,7 +67,7 @@ function App() {
               <Footer />
             </>
           }
-        /> */}
+        />
 
         {/* Projects Page */}
         <Route
