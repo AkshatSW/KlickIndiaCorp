@@ -47,7 +47,7 @@ const FeaturedProjects = () => {
               margin: "0 auto",
             }}
           >
-            A glimpse of our architectural achievements
+            Transforming visions into iconic spaces across India and beyond
           </p>
         </div>
 

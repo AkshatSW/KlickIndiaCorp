@@ -14,7 +14,7 @@ const testimonials = [
   {
     text: "Our new office space designed by Klick India Corporation has transformed the way we work. The layout is practical, the interiors are inspiring, and every corner reflects professionalism and creativity. It’s a space our employees genuinely love.",
     author: "Ms. Priya Khanna",
-    location: "CEO, Tech Solutions, Bangalore",
+    location: "Business Owner, Bangalore",
   },
 ];
 
@@ -83,6 +83,7 @@ const Testimonials = () => {
                 }}
               >
                 — {t.author},{" "}
+                <br />
                 <span style={{ fontWeight: "400", color: "#31487a" }}>{t.location}</span>
               </div>
             </div>

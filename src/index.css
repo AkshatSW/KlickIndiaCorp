@@ -1,9 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400..900&display=swap');
 @import "tailwindcss";
-/* Important: do not import the font before tailwind as it will cause error and  ruote the font scheme on web, this import structure is used for the purpose of maintining the font style according to a particular way */
-
-@layer fonts {
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400..900&display=swap');
-}
 
 /* Global theme tokens */
 :root {

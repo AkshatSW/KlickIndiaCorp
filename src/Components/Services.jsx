@@ -50,25 +50,10 @@ const Services = () => {
         {/* CTA Button */}
         <div style={{ textAlign: "center" }}>
           <button
+          className="px-12 py-4 text-lg font-semibold shadow-lg transition-transform duration-300 hover:scale-105 *:hover:shadow-2xl rounded-lg"
             style={{
-              backgroundColor: "#31487a",
-              color: "#ffffff",
-              padding: "1rem 3rem",
-              fontSize: "1.125rem",
-              fontWeight: "600",
-              border: "none",
-              borderRadius: "9999px",
-              cursor: "pointer",
-              boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
-              transition: "all 0.3s ease",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = "#263b5c";
-              e.currentTarget.style.transform = "scale(1.05)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = "#31487a";
-              e.currentTarget.style.transform = "scale(1)";
+              backgroundColor: '#31487a',
+              color: '#ffffff'
             }}
           >
             Discover More

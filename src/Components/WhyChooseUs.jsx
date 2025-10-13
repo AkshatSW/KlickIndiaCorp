@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react"; 
+import React, { useRef, useEffect, useState } from "react";
 import { motion } from "motion/react";
 import whychooseImg from "../assets/WhyChoose.png";
 import { CheckCircle } from "lucide-react";
@@ -31,13 +31,13 @@ const WhyChooseUs = () => {
       }
     };
 
-    handleResize(); // Initial
+    handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return (
-    <section className="relative overflow-hidden py-20 bg-white">
+    <section className="relative overflow-hidden py-20 bg-[#efefef]">
       {/* Soft blue tint overlay */}
       <div
         className="absolute inset-0"
@@ -66,31 +66,27 @@ const WhyChooseUs = () => {
             />
           </div>
 
-          {/* Vertical Divider */}
-          <div
-            ref={dividerRef}
-            className="hidden md:block w-px bg-gray-300 mx-6"
-          />
-
           {/* Right: Boxes + Heading */}
           <div className="md:w-1/2 w-full flex flex-col justify-center" ref={boxesRef}>
             {/* Heading + Subheading */}
             <div className="text-center mb-8">
-              <h2 
-                className="text-3xl md:text-4xl font-bold mb-6" 
-                style={{ 
+              <h2
+                className="text-3xl md:text-4xl font-bold mb-6"
+                style={{
                   fontFamily: "'Playfair Display', serif",
-                  color: '#11132c' 
+                  color: "#11132c",
                 }}
               >
                 Why Choose Us
               </h2>
-              <p 
-                className="text-base md:text-lg" 
-                style={{ fontFamily: "'Poppins', sans-serif" }}
+              <p
+                className="text-base md:text-lg"
+                style={{
+                  fontFamily: "'Poppins', sans-serif",
+                  color: "#11132c",
+                }}
               >
-                We design and build spaces that blend functionality, aesthetics and sustainability,
-                delivering excellence every step of the way.
+                Built on experience, defined by precision, driven by passion
               </p>
             </div>
 
@@ -99,15 +95,27 @@ const WhyChooseUs = () => {
               {features.map((feature, index) => (
                 <motion.div
                   key={index}
-                  className="bg-white border border-gray-200 rounded-xl p-6 text-left shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-start"
+                  className="bg-white border border-gray-200 rounded-xl p-6 text-left shadow-sm transition-all duration-300 flex flex-col justify-start hover:bg-[#31487a] hover:scale-105 group"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                 >
-                  <CheckCircle color="#31487a" size={26} className="mb-3 inline-block" />
-                  <h3 className="text-lg font-semibold mb-2 text-black">{feature.title}</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">{feature.text}</p>
+                  {/* Icon */}
+                  <CheckCircle
+                    size={26}
+                    className="mb-3 inline-block transition-colors duration-300 text-[#31487a] group-hover:text-white"
+                  />
+
+                  {/* Title */}
+                  <h3 className="text-lg font-semibold mb-2 text-black transition-colors duration-300 group-hover:text-white">
+                    {feature.title}
+                  </h3>
+
+                  {/* Description */}
+                  <p className="text-gray-600 text-sm leading-relaxed transition-colors duration-300 group-hover:text-white/90">
+                    {feature.text}
+                  </p>
                 </motion.div>
               ))}
             </div>

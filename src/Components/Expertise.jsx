@@ -66,7 +66,7 @@ const Expertise = () => {
           className="text-lg mb-12"
           style={{ fontFamily: "'Poppins', sans-serif" }}
         >
-          Expertise that turns ideas into landmark spaces
+          Excellence that turns ideas into landmark spaces
         </p>
 
         {/* Grid */}

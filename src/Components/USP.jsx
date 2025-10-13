@@ -62,7 +62,7 @@ const USP = () => {
             fontFamily: "'Playfair Display', serif"
           }}
         >
-          Architecture that blends Legacy with Innovation
+          Architecture That Blends Legacy With Innovation
         </motion.h2>
       </div>
 

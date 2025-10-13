@@ -1,7 +1,7 @@
 import React from 'react'
 import { motion } from 'motion/react'
 import ccl from '../assets/companies/CCL.jpg'
-import hudco from '../assets/companies/HUDCO.avif'
+import hudco from '../assets/companies/HUDCO.png'
 import moe from '../assets/companies/MOE.jpg'
 import mtnl from '../assets/companies/MTNL.jpg'
 import pnb from '../assets/companies/PNB.jpg'

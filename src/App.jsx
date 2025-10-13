@@ -11,6 +11,7 @@ import Expertise from './Components/Expertise';
 import WhyChooseUs from './Components/WhyChooseUs';
 import FeaturedProjects from './Components/Projects';
 import Testimonials from './Components/Testimonials';
+import Services from './Components/Services'
 
 // Pages (import names match file names exactly)
 import About from './Components/pages/About';
@@ -39,6 +40,7 @@ function App() {
               <USP />
               <TrustedPartners />
               <Expertise />
+              <Services />
               <WhyChooseUs />
               <FeaturedProjects />
               <Testimonials />
