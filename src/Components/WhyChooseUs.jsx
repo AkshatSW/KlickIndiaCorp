@@ -80,11 +80,7 @@ const WhyChooseUs = () => {
                 Why Choose Us
               </h2>
               <p
-                className="text-lg"
-                style={{
-                  fontFamily: "'Poppins', sans-serif",
-                  color: "#11132c",
-                }}
+                className="text-lg mb-12 text-gray-700" style={{ fontFamily: "'Poppins', sans-serif" }}
               >
                 Built on experience, defined by precision, driven by passion
               </p>

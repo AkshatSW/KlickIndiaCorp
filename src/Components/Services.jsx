@@ -27,7 +27,7 @@ const Services = () => {
           <h2 className="text-3xl sm:text-4xl font-bold mb-4" style={{ color: "#31487a" }}>
             Our Services
           </h2>
-          <p className="text-lg sm:text-xl text-gray-700">
+          <p className="text-lg mb-12 text-gray-700" style={{ fontFamily: "'Poppins', sans-serif" }}>
             We provide end-to-end solutions for architecture, design, and project management.
           </p>
         </div>

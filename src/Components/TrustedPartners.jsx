@@ -44,8 +44,7 @@ const TrustedPartners = () => {
             Our Clients
           </h2>
           <p 
-            className="mb-12 text-lg text-gray-600"
-            style={{ fontFamily: "'Poppins', sans-serif" }}
+            className="text-lg mb-12 text-gray-700" style={{ fontFamily: "'Poppins', sans-serif" }}
           >
             Proven by Projects, Backed by Brands
           </p>

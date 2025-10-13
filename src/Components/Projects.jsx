@@ -42,13 +42,7 @@ const FeaturedProjects = () => {
             Featured Projects
           </h2>
           <p
-            className="text-lg mb-12"
-            style={{
-              fontFamily: "'Poppins', sans-serif",
-              color: "#fdf6ec",
-              maxWidth: "600px",
-              margin: "0 auto",
-            }}
+            className="text-lg mb-12 text-white" style={{ fontFamily: "'Poppins', sans-serif" }}
           >
             Transforming visions into iconic spaces across India and beyond
           </p>

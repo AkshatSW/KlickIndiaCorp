@@ -66,8 +66,7 @@ const Expertise = () => {
           Our Expertise
         </h2>
         <p
-          className="text-lg mb-12"
-          style={{ fontFamily: "'Poppins', sans-serif", color: "#ffffff" }}
+          className="text-lg mb-12 text-white" style={{ fontFamily: "'Poppins', sans-serif" }}
         >
           Excellence that turns ideas into landmark spaces
         </p>
