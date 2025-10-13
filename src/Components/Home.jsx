@@ -15,7 +15,6 @@ import aboutImg from '../assets/AboutUs.png'
 
 import { useNavigate } from 'react-router-dom'
 
-
 const Home = () => {
   const navigate = useNavigate()
   const backgroundImages = [img1, img2, img3, img4, img5, img6, img7]
@@ -32,7 +31,6 @@ const Home = () => {
     return () => clearInterval(interval)
   }, [backgroundImages.length])
 
-  // Update image height to match text height on desktop
   useEffect(() => {
     const updateHeight = () => {
       if (textRef.current) {
@@ -44,22 +42,10 @@ const Home = () => {
     return () => window.removeEventListener('resize', updateHeight)
   }, [])
 
-  // Smooth scroll to About Us
-  const scrollToAbout = () => {
-    const aboutSection = document.getElementById('about-section')
-    if (aboutSection) {
-      aboutSection.scrollIntoView({ behavior: 'smooth' })
-    }
-  }
-
   return (
     <>
-
-
-
-
       {/* ================= HOME SECTION ================= */}
-      <div id="home" className="relative min-h-screen overflow-hidden">
+      <div id="home" className="relative min-h-screen overflow-x-hidden"> {/* fixed overflow */}
         <div className="absolute inset-0">
           <AnimatePresence mode="wait">
             <motion.div
@@ -84,7 +70,7 @@ const Home = () => {
           />
         </div>
 
-        <div className="relative z-20 flex min-h-screen items-center justify-center px-6">
+        <div className="relative z-20 flex min-h-screen items-center justify-center px-4 sm:px-6"> {/* reduced padding */}
           <div className="text-center max-w-4xl">
             <motion.h1
               initial={{ opacity: 0, y: 100, scale: 0.8 }}
@@ -128,7 +114,6 @@ const Home = () => {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 0.8, delay: 1.3, type: "spring", stiffness: 100 }}
             >
-              {/* Button scrolls to About Us */}
               <motion.button
                 className="group relative overflow-hidden brand-button px-8 py-4 text-lg font-semibold rounded-lg"
                 whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(0,0,0,0.3)" }}
@@ -149,10 +134,10 @@ const Home = () => {
       </div>
 
       {/* Tagline Section */}
-      <section className="relative py-16 md:py-20" style={{ backgroundColor: '#EEF6FC' }}>
+      <section className="relative py-16 md:py-20 overflow-x-hidden" style={{ backgroundColor: '#EEF6FC' }}> {/* fixed overflow */}
         <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-white to-transparent opacity-40" />
         <motion.div 
-          className="container mx-auto px-6 max-w-4xl text-center relative"
+          className="container mx-auto px-4 sm:px-6 max-w-4xl text-center relative"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -181,25 +166,18 @@ const Home = () => {
               lives
             </p>
           </div>
-          <motion.div
-            className="absolute inset-0 pointer-events-none"
-            initial={{ scale: 0.95, opacity: 0 }}
-            whileInView={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 1 }}
-          >
-            <div className="absolute inset-0 bg-[#314870]/5 blur-3xl transform -rotate-3" />
-          </motion.div>
         </motion.div>
         <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-white to-transparent opacity-40" />
       </section>
 
       {/* ================= ABOUT US SECTION ================= */}
-      <section id="about-section" className="relative py-20 bg-white">
-        <div className="container mx-auto px-6 max-w-6xl">
-          <div className="flex flex-col md:flex-row items-start gap-10">
+      <section id="about-section" className="relative py-20 bg-white overflow-x-hidden"> {/* fixed overflow */}
+        <div className="container mx-auto px-4 sm:px-6 max-w-6xl">
+          <div className="flex flex-col md:flex-row items-start gap-6 md:gap-10"> {/* reduced gap on mobile */}
+            
             {/* Image on right */}
             <motion.div
-              className="w-full md:w-[37.5%] order-1 md:order-2"
+              className="w-full md:w-[37.5%] order-1 md:order-2 flex-shrink-0"
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
@@ -209,7 +187,8 @@ const Home = () => {
                 alt="About Us"
                 className="w-full rounded-2xl shadow-md object-cover"
                 style={{
-                  height: window.innerWidth >= 768 ? textHeight : '200px',
+                  height: window.innerWidth >= 768 ? textHeight : 'auto', // auto for mobile
+                  maxWidth: '100%'
                 }}
               />
             </motion.div>
@@ -245,7 +224,6 @@ const Home = () => {
                     color: "#ffffff",
                     fontFamily: "'Poppins', sans-serif"
                   }}
-
                   onClick={() => navigate('/about')}
                 >
                   Get in Touch

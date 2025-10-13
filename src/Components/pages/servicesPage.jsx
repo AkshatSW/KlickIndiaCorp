@@ -211,47 +211,52 @@ const ServicesPage = () => {
         </motion.h1>
       </section>
 
-      {/* Intro Section */}
-      <section className="py-16 bg-[#EEF6FC] text-center px-[8%]">
-        <motion.div
-          className="container mx-auto px-6 max-w-4xl text-center relative"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-        >
-          <div className="relative inline-block">
-            <motion.div
-              className="absolute -inset-1 bg-gradient-to-r from-[#314870]/10 to-transparent blur-xl"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 1 }}
-            />
-            <p
-              className="relative leading-relaxed text-left text-lg md:text-xl mx-auto max-w-3xl"
-              style={{
-                fontFamily: "'Playfair Display', serif",
-                fontWeight: 300,
-                color: "#11132c",
-                letterSpacing: "-0.02em",
-                textShadow: "0 2px 4px rgba(17, 19, 44, 0.08)",
-              }}
-            >
-              From concept to completion, we provide end-to-end design, planning and engineering services.
-              <br />
-              <br /> Our multidisciplinary approach ensures innovative, functional & enduring results for every project.
-            </p>
-          </div>
-          <motion.div
-            className="absolute inset-0 pointer-events-none"
-            initial={{ scale: 0.95, opacity: 0 }}
-            whileInView={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 1 }}
-          >
-            <div className="absolute inset-0 bg-[#314870]/5 blur-3xl transform -rotate-3" />
-          </motion.div>
-        </motion.div>
-      </section>
+     {/* Intro Section */}
+<section className="py-16 bg-[#EEF6FC] text-center px-[8%] overflow-x-hidden">
+  <motion.div
+    className="container mx-auto max-w-4xl text-center relative px-4 sm:px-6"
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.8 }}
+  >
+    <div className="relative inline-block">
+      {/* Subtle gradient behind text */}
+      <motion.div
+        className="absolute -inset-0.5 bg-gradient-to-r from-[#314870]/10 to-transparent blur-lg opacity-50 rounded-md"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+      />
+
+      <p
+        className="relative leading-relaxed text-left text-lg md:text-xl mx-auto max-w-3xl"
+        style={{
+          fontFamily: "'Playfair Display', serif",
+          fontWeight: 300,
+          color: "#11132c",
+          letterSpacing: "-0.02em",
+          textShadow: "0 2px 4px rgba(17, 19, 44, 0.08)",
+        }}
+      >
+        From concept to completion, we provide end-to-end design, planning and engineering services.
+        <br />
+        <br /> Our multidisciplinary approach ensures innovative, functional & enduring results for every project.
+      </p>
+    </div>
+
+    {/* Background blur behind entire section */}
+    <motion.div
+      className="absolute inset-0 pointer-events-none"
+      initial={{ scale: 0.95, opacity: 0 }}
+      whileInView={{ scale: 1, opacity: 1 }}
+      transition={{ duration: 1 }}
+    >
+      <div className="absolute inset-0 bg-[#314870]/5 blur-2xl transform -rotate-3" />
+    </motion.div>
+  </motion.div>
+</section>
+
 
       {/* Services Sections */}
       {servicesData.map((service, index) => (
