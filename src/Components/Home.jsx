@@ -201,11 +201,13 @@ const Home = () => {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#11132c]"
-                style={{ fontFamily: "'Playfair Display', serif" }}
-              >
-                About Us
-              </h2>
+             <h2
+  className="text-3xl md:text-4xl font-bold mb-4 text-[#11132c] text-center md:text-left"
+  style={{ fontFamily: "'Playfair Display', serif" }}
+>
+  About Us
+</h2>
+
               <p className="text-base md:text-lg leading-relaxed text-justify mb-6 text-black"
                 style={{ fontFamily: "'Poppins', sans-serif" }}
               >
