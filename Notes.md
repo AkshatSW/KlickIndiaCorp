@@ -1,10 +1,14 @@
-# Website Feedback
-Home Page
-1. Nav bar me Logo bada karna hai
-2. Nav bar me pages ke liye will update as new all the pages finalise 
-3. Home page me top me text ka font colour will be white and better font style, along with background image tint
-4. Call us ka contact us karna hai
-5. Check vertical alignment in banner text 
-6. About klicknindia ka about us karna hai
-7. Banner sub heading ko alag se karna hai, 
-8. Test shadows in pictures also make pictures in sharper. 
+Todo:
+fix image text ratio in services page
+add one more core value in about us
+add what makes us different section in about us and change the hero page section in about us
+add cta in about us
+change pictures
+Make all hero banner with darker overlay
+Change all grays to blue
+and make sure all the cta button working
+Add blue whatsapp button
+add seo 
+add site map 
+change images for home page, update them 
+update images for the rest of the page. 

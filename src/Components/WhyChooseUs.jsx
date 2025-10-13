@@ -37,7 +37,7 @@ const WhyChooseUs = () => {
   }, []);
 
   return (
-    <section className="relative overflow-hidden py-20 bg-[#efefef]">
+    <section className="relative overflow-hidden py-20 bg-[#EEF6FC]">
       {/* Soft blue tint overlay */}
       <div
         className="absolute inset-0"

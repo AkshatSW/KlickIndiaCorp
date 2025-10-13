@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom"; // ✅ Add this
 import img1 from "../assets/services/img1.png";
 import img2 from "../assets/services/img2.png";
 import img3 from "../assets/services/img3.png";
@@ -16,6 +17,8 @@ const servicesData = [
 ];
 
 const Services = () => {
+  const navigate = useNavigate(); // ✅ Initialize navigation
+
   return (
     <section id="services" className="bg-white py-20">
       <div className="container mx-auto px-6 text-center max-w-6xl">
@@ -50,11 +53,13 @@ const Services = () => {
         {/* CTA Button */}
         <div style={{ textAlign: "center" }}>
           <button
-          className="px-12 py-4 text-lg font-semibold shadow-lg transition-transform duration-300 hover:scale-105 *:hover:shadow-2xl rounded-lg"
+            className="px-12 py-4 text-lg font-semibold shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-2xl rounded-lg"
             style={{
-              backgroundColor: '#31487a',
-              color: '#ffffff'
+              backgroundColor: "#31487a",
+              color: "#ffffff",
+              fontFamily: "'Poppins', sans-serif"
             }}
+            onClick={() => navigate("/servicepage")} // ✅ Navigate to /servicepage
           >
             Discover More
           </button>

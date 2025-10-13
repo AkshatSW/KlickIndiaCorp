@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import { motion } from "framer-motion";
 import heroImg from "../../assets/2.png";
 import sampleImg from "../../assets/2.png";
@@ -139,6 +140,24 @@ const getNumberMask = (num) => {
 const ServicesPage = () => {
   return (
     <>
+      {/* SEO / Helmet Section */}
+      <Helmet>
+        <title>Our Services | Architecture & Design Solutions | Klick India</title>
+        <meta
+          name="description"
+          content="Comprehensive architectural services including master planning, interior design, MEP engineering, and project management. Expert solutions for all your design needs."
+        />
+        <meta
+          name="keywords"
+          content="architectural services, interior design, MEP engineering, master planning, project management, building design"
+        />
+        <meta property="og:title" content="Architecture & Design Services | Klick India Corporation" />
+        <meta property="og:description" content="Complete range of architectural and design services. From concept to completion, we deliver excellence in every project." />
+        <meta property="og:image" content="/path-to-services-image.jpg" />
+        <meta property="og:url" content="https://klickindia.com/servicesPage" />
+        <link rel="canonical" href="https://klickindia.com/servicesPage" />
+      </Helmet>
+
       {/* Hero Section */}
       <section
         style={{
@@ -158,20 +177,13 @@ const ServicesPage = () => {
           style={{
             position: "absolute",
             inset: 0,
-            background:
-              "linear-gradient(to bottom, rgba(49, 72, 112, 0.85) 0%, rgba(49, 72, 112, 0.75) 35%, rgba(49, 72, 112, 0.75) 65%, rgba(49, 72, 112, 0.85) 100%)",
+            background: "linear-gradient(to bottom, rgba(17,19,44,0.85), rgba(17,19,44,0.85))",
           }}
         />
         <motion.h1
           initial={{ opacity: 0, y: 100, scale: 0.8 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{
-            duration: 1.2,
-            delay: 0.3,
-            type: "spring",
-            stiffness: 100,
-            damping: 15,
-          }}
+          transition={{ duration: 1.2, delay: 0.3, type: "spring", stiffness: 100, damping: 15 }}
           className="mb-6 text-4xl font-bold leading-tight md:text-6xl lg:text-7xl"
           style={{
             fontFamily: "'Playfair Display', serif",
@@ -187,23 +199,22 @@ const ServicesPage = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
           >
-            Blending Innovation
+            Our Services
           </motion.span>
           <br />
-          <motion.span
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.7 }}
+          <p
+            className="text-white text-2xl md:text-4xl font-light text-center mt-6 max-w-3xl mx-auto"
+            style={{ fontFamily: "'playfair', sans-serif', letterSpacing: '-0.01em'" }}
           >
-            & Functionality
-          </motion.span>
+            Blending innovation, <br />functionality &  client vision in every  project
+          </p>
         </motion.h1>
       </section>
 
       {/* Intro Section */}
-      <section className="py-16 bg-[#f9fafb] text-center px-4 lg:px-8">
+      <section className="py-16 bg-[#EEF6FC] text-center px-[8%]">
         <motion.div
-          className="mx-auto max-w-4xl relative"
+          className="container mx-auto px-6 max-w-4xl text-center relative"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -217,20 +228,18 @@ const ServicesPage = () => {
               transition={{ duration: 1 }}
             />
             <p
-              className="relative text-2xl md:text-3xl lg:text-4xl leading-relaxed"
+              className="relative leading-relaxed text-left text-lg md:text-xl mx-auto max-w-3xl"
               style={{
-                fontFamily: "'Poppins', sans-serif",
+                fontFamily: "'Playfair Display', serif",
                 fontWeight: 300,
                 color: "#11132c",
                 letterSpacing: "-0.02em",
                 textShadow: "0 2px 4px rgba(17, 19, 44, 0.08)",
               }}
             >
-              From concept to completion, we provide
-              <br className="hidden md:block" />
-              <span className="italic">comprehensive design solutions</span>
-              <br className="hidden md:block" />
-              integrating creativity, precision, and sustainability
+              From concept to completion, we provide end-to-end design, planning and engineering services.
+              <br />
+              <br /> Our multidisciplinary approach ensures innovative, functional & enduring results for every project.
             </p>
           </div>
           <motion.div
@@ -239,36 +248,66 @@ const ServicesPage = () => {
             whileInView={{ scale: 1, opacity: 1 }}
             transition={{ duration: 1 }}
           >
-            <div className="absolute inset-0 bg-[#31487a]/5 blur-3xl transform -rotate-3" />
+            <div className="absolute inset-0 bg-[#314870]/5 blur-3xl transform -rotate-3" />
           </motion.div>
         </motion.div>
       </section>
 
-          {/* Services Sections */}
+      {/* Services Sections */}
       {servicesData.map((service, index) => (
         <section key={index} className="py-16 bg-white">
           <div
-            className={`container mx-auto px-4 lg:px-8 flex flex-col-reverse lg:flex-row items-center gap-10 ${
+            className={`container mx-auto px-[8%] flex flex-col lg:flex-row items-start gap-8 ${
               index % 2 === 1 ? "lg:flex-row-reverse" : ""
             }`}
           >
+            {/* Image Section with Number Mask */}
+            <motion.div
+              initial={{ opacity: 0, x: index % 2 === 1 ? -60 : 60 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="w-full lg:w-[32%] flex justify-center order-1"
+            >
+              <div
+                className="w-full max-w-xs sm:max-w-sm h-[240px] sm:h-[280px] md:h-[340px] overflow-hidden"
+                style={{
+                  WebkitMaskImage: getNumberMask(index + 1, { bold: true }),
+                  WebkitMaskRepeat: "no-repeat",
+                  WebkitMaskSize: "contain",
+                  WebkitMaskPosition: "center",
+                  maskImage: getNumberMask(index + 1, { bold: true }),
+                  maskRepeat: "no-repeat",
+                  maskSize: "contain",
+                  maskPosition: "center",
+                }}
+              >
+                <img src={service.img} alt={service.title} className="w-full h-full object-cover" />
+              </div>
+            </motion.div>
+
             {/* Text Section */}
             <motion.div
               initial={{ opacity: 0, x: index % 2 === 1 ? 60 : -60 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="flex-1 max-w-lg order-2 lg:order-none"
+              className="w-full lg:w-[68%] order-2 space-y-4 max-w-xl"
             >
               <h2
-                className="text-xl sm:text-2xl md:text-3xl font-semibold text-[#11132c] mb-4 text-center lg:text-left"
+                className="text-xl sm:text-2xl md:text-3xl font-semibold text-[#11132c] text-center lg:text-left"
                 style={{ fontFamily: "'Playfair Display', serif" }}
               >
                 {service.title}
               </h2>
+
               <p
-                className="text-[#444] mb-4 leading-relaxed text-justify"
-                style={{ fontFamily: "'Poppins', sans-serif" }}
+                className="text-[#444] text-justify break-words whitespace-normal overflow-wrap-anywhere leading-relaxed lg:leading-normal"
+                style={{
+                  fontFamily: "'Poppins', sans-serif",
+                  wordWrap: "break-word",
+                  overflowWrap: "anywhere",
+                }}
               >
                 {service.description}
               </p>
@@ -278,8 +317,12 @@ const ServicesPage = () => {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
-                className="list-disc pl-6 space-y-2 text-[#444] leading-relaxed"
-                style={{ fontFamily: "'Poppins', sans-serif" }}
+                className="list-disc pl-6 space-y-2 text-[#444] leading-relaxed lg:leading-snug break-words whitespace-normal overflow-wrap-anywhere"
+                style={{
+                  fontFamily: "'Poppins', sans-serif",
+                  wordWrap: "break-word",
+                  overflowWrap: "anywhere",
+                }}
               >
                 {service.points.map((point, i) => (
                   <motion.li key={i} variants={listItem}>
@@ -288,43 +331,12 @@ const ServicesPage = () => {
                 ))}
               </motion.ul>
             </motion.div>
-
-            {/* Image Section with Number Mask */}
-            <motion.div
-              initial={{ opacity: 0, x: index % 2 === 1 ? -60 : 60 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="flex-1 flex justify-center order-1 lg:order-none"
-            >
-              <div
-                className="w-full max-w-sm sm:max-w-md h-[300px] overflow-hidden"
-                style={{
-                  WebkitMaskImage: getNumberMask(index + 1),
-                  WebkitMaskRepeat: "no-repeat",
-                  WebkitMaskSize: "cover",
-                  WebkitMaskPosition: "center",
-                  maskImage: getNumberMask(index + 1),
-                  maskRepeat: "no-repeat",
-                  maskSize: "cover",
-                  maskPosition: "center",
-                }}
-              >
-                <img
-                  src={service.img}
-                  alt={service.title}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </motion.div>
           </div>
         </section>
       ))}
 
-
-
       {/* WhatsApp CTA */}
-      <section className="py-20 text-center bg-white">
+      <section className="py-20 text-center bg-[#EEF6FC]">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}

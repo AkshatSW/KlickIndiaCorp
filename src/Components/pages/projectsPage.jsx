@@ -15,6 +15,7 @@ import mdcityhospital from "../../assets/Projects/mdcityhospital.png";
 import somduttplaza from "../../assets/Projects/somduttplaza.png";
 import pragatiTower from "../../assets/Projects/PragatiTower.png";
 import multiPrithvi from "../../assets/Projects/MultiStoreyedCommercialBuildingPrithviRajRoad.png"; // <-- fixed
+import c58Janakpuri from "../../assets/Projects/c58Janakpuri.png"; // <-- new import
 
 
 const projects = [
@@ -29,6 +30,7 @@ const projects = [
   { title: "SomDutt Plaza", location: "Kapur", image: somduttplaza },
   { title: "Pragati Tower", location: "Rajander Nagar, Delhi", image: pragatiTower },
   { title: "Multi Storeyed Commercial Building Prithvi Raj Road", location: "31 Prithvi Raj Road, Delhi", image: multiPrithvi },
+  { title: "Multi Storeyed Tower", location: "C-58, Janak Puri, Delhi", image: c58Janakpuri },
 ];
 
 const containerVariants = {
@@ -44,8 +46,15 @@ const cardVariants = {
 const ProjectsPage = () => {
   return (
     <>
-      <Helmet>
-        <title>Projects | Klick India Corporation</title>
+    <Helmet>
+        <title>Our Projects | Portfolio | Klick India Corporation</title>
+        <meta name="description" content="Explore our diverse portfolio of architectural projects across India. From commercial buildings to healthcare facilities, discover our landmark designs." />
+        <meta name="keywords" content="architecture portfolio, delhi projects, commercial buildings, healthcare architecture, residential projects" />
+        <meta property="og:title" content="Architecture Project Portfolio | Klick India Corporation" />
+        <meta property="og:description" content="View our completed architectural projects. Showcasing excellence in design across commercial, residential, and healthcare sectors." />
+        <meta property="og:image" content="/path-to-projects-featured-image.jpg" />
+        <meta property="og:url" content="https://klickindia.com/projectsPage" />
+        <link rel="canonical" href="https://klickindia.com/projectsPage" />
       </Helmet>
 
       {/* Overall page background */}
@@ -66,11 +75,12 @@ const ProjectsPage = () => {
           }}
         >
           <div
-            style={{
-              position: "absolute",
-              inset: 0,
-              background: "linear-gradient(to bottom, rgba(49, 72, 112, 0.85) 0%, rgba(49, 72, 112, 0.75) 35%, rgba(49, 72, 112, 0.75) 65%, rgba(49, 72, 112, 0.85) 100%)",
-            }}
+             style={{
+            position: "absolute",
+            inset: 0,
+            background:
+              "linear-gradient(to bottom, rgba(17,19,44,0.85), rgba(17,19,44,0.85))",
+          }}
           />
           <motion.h1
             initial={{ opacity: 0, y: 100, scale: 0.8 }}
@@ -91,21 +101,23 @@ const ProjectsPage = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
             >
-              Transforming Spaces
+              Our Projects
             </motion.span>
             <br />
-            <motion.span
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.7 }}
-            >
-              Creating Landmarks
-            </motion.span>
+            <p
+                  className="text-white text-2xl md:text-4xl font-light text-center mt-6 max-w-3xl mx-auto"
+                  style={{ fontFamily: "'playfair', sans-serif', letterSpacing: '-0.01em'" }}
+                >
+                  Architecture design projects executed by <br /> Klick India Corporation
+                </p>
+
+            
           </motion.h1>
+         
         </section>
 
         {/* Intro Section */}
-        <section className="py-16 bg-[#f9fafb] text-center px-[8%]">
+        <section className="py-16 bg-[#EEF6FC] text-center px-[8%]">
           <motion.div 
             className="container mx-auto px-6 max-w-4xl text-center relative"
             initial={{ opacity: 0, y: 20 }}
@@ -121,20 +133,19 @@ const ProjectsPage = () => {
                 transition={{ duration: 1 }}
               />
               <p 
-                className="relative text-2xl md:text-3xl lg:text-4xl leading-relaxed"
+                className="relative leading-relaxed text-left text-lg md:text-xl mx-auto max-w-3xl"
                 style={{ 
-                  fontFamily: "'Poppins', sans-serif",
+                  fontFamily: "'Playfair Display', serif",
                   fontWeight: 300,
                   color: '#11132c',
                   letterSpacing: "-0.02em",
                   textShadow: '0 2px 4px rgba(17, 19, 44, 0.08)'
                 }}
               >
-                From concept to completion, we provide
-                <br className="hidden md:block" />
-                <span className="italic">comprehensive design solutions</span>
-                <br className="hidden md:block" />
-                integrating creativity, precision, and sustainability
+               Klick India Corporation’s projects reflect a commitment to quality, innovation and client-focused design. 
+               <br /><br />
+               Our portfolio demonstrates decades of experience in delivering landmark projects across India and globally.
+
               </p>
             </div>
             <motion.div
@@ -192,7 +203,7 @@ const ProjectsPage = () => {
           </motion.section>
 
        {/* CTA Section */}
-<section className="bg-white py-20 text-center px-6">
+<section className="bg-[#EEF6FC] py-20 text-center px-6">
   <motion.h2
     initial={{ opacity: 0, y: 40 }}
     whileInView={{ opacity: 1, y: 0 }}

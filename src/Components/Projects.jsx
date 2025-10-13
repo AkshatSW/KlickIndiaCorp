@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from 'react-router-dom';
 
 // Import project images (make sure these paths exist)
 import multiStoreyed from "../assets/Projects/MultiStoreyedBuilding.png";
@@ -24,6 +25,8 @@ const featuredProjects = [
 ];
 
 const FeaturedProjects = () => {
+  const navigate = useNavigate();
+
   return (
     <section style={{ padding: "5rem 0", backgroundColor: "#31487a" }}>
       <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 1rem" }}>
@@ -121,12 +124,14 @@ const FeaturedProjects = () => {
 
         {/* Explore More Button */}
         <div style={{ textAlign: "center", marginTop: "3rem" }}>
-         <button
-          className="px-12 py-4 text-lg font-semibold shadow-lg transition-transform duration-300 hover:scale-105 *:hover:shadow-2xl rounded-lg"
+          <button
+            className="px-12 py-4 text-lg font-semibold shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-2xl rounded-lg"
             style={{
               backgroundColor: '#ffffff',
-              color: '#314870'
+              color: '#314870',
+              fontFamily: "'Poppins', sans-serif"
             }}
+            onClick={() => navigate('/projects')}
           >
             Explore More Projects
           </button>

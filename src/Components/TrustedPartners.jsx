@@ -20,9 +20,9 @@ const TrustedPartners = () => {
 
   // Internal WhatsApp callback
   const openWhatsAppChat = () => {
-    const phoneNumber = import.meta.env.VITE_WHATSAPP_NUMBER
+    const phoneNumber = "919873693425"
     const message = "Hello! I'm interested in your architectural design services."
-    window.open(`https://wa.me/${phoneNumber.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(message)}`, '_blank')
+    window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank')
   }
 
   return (

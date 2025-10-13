@@ -7,6 +7,7 @@ import img5 from "../assets/expertise/image5.png";
 import img6 from "../assets/expertise/image6.png";
 import img7 from "../assets/expertise/image7.png";
 import img8 from "../assets/expertise/image8.png";
+import { useNavigate } from "react-router-dom";
 
 const expertiseList = [
   {
@@ -52,6 +53,8 @@ const expertiseList = [
 ];
 
 const Expertise = () => {
+  const navigate = useNavigate(); // ✅ Initialize navigate
+
   return (
     <section className="py-20" style={{ backgroundColor: "#31487a" }}>
       <div className="max-w-6xl mx-auto px-6 text-center">
@@ -64,7 +67,7 @@ const Expertise = () => {
         </h2>
         <p
           className="text-lg mb-12"
-          style={{ fontFamily: "'Poppins', sans-serif" }}
+          style={{ fontFamily: "'Poppins', sans-serif", color: "#ffffff" }}
         >
           Excellence that turns ideas into landmark spaces
         </p>
@@ -93,12 +96,14 @@ const Expertise = () => {
 
         {/* CTA Button */}
         <div className="mt-12">
-         <button
-          className="px-12 py-4 text-lg font-semibold shadow-lg transition-transform duration-300 hover:scale-105 *:hover:shadow-2xl rounded-lg"
+          <button
+            className="px-12 py-4 text-lg font-semibold shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-2xl rounded-lg"
             style={{
-              backgroundColor: '#ffffff',
-              color: '#314870'
+              backgroundColor: "#ffffff",
+              color: "#314870",
+              fontFamily: "'Poppins', sans-serif",
             }}
+            onClick={() => navigate("/projects")} // ✅ Navigate to /projects
           >
             Explore Our Projects
           </button>

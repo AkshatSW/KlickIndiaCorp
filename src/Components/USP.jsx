@@ -48,7 +48,7 @@ const USP = () => {
     <section
       ref={ref}
       className="relative overflow-hidden py-20 md:py-24"
-      style={{ backgroundColor: '#efefef' }}
+    style={{ backgroundColor: '#EEF6FC' }}
     >
       {/* Heading Container */}
       <div className="container mx-auto px-6 max-w-6xl text-center">
