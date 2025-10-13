@@ -244,82 +244,83 @@ const ServicesPage = () => {
         </motion.div>
       </section>
 
-     {/* Services Sections */}
-{servicesData.map((service, index) => (
-  <section key={index} className="py-16 bg-white">
-    <div
-      className={`container mx-auto px-4 lg:px-8 flex flex-col lg:flex-row items-center gap-10 ${
-        index % 2 === 1 ? "lg:flex-row-reverse" : ""
-      }`}
-    >
-      {/* Text Section */}
-      <motion.div
-        initial={{ opacity: 0, x: index % 2 === 1 ? 60 : -60 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-        className="flex-1 max-w-lg"
-      >
-        <h2
-          className="text-xl sm:text-2xl md:text-3xl font-semibold text-[#11132c] mb-4 text-center lg:text-left"
-          style={{ fontFamily: "'Playfair Display', serif" }}
-        >
-          {service.title}
-        </h2>
-        <p
-          className="text-[#444] mb-4 leading-relaxed text-justify"
-          style={{ fontFamily: "'Poppins', sans-serif" }}
-        >
-          {service.description}
-        </p>
+          {/* Services Sections */}
+      {servicesData.map((service, index) => (
+        <section key={index} className="py-16 bg-white">
+          <div
+            className={`container mx-auto px-4 lg:px-8 flex flex-col-reverse lg:flex-row items-center gap-10 ${
+              index % 2 === 1 ? "lg:flex-row-reverse" : ""
+            }`}
+          >
+            {/* Text Section */}
+            <motion.div
+              initial={{ opacity: 0, x: index % 2 === 1 ? 60 : -60 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="flex-1 max-w-lg order-2 lg:order-none"
+            >
+              <h2
+                className="text-xl sm:text-2xl md:text-3xl font-semibold text-[#11132c] mb-4 text-center lg:text-left"
+                style={{ fontFamily: "'Playfair Display', serif" }}
+              >
+                {service.title}
+              </h2>
+              <p
+                className="text-[#444] mb-4 leading-relaxed text-justify"
+                style={{ fontFamily: "'Poppins', sans-serif" }}
+              >
+                {service.description}
+              </p>
 
-        <motion.ul
-          variants={listContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="list-disc pl-6 space-y-2 text-[#444] leading-relaxed"
-          style={{ fontFamily: "'Poppins', sans-serif" }}
-        >
-          {service.points.map((point, i) => (
-            <motion.li key={i} variants={listItem}>
-              {point}
-            </motion.li>
-          ))}
-        </motion.ul>
-      </motion.div>
+              <motion.ul
+                variants={listContainer}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                className="list-disc pl-6 space-y-2 text-[#444] leading-relaxed"
+                style={{ fontFamily: "'Poppins', sans-serif" }}
+              >
+                {service.points.map((point, i) => (
+                  <motion.li key={i} variants={listItem}>
+                    {point}
+                  </motion.li>
+                ))}
+              </motion.ul>
+            </motion.div>
 
-      {/* Image Section with Number Mask */}
-      <motion.div
-        initial={{ opacity: 0, x: index % 2 === 1 ? -60 : 60 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-        className="flex-1 flex justify-center"
-      >
-        <div
-          className="w-full max-w-sm sm:max-w-md h-[300px] overflow-hidden"
-          style={{
-            WebkitMaskImage: getNumberMask(index + 1),
-            WebkitMaskRepeat: "no-repeat",
-            WebkitMaskSize: "cover",
-            WebkitMaskPosition: "center",
-            maskImage: getNumberMask(index + 1),
-            maskRepeat: "no-repeat",
-            maskSize: "cover",
-            maskPosition: "center",
-          }}
-        >
-          <img
-            src={service.img}
-            alt={service.title}
-            className="w-full h-full object-cover"
-          />
-        </div>
-      </motion.div>
-    </div>
-  </section>
-))}
+            {/* Image Section with Number Mask */}
+            <motion.div
+              initial={{ opacity: 0, x: index % 2 === 1 ? -60 : 60 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="flex-1 flex justify-center order-1 lg:order-none"
+            >
+              <div
+                className="w-full max-w-sm sm:max-w-md h-[300px] overflow-hidden"
+                style={{
+                  WebkitMaskImage: getNumberMask(index + 1),
+                  WebkitMaskRepeat: "no-repeat",
+                  WebkitMaskSize: "cover",
+                  WebkitMaskPosition: "center",
+                  maskImage: getNumberMask(index + 1),
+                  maskRepeat: "no-repeat",
+                  maskSize: "cover",
+                  maskPosition: "center",
+                }}
+              >
+                <img
+                  src={service.img}
+                  alt={service.title}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </motion.div>
+          </div>
+        </section>
+      ))}
+
 
 
       {/* WhatsApp CTA */}
