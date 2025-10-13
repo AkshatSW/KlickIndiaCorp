@@ -266,30 +266,31 @@ const ServicesPage = () => {
               index % 2 === 1 ? "lg:flex-row-reverse" : ""
             }`}
           >
-            {/* Image Section with Number Mask */}
-            <motion.div
-              initial={{ opacity: 0, x: index % 2 === 1 ? -60 : 60 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="w-full lg:w-[32%] flex justify-center order-1"
-            >
-              <div
-                className="w-full max-w-xs sm:max-w-sm h-[240px] sm:h-[280px] md:h-[340px] overflow-hidden"
-                style={{
-                  WebkitMaskImage: getNumberMask(index + 1, { bold: true }),
-                  WebkitMaskRepeat: "no-repeat",
-                  WebkitMaskSize: "contain",
-                  WebkitMaskPosition: "center",
-                  maskImage: getNumberMask(index + 1, { bold: true }),
-                  maskRepeat: "no-repeat",
-                  maskSize: "contain",
-                  maskPosition: "center",
-                }}
-              >
-                <img src={service.img} alt={service.title} className="w-full h-full object-cover" />
-              </div>
-            </motion.div>
+           {/* Image Section with Number Mask */}
+<motion.div
+  initial={{ opacity: 0, x: index % 2 === 1 ? -60 : 60 }}
+  whileInView={{ opacity: 1, x: 0 }}
+  transition={{ duration: 0.8 }}
+  viewport={{ once: true }}
+  className="w-full lg:w-[32%] flex justify-center items-center order-1"
+>
+  <div
+    className="w-full max-w-xs sm:max-w-sm h-[200px] sm:h-[240px] md:h-[280px] lg:h-[340px] overflow-hidden"
+    style={{
+      WebkitMaskImage: getNumberMask(index + 1, { bold: true }),
+      WebkitMaskRepeat: "no-repeat",
+      WebkitMaskSize: "contain",
+      WebkitMaskPosition: "center",
+      maskImage: getNumberMask(index + 1, { bold: true }),
+      maskRepeat: "no-repeat",
+      maskSize: "contain",
+      maskPosition: "center",
+    }}
+  >
+    <img src={service.img} alt={service.title} className="w-full h-full object-cover" />
+  </div>
+</motion.div>
+
 
             {/* Text Section */}
             <motion.div

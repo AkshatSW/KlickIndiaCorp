@@ -46,7 +46,7 @@ const About = () => {
     { title: "03 | We are Quality-Driven", text: "We maintain the highest standards in materials, methods and craftsmanship." },
     { title: "04 | We are Client-Focused", text: "We listen closely and tailor solutions that align perfectly with your vision and goals." },
     { title: "05 | We are Transparent", text: "Building trust through honest communication, detailed planning and clear updates." },
-    { title: "06 | We are Detail-Oriented", text: "From concept to completion, every line, layout and finish is refined to perfection." },
+    { title: "06 | We are Detail-Oriented", text: "We build your trust through honest communication, detailed planning and clear updates." },
   ];
 
   return (
