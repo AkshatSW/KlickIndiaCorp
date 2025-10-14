@@ -299,7 +299,6 @@ const ContactPage = () => {
         </div>
       </section>
 
-      <Footer />
     </>
   );
 };
