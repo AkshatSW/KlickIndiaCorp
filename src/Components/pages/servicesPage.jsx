@@ -366,7 +366,7 @@ const ServicesPage = () => {
           </p>
 
           <motion.a
-            href="https://wa.me/919873693425"
+  href="https://wa.me/919873693425?text=Hello!%20I'm%20interested%20in%20your%20architectural%20design%20services."
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block px-10 py-4 text-lg font-semibold shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-2xl rounded-lg"

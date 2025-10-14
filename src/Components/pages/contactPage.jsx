@@ -42,9 +42,19 @@ const contactMethods = [
   {
     icon: <MapPin className="h-8 w-8 text-[#31487a]" />,
     title: "Location",
-    info: <p>New Delhi, India</p>,
+    info: (
+      <a
+        href="https://maps.app.goo.gl/24BzqMgkCwAr4dG57"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="hover:text-[#31487a]"
+      >
+        New Delhi, India
+      </a>
+    ),
   },
 ];
+
 
 const ContactPage = () => {
   return (
@@ -154,40 +164,60 @@ const ContactPage = () => {
       {/* Contact Info Cards */}
       <section className="py-20 bg-[#f9fafb]">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {contactMethods.map((method, idx) => (
-            <motion.a
-              key={idx}
-              href={
-                method.title === "Email"
-                  ? "mailto:klickindiacorp@gmail.com"
-                  : method.title === "Phone"
-                  ? "tel:+919873693425"
-                  : method.title === "WhatsApp"
-                  ? "https://wa.me/919873693425"
-                  : "#"
-              }
-              target={method.title === "WhatsApp" ? "_blank" : "_self"}
-              rel={method.title === "WhatsApp" ? "noopener noreferrer" : ""}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-2xl transition-shadow cursor-pointer"
-              style={{ textDecoration: 'none' }}
-            >
-              <div className="bg-[#31487a]/10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                {method.icon}
-              </div>
-              <h3
-                className="font-semibold mb-2 text-[#11132c]"
-                style={{ fontFamily: "'Playfair Display', serif" }}
-              >
-                {method.title}
-              </h3>
-              <div className="text-[#555]" style={{ fontFamily: "'Poppins', sans-serif" }}>
-                {method.title === "Location" ? "New Delhi, India" : method.info}
-              </div>
-            </motion.a>
-          ))}
+         {contactMethods.map((method, idx) => (
+  <motion.a
+    key={idx}
+    href={
+      method.title === "Email"
+        ? "mailto:klickindiacorp@gmail.com"
+        : method.title === "Phone"
+        ? "tel:+919873693425"
+        : method.title === "WhatsApp"
+        ? "https://wa.me/919873693425?text=Hello!%20I'm%20interested%20in%20your%20architectural%20design%20services."
+        : method.title === "Location"
+        ? "https://maps.app.goo.gl/24BzqMgkCwAr4dG57"
+        : "#"
+    }
+    target={
+      ["WhatsApp", "Location"].includes(method.title) ? "_blank" : "_self"
+    }
+    rel={
+      ["WhatsApp", "Location"].includes(method.title)
+        ? "noopener noreferrer"
+        : ""
+    }
+    initial={{ opacity: 0, y: 40 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5, delay: idx * 0.1 }}
+    className="bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-2xl transition-shadow cursor-pointer"
+    style={{ textDecoration: "none" }}
+  >
+    <div className="bg-[#31487a]/10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+      {method.icon}
+    </div>
+    <h3
+      className="font-semibold mb-2 text-[#11132c]"
+      style={{ fontFamily: "'Playfair Display', serif" }}
+    >
+      {method.title}
+    </h3>
+    <div className="text-[#555]" style={{ fontFamily: "'Poppins', sans-serif" }}>
+      {method.title === "Location" ? (
+        <a
+          href="https://maps.app.goo.gl/24BzqMgkCwAr4dG57"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-[#31487a]"
+        >
+          New Delhi, India
+        </a>
+      ) : (
+        method.info
+      )}
+    </div>
+  </motion.a>
+))}
+
         </div>
 
         {/* Map + Office Info */}
@@ -265,7 +295,7 @@ const ContactPage = () => {
             className="overflow-hidden rounded-xl shadow-lg"
           >
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d224345.83923192846!2d77.06889754725782!3d28.52758200617607!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd5b347eb62d%3A0x52c2b7494e204dce!2sGK-1%2C%20Delhi!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
+              src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3504.675721897131!2d77.24204637549781!3d28.549465175710214!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjjCsDMyJzU4LjEiTiA3N8KwMTQnNDAuNiJF!5e0!3m2!1sen!2sin!4v1760454530282!5m2!1sen!2sin"
               width="100%"
               height="100%"
               style={{ border: 0 }}

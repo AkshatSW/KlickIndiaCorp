@@ -228,7 +228,7 @@ const Home = () => {
                   }}
                   onClick={() => navigate('/about')}
                 >
-                  Get in Touch
+                  Discover Our Journey
                 </button>
               </div>
             </motion.div>

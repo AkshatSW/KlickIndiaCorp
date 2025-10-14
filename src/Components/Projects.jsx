@@ -127,7 +127,7 @@ const FeaturedProjects = () => {
             }}
             onClick={() => navigate('/projects')}
           >
-            Explore More Projects
+            Explore Our Portfolio
           </button>
         </div>
       </div>

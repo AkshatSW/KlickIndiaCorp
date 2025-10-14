@@ -49,16 +49,16 @@ const About = () => {
     { title: "06 | We are Detail-Oriented", text: "We build your trust through honest communication, detailed planning and clear updates." },
   ];
 
+  const openWhatsAppChat = () => {
+    const phoneNumber = "919873693425";
+    const message = "Hello! I'm interested in your architectural design services.";
+    window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
+  };
+
   return (
     <>
       <Helmet>
         <title>About Us | Klick India Corporation</title>
-        <meta name="description" content="Since 1992, Klick India Corporation has been delivering innovative architectural solutions. Learn about our legacy, vision, and commitment to excellence." />
-        <meta name="keywords" content="klick india about, architecture firm history, delhi architects, design excellence" />
-        <meta property="og:title" content="About Klick India Corporation | Leading Architecture Firm" />
-        <meta property="og:description" content="30 years of architectural excellence. Discover our journey, values, and commitment to creating innovative spaces." />
-        <meta property="og:image" content="/path-to-about-page-image.jpg" />
-        <meta property="og:url" content="https://klickindia.com/about" />
         <link rel="canonical" href="https://klickindia.com/about" />
       </Helmet>
 
@@ -323,7 +323,7 @@ const About = () => {
           </p>
 
           <motion.a
-            href="https://wa.me/919873693425"
+  href="https://wa.me/919873693425?text=Hello!%20I'm%20interested%20in%20your%20architectural%20design%20services."
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block px-10 py-4 text-lg font-semibold shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-2xl rounded-lg"
