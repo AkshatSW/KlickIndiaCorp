@@ -44,94 +44,101 @@ const Home = () => {
 
   return (
     <>
-      {/* ================= HOME SECTION ================= */}
-      <div id="home" className="relative min-h-screen overflow-x-hidden"> {/* fixed overflow */}
-        <div className="absolute inset-0">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={currentImageIndex}
-              className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-              style={{ backgroundImage: `url(${backgroundImages[currentImageIndex]})` }}
-              initial={{ opacity: 0, scale: 1.1 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.95 }}
-              transition={{ duration: 1.5, ease: [0.25, 0.1, 0.25, 1] }}
-            />
-          </AnimatePresence>
+     {/* ================= HOME SECTION ================= */}
+<div id="home" className="relative min-h-screen overflow-hidden"> {/* overflow-hidden fixed here */}
+  <div className="absolute inset-0 overflow-hidden"> {/* extra safety */}
+    <AnimatePresence mode="wait">
+      <motion.div
+        key={currentImageIndex}
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${backgroundImages[currentImageIndex]})` }}
+        initial={{ opacity: 0, scale: 1.05 }}
+        animate={{ opacity: 1, scale: 1 }}
+        exit={{ opacity: 0.6, scale: 1.02 }} // exit no longer fades fully out
+        transition={{ duration: 1.2, ease: [0.25, 0.1, 0.25, 1] }}
+      />
+    </AnimatePresence>
 
-          {/* DARK BLUE GRADIENT OVERLAY */}
-          <div
-            style={{
-              position: "absolute",
-              inset: 0,
-              background:
-                "linear-gradient(to bottom, rgba(17,19,44,0.85), rgba(17,19,44,0.85))",
-            }}
-          />
-        </div>
+    {/* DARK BLUE GRADIENT OVERLAY */}
+    <div
+      style={{
+        position: "absolute",
+        inset: 0,
+        background:
+          "linear-gradient(to bottom, rgba(17,19,44,0.85), rgba(17,19,44,0.85))",
+      }}
+    />
+  </div>
 
-        <div className="relative z-20 flex min-h-screen items-center justify-center px-4 sm:px-6"> {/* reduced padding */}
-          <div className="text-center max-w-4xl">
-            <motion.h1
-              initial={{ opacity: 0, y: 100, scale: 0.8 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ duration: 1.2, delay: 0.3, type: "spring", stiffness: 100, damping: 15 }}
-              className="mb-6 text-4xl font-bold leading-tight md:text-6xl lg:text-7xl"
-              style={{
-                fontFamily: "'Playfair Display', serif",
-                fontWeight: 800,
-                color: "#fff",
-                letterSpacing: "-0.02em"
-              }}
-            >
-              <motion.span
-                initial={{ opacity: 0, x: -50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.5 }}
-              >
-                Designing India's Best
-              </motion.span>
-              <br />
-              <motion.span
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.7 }}
-              >
-                Homes & Businesses
-              </motion.span>
-              <br />
-              <motion.span
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.9 }}
-              >
-                Since 1992
-              </motion.span>
-            </motion.h1>
+  <div className="relative z-20 flex min-h-screen items-center justify-center px-4 sm:px-6">
+    <div className="text-center max-w-4xl">
+      <motion.h1
+        initial={{ opacity: 0, y: 100, scale: 0.8 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{
+          duration: 1.2,
+          delay: 0.3,
+          type: "spring",
+          stiffness: 100,
+          damping: 15,
+        }}
+        className="mb-6 text-4xl font-bold leading-tight md:text-6xl lg:text-7xl"
+        style={{
+          fontFamily: "'Playfair Display', serif",
+          fontWeight: 800,
+          color: "#fff",
+          letterSpacing: "-0.02em",
+        }}
+      >
+        <motion.span
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+        >
+          Designing India's Best
+        </motion.span>
+        <br />
+        <motion.span
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.7 }}
+        >
+          Homes & Businesses
+        </motion.span>
+        <br />
+        <motion.span
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.9 }}
+        >
+          Since 1992
+        </motion.span>
+      </motion.h1>
 
-            <motion.div
-              initial={{ opacity: 0, y: 50, scale: 0.8 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ duration: 0.8, delay: 1.3, type: "spring", stiffness: 100 }}
-            >
-              <motion.button
-                className="group relative overflow-hidden brand-button px-8 py-4 text-lg font-semibold rounded-lg"
-                whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(0,0,0,0.3)" }}
-                whileTap={{ scale: 0.95 }}
-                style={{ 
-                  background: "#31487a", 
-                  color: "#fff", 
-                  border: "none",
-                  fontFamily: "'Poppins', sans-serif"
-                }}
-                onClick={() => navigate('/about')}
-              >
-                Explore Our Journey
-              </motion.button>
-            </motion.div>
-          </div>
-        </div>
-      </div>
+      <motion.div
+        initial={{ opacity: 0, y: 50, scale: 0.8 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{ duration: 0.8, delay: 1.3, type: "spring", stiffness: 100 }}
+      >
+        <motion.button
+          className="group relative overflow-hidden brand-button px-8 py-4 text-lg font-semibold rounded-lg"
+          whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(0,0,0,0.3)" }}
+          whileTap={{ scale: 0.95 }}
+          style={{
+            background: "#31487a",
+            color: "#fff",
+            border: "none",
+            fontFamily: "'Poppins', sans-serif",
+          }}
+          onClick={() => navigate("/about")}
+        >
+          Explore Our Journey
+        </motion.button>
+      </motion.div>
+    </div>
+  </div>
+</div>
+
 
       {/* Tagline Section */}
       <section className="relative py-16 md:py-20 overflow-x-hidden" style={{ backgroundColor: '#EEF6FC' }}> {/* fixed overflow */}

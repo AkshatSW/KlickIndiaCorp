@@ -1,6 +1,7 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import { Mail, Phone, MapPin, MessageSquare } from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa"; // WhatsApp icon
 import Navbar from "../Navbar";
 import Footer from "../Footer";
 import { motion } from "framer-motion";
@@ -26,11 +27,11 @@ const contactMethods = [
     ),
   },
   {
-    icon: <MessageSquare className="h-8 w-8 text-[#31487a]" />,
+    icon: <FaWhatsapp className="h-8 w-8 text-[#31487a]" />, // Changed to blue
     title: "WhatsApp",
     info: (
       <a
-        href="https://wa.me/919873693425"
+        href="https://wa.me/919873693425?text=Hello!%20I'm%20interested%20in%20your%20architectural%20design%20services."
         target="_blank"
         rel="noopener noreferrer"
         className="hover:text-[#31487a]"
@@ -55,10 +56,11 @@ const contactMethods = [
   },
 ];
 
-
 const ContactPage = () => {
   return (
     <>
+      <Navbar />
+
       {/* SEO Helmet */}
       <Helmet>
         <title>Contact Us | Klick India Corporation</title>
@@ -164,60 +166,48 @@ const ContactPage = () => {
       {/* Contact Info Cards */}
       <section className="py-20 bg-[#f9fafb]">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-         {contactMethods.map((method, idx) => (
-  <motion.a
-    key={idx}
-    href={
-      method.title === "Email"
-        ? "mailto:klickindiacorp@gmail.com"
-        : method.title === "Phone"
-        ? "tel:+919873693425"
-        : method.title === "WhatsApp"
-        ? "https://wa.me/919873693425?text=Hello!%20I'm%20interested%20in%20your%20architectural%20design%20services."
-        : method.title === "Location"
-        ? "https://maps.app.goo.gl/24BzqMgkCwAr4dG57"
-        : "#"
-    }
-    target={
-      ["WhatsApp", "Location"].includes(method.title) ? "_blank" : "_self"
-    }
-    rel={
-      ["WhatsApp", "Location"].includes(method.title)
-        ? "noopener noreferrer"
-        : ""
-    }
-    initial={{ opacity: 0, y: 40 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.5, delay: idx * 0.1 }}
-    className="bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-2xl transition-shadow cursor-pointer"
-    style={{ textDecoration: "none" }}
-  >
-    <div className="bg-[#31487a]/10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-      {method.icon}
-    </div>
-    <h3
-      className="font-semibold mb-2 text-[#11132c]"
-      style={{ fontFamily: "'Playfair Display', serif" }}
-    >
-      {method.title}
-    </h3>
-    <div className="text-[#555]" style={{ fontFamily: "'Poppins', sans-serif" }}>
-      {method.title === "Location" ? (
-        <a
-          href="https://maps.app.goo.gl/24BzqMgkCwAr4dG57"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:text-[#31487a]"
-        >
-          New Delhi, India
-        </a>
-      ) : (
-        method.info
-      )}
-    </div>
-  </motion.a>
-))}
-
+          {contactMethods.map((method, idx) => (
+            <motion.a
+              key={idx}
+              href={
+                method.title === "Email"
+                  ? "mailto:klickindiacorp@gmail.com"
+                  : method.title === "Phone"
+                  ? "tel:+919873693425"
+                  : method.title === "WhatsApp"
+                  ? "https://wa.me/919873693425?text=Hello!%20I'm%20interested%20in%20your%20architectural%20design%20services."
+                  : method.title === "Location"
+                  ? "https://maps.app.goo.gl/24BzqMgkCwAr4dG57"
+                  : "#"
+              }
+              target={
+                ["WhatsApp", "Location"].includes(method.title) ? "_blank" : "_self"
+              }
+              rel={
+                ["WhatsApp", "Location"].includes(method.title)
+                  ? "noopener noreferrer"
+                  : ""
+              }
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: idx * 0.1 }}
+              className="bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-2xl transition-shadow cursor-pointer"
+              style={{ textDecoration: "none" }}
+            >
+              <div className="bg-[#31487a]/10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                {method.icon}
+              </div>
+              <h3
+                className="font-semibold mb-2 text-[#11132c]"
+                style={{ fontFamily: "'Playfair Display', serif" }}
+              >
+                {method.title}
+              </h3>
+              <div className="text-[#555]" style={{ fontFamily: "'Poppins', sans-serif" }}>
+                {method.info}
+              </div>
+            </motion.a>
+          ))}
         </div>
 
         {/* Map + Office Info */}
@@ -278,7 +268,7 @@ const ContactPage = () => {
               </div>
             </div>
             <a
-              href="https://wa.me/919873693425"
+              href="https://wa.me/919873693425?text=Hello!%20I'm%20interested%20in%20your%20architectural%20design%20services."
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block px-10 py-4 bg-[#31487a] text-white font-semibold rounded-full shadow-lg hover:shadow-2xl transition-all duration-300"
@@ -308,6 +298,8 @@ const ContactPage = () => {
           </motion.div>
         </div>
       </section>
+
+      <Footer />
     </>
   );
 };

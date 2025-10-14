@@ -65,7 +65,7 @@ const Navbar = () => {
               </Link>
             ))}
 
-            {/* CTA Button */}
+            {/* Desktop CTA Button */}
             <Link
               to="/contact"
               className="ml-4 px-4 sm:px-6 py-2 text-sm sm:text-base font-medium text-[#11132c] bg-[#ffffff] rounded-lg shadow-lg transition-shadow duration-300 hover:shadow-xl inline-block text-center"
@@ -130,16 +130,14 @@ const Navbar = () => {
                   </Link>
                 ))}
 
-                {/* Mobile CTA (same look as desktop) */}
-                <motion.button
+                {/* Mobile Contact Button */}
+                <Link
+                  to="/contact"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="w-full mt-4 px-6 py-3 font-medium rounded-lg text-[#11132c] bg-[#ffffff] shadow-lg hover:shadow-xl"
+                  className="block w-full mt-4 px-6 py-3 font-medium rounded-lg text-[#11132c] bg-[#ffffff] shadow-lg hover:shadow-xl text-center"
                 >
-                  <Link to="/contact">Contact Us</Link>
-                </motion.button>
+                  Contact Us
+                </Link>
               </div>
             </motion.div>
           )}

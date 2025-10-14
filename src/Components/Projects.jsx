@@ -44,7 +44,7 @@ const FeaturedProjects = () => {
           <p
             className="text-lg mb-12 text-white" style={{ fontFamily: "'Poppins', sans-serif" }}
           >
-            Transforming visions into iconic spaces across India and beyond
+            Transforming visions into iconic spaces across India
           </p>
         </div>
 

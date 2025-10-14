@@ -2,9 +2,9 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet";
 import { Award, Lightbulb, CheckCircle, Users, Globe, Layers, ChevronDown } from "lucide-react";
-import img3 from "../../assets/3.png";
-import heroBg from "../../assets/5.png";
-import { s } from "motion/react-client";
+import img3 from "../../assets/AboutMain.png";
+import img4 from "../../assets/whatmakesusdiff.png";
+import heroBg from "../../assets/1.png";
 
 const AccordionItem = ({ title, text }) => {
   const [open, setOpen] = React.useState(false);
@@ -46,17 +46,11 @@ const About = () => {
     { title: "03 | We are Quality-Driven", text: "We maintain the highest standards in materials, methods and craftsmanship." },
     { title: "04 | We are Client-Focused", text: "We listen closely and tailor solutions that align perfectly with your vision and goals." },
     { title: "05 | We are Transparent", text: "Building trust through honest communication, detailed planning and clear updates." },
-    { title: "06 | We are Detail-Oriented", text: "We build your trust through honest communication, detailed planning and clear updates." },
+    { title: "06 | We are Detail-Oriented", text: "We build your trust through honest communication, detailed planning and clear updates." },
   ];
 
-  const openWhatsAppChat = () => {
-    const phoneNumber = "919873693425";
-    const message = "Hello! I'm interested in your architectural design services.";
-    window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
-  };
-
   return (
-    <>
+    <div className="overflow-x-hidden">
       <Helmet>
         <title>About Us | Klick India Corporation</title>
         <link rel="canonical" href="https://klickindia.com/about" />
@@ -81,12 +75,10 @@ const About = () => {
           style={{
             position: "absolute",
             inset: 0,
-            background:
-              "linear-gradient(to bottom, rgba(17,19,44,0.85), rgba(17,19,44,0.85))",
+            background: "linear-gradient(to bottom, rgba(17,19,44,0.85), rgba(17,19,44,0.85))",
           }}
         />
-        <div style={{ zIndex: 1, maxWidth: "80%" }}>
-                   {/* Main Heading */}
+        <div style={{ zIndex: 1, maxWidth: "80%", margin: "0 auto" }}>
           <motion.h1
             initial={{ opacity: 0, y: 100, scale: 0.8 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -106,33 +98,24 @@ const About = () => {
             >
               About Us
             </motion.span>
-            <br />
-            <motion.span
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.9 }}
-            >
-            
-            </motion.span>
           </motion.h1>
           <p
-  className="text-white text-2xl md:text-4xl font-light text-center mt-6 max-w-3xl mx-auto"
-  style={{ fontFamily: "'Playfair Display', serif", letterSpacing: '-0.01em' }}
->
-  A legacy of design, a future of innovation
-
-</p>
+            className="text-white text-2xl md:text-4xl font-light text-center mt-6 max-w-3xl mx-auto"
+            style={{ fontFamily: "'Playfair Display', serif", letterSpacing: '-0.01em' }}
+          >
+            A legacy of design, a future of innovation
+          </p>
         </div>
       </section>
 
       {/* About Text + Image */}
-      <section className="flex flex-wrap lg:flex-row flex-col items-center justify-between gap-12 py-20 px-[10%] bg-white">
+      <section className="flex flex-wrap lg:flex-row flex-col items-center justify-between gap-12 py-20 px-4 sm:px-6 md:px-10 bg-white">
         <motion.div
           initial={{ opacity: 0, x: -60 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="flex-1 flex justify-center mb-8 lg:mb-0"
+          className="flex-1 flex justify-center mb-8 lg:mb-0 max-w-full"
         >
           <img
             src={img3}
@@ -147,19 +130,19 @@ const About = () => {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="flex-1 max-w-2xl mx-auto text-justify lg:text-left"
+          className="flex-1 max-w-full text-justify lg:text-left"
         >
-          <h2 
+          <h2
             className="text-2xl font-semibold text-[#11132c] mb-4 text-center lg:text-left"
             style={{ fontFamily: "'Playfair Display', serif" }}
           >
             About Klick India Corporation
           </h2>
           <p className="text-[#444] leading-relaxed mb-4" style={{ fontFamily: "'Poppins', sans-serif" }}>
-            Headquartered in New Delhi and under the guidance of Mr. Suneet Pasricha, Klick India Corporation has been shaping innovative architecture and planning solutions across India since 1992. With a legacy of designing 100+ homes and over 200+ factories across India and globally for the past three decades, we are known for our expertise in architecture, interiors and multidisciplinary design.
+            Headquartered in New Delhi and under the guidance of Mr. Suneet Pasricha, Klick India Corporation has been shaping innovative architecture and planning solutions across India since 1992. With a legacy of designing 100+ homes and over 200+ factories across India for the past three decades, we are known for our expertise in architecture, interiors and multidisciplinary design.
           </p>
           <p className="text-[#444] leading-relaxed" style={{ fontFamily: "'Poppins', sans-serif" }}>
-            Our unique approach combines creativity, functionality and sustainability resulting in some of the most iconic buildings worldwide. Each project we undertake is a reflection of our philosophy — individual, inspired and innovative.
+            Our unique approach combines creativity, functionality and sustainability resulting in some of the most iconic buildings across India. Each project we undertake is a reflection of our philosophy — individual, inspired and innovative.
           </p>
           <br />
           <p className="text-[#444] leading-relaxed" style={{ fontFamily: "'Poppins', sans-serif" }}>
@@ -168,57 +151,66 @@ const About = () => {
         </motion.div>
       </section>
 
-      {/* Mission & Vision */}
-      <section style={{ padding: "5rem 10%", backgroundColor: "#31487a", textAlign: "center" }}>
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
+   {/* Mission & Vision */}
+<section className="py-20 bg-[#31487a]">
+  <div className="max-w-6xl mx-auto px-6">
+    <motion.h2
+      initial={{ opacity: 0, y: -30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.7 }}
+      viewport={{ once: true }}
+      className="text-2xl md:text-3xl font-semibold text-white mb-12 text-center"
+      style={{ fontFamily: "'Playfair Display', serif" }}
+    >
+      Our Mission & Vision
+    </motion.h2>
+
+    <div className="flex flex-wrap justify-center gap-8">
+      {[
+        {
+          title: "Mission",
+          text: "To provide end-to-end innovative, high-quality architectural and design solutions that exceed client expectations while promoting sustainability, efficiency and long-lasting value across every project.",
+        },
+        {
+          title: "Vision",
+          text: "To redefine architecture and planning in India, creating iconic, enduring spaces that blend design excellence, functionality and environmental responsibility.",
+        },
+      ].map((item, index) => (
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, delay: index * 0.2 }}
           viewport={{ once: true }}
-          style={{ 
-            fontSize: "2rem", 
-            fontWeight: "600", 
-            color: "#ffffff", 
-            marginBottom: "2.5rem",
-            fontFamily: "'Playfair Display', serif"
+          className="rounded-2xl p-8 shadow-md w-full sm:w-[300px] md:w-[400px] lg:w-[450px] flex-1
+                     bg-white/10 border border-white/20 backdrop-blur-md 
+                     hover:shadow-[0_12px_25px_rgba(0,0,0,0.5)] 
+                     transition-all duration-300 hover:-translate-y-1"
+          style={{
+            minHeight: "220px",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            textAlign: "left",
           }}
         >
-          Our Mission & Vision
-        </motion.h2>
+          <h3 className="text-white text-xl font-semibold mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
+            {item.title}
+          </h3>
+          <p className="text-[#d1d5e6] leading-relaxed text-[1rem]" style={{ fontFamily: "'Poppins', sans-serif" }}>
+            {item.text}
+          </p>
+        </motion.div>
+      ))}
+    </div>
+  </div>
+</section>
 
-        <div className="flex flex-wrap justify-center gap-8">
-          {[
-            {
-              title: "Mission",
-              text: "To provide end-to-end innovative, high-quality architectural and design solutions that exceed client expectations while promoting sustainability, efficiency and long-lasting value across every project.",
-            },
-            {
-              title: "Vision",
-              text: "To redefine architecture and planning in India and beyond, creating iconic, enduring spaces that blend design excellence, functionality and environmental responsibility.",
-            },
-          ].map((item, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              viewport={{ once: true }}
-              className="bg-white/10 border border-white/20 rounded-2xl p-8 text-left max-w-[450px] flex-1 backdrop-blur-md shadow-[0_8px_20px_rgba(0,0,0,0.3)] hover:shadow-[0_12px_25px_rgba(0,0,0,0.5)] transition-all duration-300 hover:-translate-y-1"
-            >
-              <h3 className="text-white text-xl font-semibold mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
-                {item.title}
-              </h3>
-              <p className="text-[#d1d5e6] leading-relaxed text-[1rem]" style={{ fontFamily: "'Poppins', sans-serif" }}>
-                {item.text}
-              </p>
-            </motion.div>
-          ))}
-        </div>
-      </section>
 
-      {/* Core Values */}
-      <section className="bg-white py-16 md:py-20">
-        <div className="container mx-auto px-6 max-w-6xl">
+
+     {/* Core Values */}
+      <section className="bg-white py-16 md:py-20 px-4 sm:px-6 md:px-10">
+        <div className="max-w-6xl mx-auto">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -267,15 +259,15 @@ const About = () => {
       </section>
 
       {/* What Makes Us Different */}
-      <section className="py-20 px-[10%] bg-[#31487a] text-white">
+      <section className="py-20 px-4 sm:px-6 md:px-10 bg-[#31487a] text-white">
         <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-12">
-          {/* Left text */}
+          {/* Left text + Image */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="flex-1"
+            className="flex-1 max-w-full flex flex-col items-start gap-6"
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
               What Makes Us Different
@@ -283,6 +275,17 @@ const About = () => {
             <p className="leading-relaxed text-white" style={{ fontFamily: "'Poppins', sans-serif" }}>
               Our goal is to turn every project into a benchmark of design and precision crafted with commitment, creativity and care. Through thoughtful design, meticulous execution & unwavering attention to detail, we redefine spaces and create lasting landmarks.
             </p>
+
+            {/* Image below the text */}
+            <motion.img
+              src={img4}
+              alt="Illustration of What Makes Us Different"
+              className="w-full max-w-md rounded-2xl shadow-xl mt-6"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+            />
           </motion.div>
 
           {/* Right Accordion */}
@@ -291,7 +294,7 @@ const About = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="flex-1"
+            className="flex-1 max-w-full"
           >
             {differences.map((item, idx) => (
               <AccordionItem key={idx} title={item.title} text={item.text} />
@@ -301,7 +304,7 @@ const About = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 text-center bg-[#EEF6FC]">
+      <section className="py-20 text-center bg-[#EEF6FC] px-4 sm:px-6 md:px-10">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -323,7 +326,7 @@ const About = () => {
           </p>
 
           <motion.a
-  href="https://wa.me/919873693425?text=Hello!%20I'm%20interested%20in%20your%20architectural%20design%20services."
+            href="https://wa.me/919873693425?text=Hello!%20I'm%20interested%20in%20your%20architectural%20design%20services."
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block px-10 py-4 text-lg font-semibold shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-2xl rounded-lg"
@@ -338,7 +341,7 @@ const About = () => {
           </motion.a>
         </motion.div>
       </section>
-    </>
+    </div>
   );
 };
 

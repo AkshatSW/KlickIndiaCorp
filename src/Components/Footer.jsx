@@ -1,9 +1,36 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import logo from '../assets/KlickIndiaLogoTransparent.png';
 
 const Footer = () => {
+  const navigate = useNavigate();
+
+  const serviceLinks = [
+    { name: 'Architecture Design', id: 0 },
+    { name: 'Building Planning & Design', id: 1 },
+    { name: 'Interior Design', id: 2 },
+    { name: 'Landscape Design', id: 3 },
+    { name: 'MEP Engineering', id: 4 },
+    { name: 'Project Planning & Control', id: 5 },
+    { name: 'Specialized Services', id: 6 },
+  ];
+
+  const scrollToService = (id) => {
+    // If not on /servicepage, navigate first
+    if (window.location.pathname !== '/servicepage') {
+      navigate('/servicepage');
+      // Wait a bit for page to load
+      setTimeout(() => {
+        const element = document.getElementById(`service-${id}`);
+        element?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 300);
+    } else {
+      const element = document.getElementById(`service-${id}`);
+      element?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return (
     <footer style={{ backgroundColor: '#11132c', padding: '1.5rem 1rem' }}>
       <div
@@ -34,24 +61,13 @@ const Footer = () => {
             alt="KlickIndia Logo"
             style={{ height: '150px', width: 'auto', marginBottom: '0.25rem' }}
           />
-          <h3 
-            className="text-xl font-bold mb-4" 
-            style={{ 
-              fontFamily: "'Playfair Display', serif",
-              color: '#fff' 
-            }}
-          >
+          <h3 className="text-xl font-bold mb-4" style={{ fontFamily: "'Playfair Display', serif", color: '#fff' }}>
             Designing India's Best Homes & Businesses Since 1992
           </h3>
         </motion.div>
 
         {/* Quick Links */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.1 }}
-          style={{ flex: '1 1 150px' }}
-        >
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.1 }} style={{ flex: '1 1 150px' }}>
           <h4 style={{ fontWeight: '600', marginBottom: '0.75rem', color: '#ffffff', fontSize: '0.95rem' }}>
             Quick Links
           </h4>
@@ -66,12 +82,7 @@ const Footer = () => {
               <li key={index} style={{ marginBottom: '0.25rem' }}>
                 <Link
                   to={link.path}
-                  style={{
-                    color: '#bcc3d3',
-                    textDecoration: 'none',
-                    transition: 'color 0.3s',
-                    fontSize: '0.85rem',
-                  }}
+                  style={{ color: '#bcc3d3', textDecoration: 'none', transition: 'color 0.3s', fontSize: '0.85rem' }}
                   onMouseEnter={(e) => (e.currentTarget.style.color = '#ffffff')}
                   onMouseLeave={(e) => (e.currentTarget.style.color = '#bcc3d3')}
                 >
@@ -83,38 +94,26 @@ const Footer = () => {
         </motion.div>
 
         {/* Services */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          style={{ flex: '1 1 200px' }}
-        >
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} style={{ flex: '1 1 200px' }}>
           <h4 style={{ fontWeight: '600', marginBottom: '0.75rem', color: '#ffffff', fontSize: '0.95rem' }}>Services</h4>
           <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-            {['Architecture Design', 'Interior Design', 'Landscape Design', 'MEP Engineering', 'Project Planning'].map(
-              (service, index) => (
-                <li key={index} style={{ marginBottom: '0.25rem' }}>
-                  <Link
-                    to="/servicepage"
-                    style={{ color: '#bcc3d3', textDecoration: 'none', transition: 'color 0.3s', fontSize: '0.85rem' }}
-                    onMouseEnter={(e) => (e.currentTarget.style.color = '#ffffff')}
-                    onMouseLeave={(e) => (e.currentTarget.style.color = '#bcc3d3')}
-                  >
-                    {service}
-                  </Link>
-                </li>
-              )
-            )}
+            {serviceLinks.map((service, index) => (
+              <li key={index} style={{ marginBottom: '0.25rem', cursor: 'pointer' }}>
+                <span
+                  onClick={() => scrollToService(service.id)}
+                  style={{ color: '#bcc3d3', textDecoration: 'none', transition: 'color 0.3s', fontSize: '0.85rem' }}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = '#ffffff')}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = '#bcc3d3')}
+                >
+                  {service.name}
+                </span>
+              </li>
+            ))}
           </ul>
         </motion.div>
 
         {/* Contact Info */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          style={{ flex: '1 1 250px' }}
-        >
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }} style={{ flex: '1 1 250px' }}>
           <h4 style={{ fontWeight: '600', marginBottom: '0.75rem', color: '#ffffff', fontSize: '0.95rem' }}>Contact Us</h4>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.3rem' }}>
             <p style={{ fontWeight: '600', color: '#ffffff', fontSize: '0.85rem', margin: 0 }}>Email</p>

@@ -2,7 +2,7 @@ import React from "react";
 import { Helmet } from "react-helmet";
 import { motion } from "framer-motion";
 import heroImg from "../../assets/2.png";
-import sampleImg from "../../assets/2.png";
+import sampleImg from "../../assets/imgmask.png";
 
 const servicesData = [
   {
@@ -116,10 +116,7 @@ const servicesData = [
 
 const listContainer = {
   hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.08 },
-  },
+  visible: { opacity: 1, transition: { staggerChildren: 0.08 } },
 };
 
 const listItem = {
@@ -127,170 +124,114 @@ const listItem = {
   visible: { opacity: 1, y: 0 },
 };
 
-// Helper function to generate smaller number-shaped SVG mask
 const getNumberMask = (num) => {
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-    <text x="50%" y="50%" font-size="60" font-family="Arial" fill="white" text-anchor="middle" dominant-baseline="central">
+    <text 
+      x="50%" 
+      y="50%" 
+      font-size="60" 
+      font-family="Poppins, sans-serif" 
+      font-weight="900" 
+      fill="white" 
+      text-anchor="middle" 
+      dominant-baseline="central">
       ${String(num).padStart(2, "0")}
     </text>
   </svg>`;
   return `url('data:image/svg+xml;utf8,${encodeURIComponent(svg)}')`;
 };
 
+
 const ServicesPage = () => {
   return (
-    <>
-      {/* SEO / Helmet Section */}
+    <div className="overflow-x-hidden">
       <Helmet>
         <title>Our Services | Architecture & Design Solutions | Klick India</title>
         <meta
           name="description"
           content="Comprehensive architectural services including master planning, interior design, MEP engineering, and project management. Expert solutions for all your design needs."
         />
-        <meta
-          name="keywords"
-          content="architectural services, interior design, MEP engineering, master planning, project management, building design"
-        />
-        <meta property="og:title" content="Architecture & Design Services | Klick India Corporation" />
-        <meta property="og:description" content="Complete range of architectural and design services. From concept to completion, we deliver excellence in every project." />
-        <meta property="og:image" content="/path-to-services-image.jpg" />
-        <meta property="og:url" content="https://klickindia.com/servicesPage" />
         <link rel="canonical" href="https://klickindia.com/servicesPage" />
       </Helmet>
 
       {/* Hero Section */}
       <section
+        className="relative h-[75vh] flex items-center justify-center text-center overflow-hidden"
         style={{
-          position: "relative",
-          height: "75vh",
           backgroundImage: `url(${heroImg})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          color: "#fff",
-          textAlign: "center",
         }}
       >
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            background: "linear-gradient(to bottom, rgba(17,19,44,0.85), rgba(17,19,44,0.85))",
-          }}
-        />
-        <motion.h1
+        <div className="absolute inset-0 bg-[rgba(17,19,44,0.85)]"></div>
+        <motion.div
           initial={{ opacity: 0, y: 100, scale: 0.8 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ duration: 1.2, delay: 0.3, type: "spring", stiffness: 100, damping: 15 }}
-          className="mb-6 text-4xl font-bold leading-tight md:text-6xl lg:text-7xl"
-          style={{
-            fontFamily: "'Playfair Display', serif",
-            fontWeight: 800,
-            color: "#fff",
-            letterSpacing: "-0.02em",
-            maxWidth: "80%",
-            zIndex: 1,
-          }}
+          className="z-10 max-w-4xl px-4 sm:px-6 text-center"
         >
-          <motion.span
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-          >
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
             Our Services
-          </motion.span>
-          <br />
-          <p
-            className="text-white text-2xl md:text-4xl font-light text-center mt-6 max-w-3xl mx-auto"
-            style={{ fontFamily: "'playfair', sans-serif', letterSpacing: '-0.01em'" }}
-          >
-            Blending innovation, <br />functionality &  client vision in every  project
+          </h1>
+          <p className="text-white text-xl md:text-2xl font-light mt-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+            Blending innovation, functionality & client vision in every project
           </p>
-        </motion.h1>
+        </motion.div>
       </section>
 
-     {/* Intro Section */}
-<section className="py-16 bg-[#EEF6FC] text-center px-[8%] overflow-x-hidden">
-  <motion.div
-    className="container mx-auto max-w-4xl text-center relative px-4 sm:px-6"
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    transition={{ duration: 0.8 }}
-  >
-    <div className="relative inline-block">
-      {/* Subtle gradient behind text */}
-      <motion.div
-        className="absolute -inset-0.5 bg-gradient-to-r from-[#314870]/10 to-transparent blur-lg opacity-50 rounded-md"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-      />
-
-      <p
-        className="relative leading-relaxed text-left text-lg md:text-xl mx-auto max-w-3xl"
-        style={{
-          fontFamily: "'Playfair Display', serif",
-          fontWeight: 300,
-          color: "#11132c",
-          letterSpacing: "-0.02em",
-          textShadow: "0 2px 4px rgba(17, 19, 44, 0.08)",
-        }}
-      >
-        From concept to completion, we provide end-to-end design, planning and engineering services.
-        <br />
-        <br /> Our multidisciplinary approach ensures innovative, functional & enduring results for every project.
-      </p>
-    </div>
-
-    {/* Background blur behind entire section */}
-    <motion.div
-      className="absolute inset-0 pointer-events-none"
-      initial={{ scale: 0.95, opacity: 0 }}
-      whileInView={{ scale: 1, opacity: 1 }}
-      transition={{ duration: 1 }}
-    >
-      <div className="absolute inset-0 bg-[#314870]/5 blur-2xl transform -rotate-3" />
-    </motion.div>
-  </motion.div>
-</section>
-
+      {/* Intro Section */}
+      <section className="py-16 bg-[#EEF6FC] text-center px-4 sm:px-6 md:px-10 relative">
+        <motion.div
+          className="mx-auto max-w-4xl relative"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <p
+            className="text-lg md:text-xl text-[#11132c] leading-relaxed"
+            style={{ fontFamily: "'Playfair Display', serif", fontWeight: 300 }}
+          >
+            From concept to completion, we provide end-to-end design, planning and engineering services.
+            <br />
+            <br />
+            Our multidisciplinary approach ensures innovative, functional & enduring results for every project.
+          </p>
+        </motion.div>
+      </section>
 
       {/* Services Sections */}
       {servicesData.map((service, index) => (
-        <section key={index} className="py-16 bg-white">
+        <section key={index} id={`service-${index}`} className="py-16 bg-white">
           <div
-            className={`container mx-auto px-[8%] flex flex-col lg:flex-row items-start gap-8 ${
+            className={`max-w-6xl mx-auto flex flex-col lg:flex-row items-start gap-8 px-4 sm:px-6 md:px-10 ${
               index % 2 === 1 ? "lg:flex-row-reverse" : ""
             }`}
           >
-           {/* Image Section with Number Mask */}
-<motion.div
-  initial={{ opacity: 0, x: index % 2 === 1 ? -60 : 60 }}
-  whileInView={{ opacity: 1, x: 0 }}
-  transition={{ duration: 0.8 }}
-  viewport={{ once: true }}
-  className="w-full lg:w-[32%] flex justify-center items-center order-1"
->
-  <div
-    className="w-full max-w-xs sm:max-w-sm h-[200px] sm:h-[240px] md:h-[280px] lg:h-[340px] overflow-hidden"
-    style={{
-      WebkitMaskImage: getNumberMask(index + 1, { bold: true }),
-      WebkitMaskRepeat: "no-repeat",
-      WebkitMaskSize: "contain",
-      WebkitMaskPosition: "center",
-      maskImage: getNumberMask(index + 1, { bold: true }),
-      maskRepeat: "no-repeat",
-      maskSize: "contain",
-      maskPosition: "center",
-    }}
-  >
-    <img src={service.img} alt={service.title} className="w-full h-full object-cover" />
-  </div>
-</motion.div>
-
+            {/* Image Section */}
+            <motion.div
+              initial={{ opacity: 0, x: index % 2 === 1 ? -60 : 60 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="w-full lg:w-1/3 flex justify-center items-center"
+            >
+              <div
+                className="w-full h-[200px] sm:h-[240px] md:h-[280px] lg:h-[340px] max-w-full overflow-hidden"
+                style={{
+                  WebkitMaskImage: getNumberMask(index + 1),
+                  WebkitMaskRepeat: "no-repeat",
+                  WebkitMaskSize: "contain",
+                  WebkitMaskPosition: "center",
+                  maskImage: getNumberMask(index + 1),
+                  maskRepeat: "no-repeat",
+                  maskSize: "contain",
+                  maskPosition: "center",
+                }}
+              >
+                <img src={service.img} alt={service.title} className="w-full h-full object-cover max-w-full" />
+              </div>
+            </motion.div>
 
             {/* Text Section */}
             <motion.div
@@ -298,37 +239,21 @@ const ServicesPage = () => {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="w-full lg:w-[68%] order-2 space-y-4 max-w-xl"
+              className="w-full lg:w-2/3 space-y-4 max-w-full"
             >
-              <h2
-                className="text-xl sm:text-2xl md:text-3xl font-semibold text-[#11132c] text-center lg:text-left"
-                style={{ fontFamily: "'Playfair Display', serif" }}
-              >
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-[#11132c] text-center lg:text-left" style={{ fontFamily: "'Playfair Display', serif" }}>
                 {service.title}
               </h2>
-
-              <p
-                className="text-[#444] text-justify break-words whitespace-normal overflow-wrap-anywhere leading-relaxed lg:leading-normal"
-                style={{
-                  fontFamily: "'Poppins', sans-serif",
-                  wordWrap: "break-word",
-                  overflowWrap: "anywhere",
-                }}
-              >
+              <p className="text-[#444] text-justify leading-relaxed break-words" style={{ fontFamily: "'Poppins', sans-serif" }}>
                 {service.description}
               </p>
-
               <motion.ul
                 variants={listContainer}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
-                className="list-disc pl-6 space-y-2 text-[#444] leading-relaxed lg:leading-snug break-words whitespace-normal overflow-wrap-anywhere"
-                style={{
-                  fontFamily: "'Poppins', sans-serif",
-                  wordWrap: "break-word",
-                  overflowWrap: "anywhere",
-                }}
+                className="list-disc pl-6 space-y-2 text-[#444] leading-relaxed break-words"
+                style={{ fontFamily: "'Poppins', sans-serif" }}
               >
                 {service.points.map((point, i) => (
                   <motion.li key={i} variants={listItem}>
@@ -342,7 +267,7 @@ const ServicesPage = () => {
       ))}
 
       {/* WhatsApp CTA */}
-      <section className="py-20 text-center bg-[#EEF6FC]">
+      <section className="py-20 text-center bg-[#EEF6FC] px-4 sm:px-6 md:px-10">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -350,38 +275,26 @@ const ServicesPage = () => {
           viewport={{ once: true }}
           className="flex flex-col items-center"
         >
-          <h3
-            className="text-2xl sm:text-3xl font-semibold text-[#11132c] mb-6"
-            style={{ fontFamily: "'Playfair Display', serif" }}
-          >
+          <h3 className="text-2xl sm:text-3xl font-semibold text-[#11132c] mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
             Having a project in mind?
           </h3>
-          <p
-            className="text-[#555] max-w-2xl mx-auto mb-10 px-4 leading-relaxed"
-            style={{ fontFamily: "'Poppins', sans-serif" }}
-          >
-            Let’s discuss how we can bring your ideas to life through design,
-            innovation, and functionality. Book a quick consultation call with
-            our team.
+          <p className="text-[#555] max-w-2xl mx-auto mb-10 leading-relaxed" style={{ fontFamily: "'Poppins', sans-serif" }}>
+            Let’s discuss how we can bring your ideas to life through design, innovation, and functionality. Book a quick consultation call with our team.
           </p>
 
           <motion.a
-  href="https://wa.me/919873693425?text=Hello!%20I'm%20interested%20in%20your%20architectural%20design%20services."
+            href="https://wa.me/919873693425?text=Hello!%20I'm%20interested%20in%20your%20architectural%20design%20services."
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block px-10 py-4 text-lg font-semibold shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-2xl rounded-lg"
-            style={{
-              backgroundColor: "#31487a",
-              color: "#ffffff",
-              fontFamily: "'Poppins', sans-serif",
-            }}
+            style={{ backgroundColor: "#31487a", color: "#ffffff", fontFamily: "'Poppins', sans-serif" }}
             whileTap={{ scale: 0.95 }}
           >
             Book a Call with Us
           </motion.a>
         </motion.div>
       </section>
-    </>
+    </div>
   );
 };
 

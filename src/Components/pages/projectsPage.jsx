@@ -146,7 +146,7 @@ const ProjectsPage = () => {
       >
         Klick India Corporation’s projects reflect a commitment to quality, innovation and client-focused design. 
         <br /><br />
-        Our portfolio demonstrates decades of experience in delivering landmark projects across India and globally.
+        Our portfolio demonstrates decades of experience in delivering landmark projects across India.
       </p>
     </div>
 
