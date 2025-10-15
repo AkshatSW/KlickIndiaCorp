@@ -4,18 +4,18 @@ import { Helmet } from "react-helmet";
 
 // Import project images
 import heroImg from "../../assets/2.png";
-import kailash from "../../assets/Projects/kailash.png";
-import hotellandmark from "../../assets/Projects/hotellandmark.png";
-import commercialBuilding from "../../assets/Projects/CommercialBuilding.png";
-import dakshini from "../../assets/Projects/DakshiniApartments.png";
-import baldevplaza from "../../assets/Projects/baldevplaza.png";
-import multiStoreyedCommercial from "../../assets/Projects/MultiStoreyedCommercialBuilding.png";
-import multiStoreyedBuilding from "../../assets/Projects/MultiStoreyedBuilding.png";
-import mdcityhospital from "../../assets/Projects/mdcityhospital.png";
-import somduttplaza from "../../assets/Projects/somduttplaza.png";
-import pragatiTower from "../../assets/Projects/PragatiTower.png";
-import multiPrithvi from "../../assets/Projects/MultiStoreyedCommercialBuildingPrithviRajRoad.png";
-import c58Janakpuri from "../../assets/Projects/c58Janakpuri.png";
+import kailash from "../../assets/Projects/kailash.webp";
+import hotellandmark from "../../assets/Projects/hotellandmark.webp";
+import commercialBuilding from "../../assets/Projects/CommercialBuilding.webp";
+import dakshini from "../../assets/Projects/DakshiniApartments.webp";
+import baldevplaza from "../../assets/Projects/baldevplaza.webp";
+import multiStoreyedCommercial from "../../assets/Projects/MultiStoreyedCommercialBuilding.webp";
+import multiStoreyedBuilding from "../../assets/Projects/MultiStoreyedBuilding.webp";
+import mdcityhospital from "../../assets/Projects/mdcityhospital.webp";
+import somduttplaza from "../../assets/Projects/somduttplaza.webp";
+import pragatiTower from "../../assets/Projects/PragatiTower.webp";
+import multiPrithvi from "../../assets/Projects/MultiStoreyedCommercialBuildingPrithviRajRoad.webp";
+import c58Janakpuri from "../../assets/Projects/c58Janakpuri.webp";
 
 const projects = [
   { title: "Kailash Nursing Home", location: "Delhi", image: kailash },
