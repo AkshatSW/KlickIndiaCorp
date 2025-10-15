@@ -2,7 +2,7 @@ import React from "react";
 import { Helmet } from "react-helmet";
 import { motion } from "framer-motion";
 import heroImg from "../../assets/5.jpg";
-import sampleImg from "../../assets/image.png";
+import sampleImg from "../../assets/WhyChoose.png";
 
 const servicesData = [
   {

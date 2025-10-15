@@ -226,8 +226,10 @@ const Footer = () => {
               }}
             >
               Address
-            </p>
-            <p
+            </p> 
+            <a  href="https://maps.app.goo.gl/24BzqMgkCwAr4dG57"
+              target="_blank"
+              rel="noopener noreferrer"
               style={{
                 color: '#bcc3d3',
                 fontSize: '0.85rem',
@@ -235,7 +237,7 @@ const Footer = () => {
               }}
             >
               R-138, Second Floor, GK-1, Delhi-110048
-            </p>
+            </a>
           </div>
         </motion.div>
       </div>
