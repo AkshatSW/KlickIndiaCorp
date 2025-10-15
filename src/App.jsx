@@ -53,7 +53,7 @@ function App() {
 
   {/* Open Graph (Facebook, LinkedIn, etc.) */}
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://klickindia.com/" />
+  <meta property="og:url" content="https://klickindiacorporation.com/" />
   <meta
     property="og:title"
     content="Klick India Corporation | Architecture & Design Excellence"
@@ -66,7 +66,7 @@ function App() {
 
   {/* Twitter Card */}
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:url" content="https://klickindia.com/" />
+  <meta name="twitter:url" content="https://klickindiacorporation.com/" />
   <meta
     name="twitter:title"
     content="Klick India Corporation | Architecture & Design Excellence"
@@ -78,7 +78,7 @@ function App() {
   <meta name="twitter:image" content="/favicon_io/og-image.jpg" />
 
   {/* Canonical URL */}
-  <link rel="canonical" href="https://klickindia.com/" />
+  <link rel="canonical" href="https://klickindiacorporation.com/" />
 </Helmet>
 
 

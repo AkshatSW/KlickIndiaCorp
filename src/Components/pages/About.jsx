@@ -52,7 +52,7 @@ const About = () => {
     <div className="overflow-x-hidden">
       <Helmet>
         <title>About Us | Klick India Corporation</title>
-        <link rel="canonical" href="https://klickindia.com/about" />
+        <link rel="canonical" href="https://klickindiacorporation.com/about" />
       </Helmet>
 
       {/* Hero Section */}

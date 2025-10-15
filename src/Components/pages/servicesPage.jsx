@@ -151,7 +151,7 @@ const ServicesPage = () => {
           name="description"
           content="Comprehensive architectural services including master planning, interior design, MEP engineering, and project management. Expert solutions for all your design needs."
         />
-        <link rel="canonical" href="https://klickindia.com/servicesPage" />
+        <link rel="canonical" href="https://klickindiacorporation.com/servicesPage" />
       </Helmet>
 
       {/* Hero Section */}

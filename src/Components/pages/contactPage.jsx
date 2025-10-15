@@ -78,8 +78,8 @@ const ContactPage = () => {
           content="Connect with Delhi's leading architectural firm. Schedule a consultation for your project today."
         />
         <meta property="og:image" content="/path-to-contact-page-image.jpg" />
-        <meta property="og:url" content="https://klickindia.com/contactPage" />
-        <link rel="canonical" href="https://klickindia.com/contactPage" />
+        <meta property="og:url" content="https://klickindiacorporation.com/contactPage" />
+        <link rel="canonical" href="https://klickindiacorporation.com/contactPage" />
       </Helmet>
 
       {/* Hero Section */}
