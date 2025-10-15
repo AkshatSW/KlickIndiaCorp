@@ -59,7 +59,6 @@ const contactMethods = [
 const ContactPage = () => {
   return (
     <>
-      <Navbar />
 
       {/* SEO Helmet */}
       <Helmet>

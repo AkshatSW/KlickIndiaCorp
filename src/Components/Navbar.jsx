@@ -112,15 +112,15 @@ const Navbar = () => {
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
-              className="md:hidden overflow-hidden bg-[#11132c]/90 backdrop-blur-xl border-b border-white/10"
+              className="md:hidden overflow-hidden bg-[#11132c]/70 backdrop-blur-lg border-t border-white/10 fixed inset-x-0 top-20 z-40"
             >
-              <div className="px-4 py-4 space-y-4">
+              <div className="px-0 py-4 space-y-4">
                 {navItems.map((item) => (
                   <Link
                     key={item.name}
                     to={item.path}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className={`block w-full text-left py-2 px-2 rounded-lg transition-colors duration-300 ${
+                    className={`block w-full text-center py-2 transition-colors duration-300 rounded-none ${
                       location.pathname === item.path
                         ? "text-[#bcc3d3] font-semibold"
                         : "text-white/90 hover:text-white"
@@ -134,7 +134,7 @@ const Navbar = () => {
                 <Link
                   to="/contact"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="block w-full mt-4 px-6 py-3 font-medium rounded-lg text-[#11132c] bg-[#ffffff] shadow-lg hover:shadow-xl text-center"
+                  className="block w-full mt-4 py-3 font-medium text-[#11132c] bg-[#ffffff] shadow-lg hover:shadow-xl text-center rounded-none"
                 >
                   Contact Us
                 </Link>

@@ -48,17 +48,18 @@ const Home = () => {
   <div className="absolute inset-0 overflow-hidden">
     {/* BACKGROUND IMAGE */}
     <AnimatePresence mode="wait">
-      <motion.div
-        key={currentImageIndex}
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${backgroundImages[currentImageIndex]})` }}
-        initial={{ opacity: 0, scale: 1.05 }}
-        animate={{ opacity: 1, scale: 1 }}
-        exit={{ opacity: 0.6, scale: 1.02 }}
-        transition={{ duration: 1.2, ease: [0.25, 0.1, 0.25, 1] }}
-        // ensure it creates its own stacking context
-        style={{ backgroundImage: `url(${backgroundImages[currentImageIndex]})`, zIndex: 0 }}
-      />
+        <motion.div
+          key={currentImageIndex}
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          initial={{ opacity: 0, scale: 1.05 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0.6, scale: 1.02 }}
+          transition={{ duration: 1.2, ease: [0.25, 0.1, 0.25, 1] }}
+          style={{ 
+            backgroundImage: `url(${backgroundImages[currentImageIndex]})`, 
+            zIndex: 0 
+          }}
+        />
     </AnimatePresence>
 
     {/* DARK BLUE GRADIENT OVERLAY */}
