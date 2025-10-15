@@ -5,7 +5,7 @@ import { FaWhatsapp } from "react-icons/fa"; // WhatsApp icon
 import Navbar from "../Navbar";
 import Footer from "../Footer";
 import { motion } from "framer-motion";
-import heroImg from "../../assets/2.png";
+import heroImg from "../../assets/ContactPageHeader.png";
 
 const contactMethods = [
   {
