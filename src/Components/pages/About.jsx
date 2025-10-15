@@ -258,50 +258,46 @@ const About = () => {
         </div>
       </section>
 
-      {/* What Makes Us Different */}
-      <section className="py-20 px-4 sm:px-6 md:px-10 bg-[#31487a] text-white">
-        <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-12">
-          {/* Left text + Image */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="flex-1 max-w-full flex flex-col items-start gap-6"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
-              What Makes Us Different
-            </h2>
-            <p className="leading-relaxed text-white" style={{ fontFamily: "'Poppins', sans-serif" }}>
-              Our goal is to turn every project into a benchmark of design and precision crafted with commitment, creativity and care. Through thoughtful design, meticulous execution & unwavering attention to detail, we redefine spaces and create lasting landmarks.
-            </p>
+     {/* What Makes Us Different */}
+<section className="py-20 px-4 sm:px-6 md:px-10 bg-[#31487a] text-white">
+  <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-12">
+    {/* Left text */}
+    <motion.div
+      initial={{ opacity: 0, x: -50 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+      className="flex-1 max-w-full flex flex-col items-start gap-6"
+    >
+      <h2
+        className="text-3xl md:text-4xl font-bold mb-6"
+        style={{ fontFamily: "'Playfair Display', serif" }}
+      >
+        What Makes Us Different
+      </h2>
+      <p
+        className="leading-relaxed text-white"
+        style={{ fontFamily: "'Poppins', sans-serif" }}
+      >
+        Our goal is to turn every project into a benchmark of design and precision crafted with commitment, creativity and care. <br /> <br /> Through thoughtful design, meticulous execution & unwavering attention to detail, we redefine spaces and create lasting landmarks.
+      </p>
+    </motion.div>
 
-            {/* Image below the text */}
-            <motion.img
-              src={img4}
-              alt="Illustration of What Makes Us Different"
-              className="w-full max-w-md rounded-2xl shadow-xl mt-6"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            />
-          </motion.div>
+    {/* Right Accordion */}
+    <motion.div
+      initial={{ opacity: 0, x: 50 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+      className="flex-1 max-w-full"
+    >
+      {differences.map((item, idx) => (
+        <AccordionItem key={idx} title={item.title} text={item.text} />
+      ))}
+    </motion.div>
+  </div>
+</section>
 
-          {/* Right Accordion */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="flex-1 max-w-full"
-          >
-            {differences.map((item, idx) => (
-              <AccordionItem key={idx} title={item.title} text={item.text} />
-            ))}
-          </motion.div>
-        </div>
-      </section>
 
       {/* CTA Section */}
       <section className="py-20 text-center bg-[#EEF6FC] px-4 sm:px-6 md:px-10">

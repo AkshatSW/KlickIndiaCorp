@@ -16,15 +16,10 @@ const Footer = () => {
     { name: 'Specialized Services', id: 6 },
   ];
 
+  // Better service navigation & scroll logic
   const scrollToService = (id) => {
-    // If not on /servicepage, navigate first
     if (window.location.pathname !== '/servicepage') {
-      navigate('/servicepage');
-      // Wait a bit for page to load
-      setTimeout(() => {
-        const element = document.getElementById(`service-${id}`);
-        element?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 300);
+      navigate('/servicepage', { state: { scrollTo: id } });
     } else {
       const element = document.getElementById(`service-${id}`);
       element?.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -61,14 +56,32 @@ const Footer = () => {
             alt="KlickIndia Logo"
             style={{ height: '150px', width: 'auto', marginBottom: '0.25rem' }}
           />
-          <h3 className="text-xl font-bold mb-4" style={{ fontFamily: "'Playfair Display', serif", color: '#fff' }}>
+          <h3
+            className="text-xl font-bold mb-4"
+            style={{
+              fontFamily: "'Playfair Display', serif",
+              color: '#fff',
+            }}
+          >
             Designing India's Best Homes & Businesses Since 1992
           </h3>
         </motion.div>
 
         {/* Quick Links */}
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.1 }} style={{ flex: '1 1 150px' }}>
-          <h4 style={{ fontWeight: '600', marginBottom: '0.75rem', color: '#ffffff', fontSize: '0.95rem' }}>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.1 }}
+          style={{ flex: '1 1 150px' }}
+        >
+          <h4
+            style={{
+              fontWeight: '600',
+              marginBottom: '0.75rem',
+              color: '#ffffff',
+              fontSize: '0.95rem',
+            }}
+          >
             Quick Links
           </h4>
           <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
@@ -82,9 +95,8 @@ const Footer = () => {
               <li key={index} style={{ marginBottom: '0.25rem' }}>
                 <Link
                   to={link.path}
-                  style={{ color: '#bcc3d3', textDecoration: 'none', transition: 'color 0.3s', fontSize: '0.85rem' }}
-                  onMouseEnter={(e) => (e.currentTarget.style.color = '#ffffff')}
-                  onMouseLeave={(e) => (e.currentTarget.style.color = '#bcc3d3')}
+                  className="text-[#bcc3d3] hover:text-white transition-colors duration-300 text-sm"
+                  style={{ textDecoration: 'none' }}
                 >
                   {link.name}
                 </Link>
@@ -94,62 +106,134 @@ const Footer = () => {
         </motion.div>
 
         {/* Services */}
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} style={{ flex: '1 1 200px' }}>
-          <h4 style={{ fontWeight: '600', marginBottom: '0.75rem', color: '#ffffff', fontSize: '0.95rem' }}>Services</h4>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          style={{ flex: '1 1 200px' }}
+        >
+          <h4
+            style={{
+              fontWeight: '600',
+              marginBottom: '0.75rem',
+              color: '#ffffff',
+              fontSize: '0.95rem',
+            }}
+          >
+            Services
+          </h4>
           <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
             {serviceLinks.map((service, index) => (
-              <li key={index} style={{ marginBottom: '0.25rem', cursor: 'pointer' }}>
-                <span
+              <li key={index} style={{ marginBottom: '0.25rem' }}>
+                <button
                   onClick={() => scrollToService(service.id)}
-                  style={{ color: '#bcc3d3', textDecoration: 'none', transition: 'color 0.3s', fontSize: '0.85rem' }}
-                  onMouseEnter={(e) => (e.currentTarget.style.color = '#ffffff')}
-                  onMouseLeave={(e) => (e.currentTarget.style.color = '#bcc3d3')}
+                  className="text-[#bcc3d3] hover:text-white transition-colors duration-300 text-sm"
+                  style={{
+                    background: 'transparent',
+                    border: 'none',
+                    cursor: 'pointer',
+                    padding: 0,
+                    fontFamily: 'inherit',
+                  }}
                 >
                   {service.name}
-                </span>
+                </button>
               </li>
             ))}
           </ul>
         </motion.div>
 
         {/* Contact Info */}
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }} style={{ flex: '1 1 250px' }}>
-          <h4 style={{ fontWeight: '600', marginBottom: '0.75rem', color: '#ffffff', fontSize: '0.95rem' }}>Contact Us</h4>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          style={{ flex: '1 1 250px' }}
+        >
+          <h4
+            style={{
+              fontWeight: '600',
+              marginBottom: '0.75rem',
+              color: '#ffffff',
+              fontSize: '0.95rem',
+            }}
+          >
+            Contact Us
+          </h4>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.3rem' }}>
-            <p style={{ fontWeight: '600', color: '#ffffff', fontSize: '0.85rem', margin: 0 }}>Email</p>
+            <p
+              style={{
+                fontWeight: '600',
+                color: '#ffffff',
+                fontSize: '0.85rem',
+                margin: 0,
+              }}
+            >
+              Email
+            </p>
             <a
               href="mailto:klickindiacorp@gmail.com"
-              style={{ color: '#bcc3d3', textDecoration: 'none', fontSize: '0.85rem' }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = '#ffffff')}
-              onMouseLeave={(e) => (e.currentTarget.style.color = '#bcc3d3')}
+              className="text-[#bcc3d3] hover:text-white transition-colors duration-300 text-sm"
+              style={{ textDecoration: 'none' }}
             >
               klickindiacorp@gmail.com
             </a>
 
-            <p style={{ fontWeight: '600', color: '#ffffff', fontSize: '0.85rem', margin: '0.25rem 0 0 0' }}>Phone No</p>
+            <p
+              style={{
+                fontWeight: '600',
+                color: '#ffffff',
+                fontSize: '0.85rem',
+                margin: '0.25rem 0 0 0',
+              }}
+            >
+              Phone No
+            </p>
             <a
               href="tel:+919873693425"
-              style={{ color: '#bcc3d3', textDecoration: 'none', fontSize: '0.85rem' }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = '#ffffff')}
-              onMouseLeave={(e) => (e.currentTarget.style.color = '#bcc3d3')}
+              className="text-[#bcc3d3] hover:text-white transition-colors duration-300 text-sm"
+              style={{ textDecoration: 'none' }}
             >
               +91 98736 93425
             </a>
 
-            <p style={{ fontWeight: '600', color: '#ffffff', fontSize: '0.85rem', margin: '0.25rem 0 0 0' }}>WhatsApp</p>
+            <p
+              style={{
+                fontWeight: '600',
+                color: '#ffffff',
+                fontSize: '0.85rem',
+                margin: '0.25rem 0 0 0',
+              }}
+            >
+              WhatsApp
+            </p>
             <a
-              href="https://wa.me/919873693425"
+              href="https://wa.me/919873693425?text=Hello!%20I'm%20interested%20in%20your%20architectural%20design%20services."
               target="_blank"
               rel="noopener noreferrer"
-              style={{ color: '#bcc3d3', textDecoration: 'none', fontSize: '0.85rem' }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = '#ffffff')}
-              onMouseLeave={(e) => (e.currentTarget.style.color = '#bcc3d3')}
+              className="text-[#bcc3d3] hover:text-white transition-colors duration-300 text-sm"
+              style={{ textDecoration: 'none' }}
             >
               +91 98736 93425
             </a>
 
-            <p style={{ fontWeight: '600', color: '#ffffff', fontSize: '0.85rem', margin: '0.25rem 0 0 0' }}>Address</p>
-            <p style={{ color: '#bcc3d3', fontSize: '0.85rem', margin: 0 }}>
+            <p
+              style={{
+                fontWeight: '600',
+                color: '#ffffff',
+                fontSize: '0.85rem',
+                margin: '0.25rem 0 0 0',
+              }}
+            >
+              Address
+            </p>
+            <p
+              style={{
+                color: '#bcc3d3',
+                fontSize: '0.85rem',
+                margin: 0,
+              }}
+            >
               R-138, Second Floor, GK-1, Delhi-110048
             </p>
           </div>

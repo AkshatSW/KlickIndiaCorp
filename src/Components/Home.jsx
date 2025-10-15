@@ -219,7 +219,7 @@ const Home = () => {
                 style={{ fontFamily: "'Poppins', sans-serif" }}
               >
                 Klick India Corporation, led by Mr Suneet Pasricha in 1992 and headquartered in New Delhi, has been delivering architectural and design excellence for over three decades. 
-                With more than 100+ homes and 200+ factories designed across India and internationally, our capabilities span architecture, interiors and planning across diverse typologies including Residential, Commercial, Institutional, Hospitality & Industrial amongst others.
+                With more than 100+ homes and 200+ factories designed across India, our capabilities span architecture, interiors and planning across diverse typologies including Residential, Commercial, Institutional, Hospitality & Industrial amongst others.
                 <br /><br />
                 We combine innovation, sustainability and a client-oriented approach to create projects that are unique, site-specific and executed with precision. 
                 Our work is a testament to our vision of redefining architecture in India while leaving a lasting legacy of iconic structures.
