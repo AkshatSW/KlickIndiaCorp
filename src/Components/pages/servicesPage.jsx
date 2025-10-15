@@ -1,8 +1,8 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import { motion } from "framer-motion";
-import heroImg from "../../assets/1.jpg";
-import sampleImg from "../../assets/WhyChoose.png";
+import heroImg from "../../assets/1.webp";
+import sampleImg from "../../assets/WhyChoose.webp";
 
 const servicesData = [
   {

@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa"; 
 import { motion } from "framer-motion";
-import heroImg from "../../assets/ContactPageHeader.png";
+import heroImg from "../../assets/ContactPageHeader.webp";
 
 const contactMethods = [
   {

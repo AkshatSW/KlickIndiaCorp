@@ -2,8 +2,8 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet";
 import { Award, Lightbulb, CheckCircle, Users, Globe, Layers, ChevronDown } from "lucide-react";
-import img3 from "../../assets/AboutMain.png";
-import heroBg from "../../assets/AboutUsHeader.png";
+import img3 from "../../assets/AboutMain.webp";
+import heroBg from "../../assets/AboutUsHeader.webp";
 
 const AccordionItem = ({ title, text }) => {
   const [open, setOpen] = React.useState(false);

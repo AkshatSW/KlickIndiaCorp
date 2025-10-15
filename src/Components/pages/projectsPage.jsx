@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Helmet } from "react-helmet";
 
 // Import project images
-import heroImg from "../../assets/2.png";
+import heroImg from "../../assets/2.webp";
 import kailash from "../../assets/Projects/kailash.webp";
 import hotellandmark from "../../assets/Projects/hotellandmark.webp";
 import commercialBuilding from "../../assets/Projects/CommercialBuilding.webp";
