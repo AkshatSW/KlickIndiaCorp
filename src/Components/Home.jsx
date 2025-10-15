@@ -42,9 +42,11 @@ const Home = () => {
 
   return (
     <>
-     {/* ================= HOME SECTION ================= */}
-<div id="home" className="relative min-h-screen overflow-hidden"> {/* overflow-hidden fixed here */}
-  <div className="absolute inset-0 overflow-hidden"> {/* extra safety */}
+  {/* ================= HOME SECTION ================= */}
+<div id="home" className="relative min-h-screen overflow-hidden">
+  {/* BACKGROUND IMAGE + OVERLAY */}
+  <div className="absolute inset-0 overflow-hidden">
+    {/* BACKGROUND IMAGE */}
     <AnimatePresence mode="wait">
       <motion.div
         key={currentImageIndex}
@@ -52,22 +54,26 @@ const Home = () => {
         style={{ backgroundImage: `url(${backgroundImages[currentImageIndex]})` }}
         initial={{ opacity: 0, scale: 1.05 }}
         animate={{ opacity: 1, scale: 1 }}
-        exit={{ opacity: 0.6, scale: 1.02 }} // exit no longer fades fully out
+        exit={{ opacity: 0.6, scale: 1.02 }}
         transition={{ duration: 1.2, ease: [0.25, 0.1, 0.25, 1] }}
+        // ensure it creates its own stacking context
+        style={{ backgroundImage: `url(${backgroundImages[currentImageIndex]})`, zIndex: 0 }}
       />
     </AnimatePresence>
 
     {/* DARK BLUE GRADIENT OVERLAY */}
     <div
+      className="absolute inset-0"
       style={{
-        position: "absolute",
-        inset: 0,
         background:
           "linear-gradient(to bottom, rgba(17,19,44,0.85), rgba(17,19,44,0.85))",
+        zIndex: 10,
+        pointerEvents: "none", // allow clicks to pass through
       }}
     />
   </div>
 
+  {/* CONTENT */}
   <div className="relative z-20 flex min-h-screen items-center justify-center px-4 sm:px-6">
     <div className="text-center max-w-4xl">
       <motion.h1
@@ -136,6 +142,7 @@ const Home = () => {
     </div>
   </div>
 </div>
+
 
 
       {/* Tagline Section */}
