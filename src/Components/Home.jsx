@@ -9,7 +9,7 @@ import img3 from '../assets/3.webp';
 import img4 from '../assets/4.webp';
 
 // Import About Us image
-import aboutImg from '../assets/AboutUs.png';
+import aboutImg from '../assets/AboutUs.webp';
 
 const Home = () => {
   const navigate = useNavigate();
