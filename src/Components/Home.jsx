@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 
 // Import all your home images
-import img2 from '../assets/5.jpg';
+import img2 from '../assets/1.jpg';
 import img1 from '../assets/2.png';
 import img3 from '../assets/3.png';
 import img4 from '../assets/4.png';

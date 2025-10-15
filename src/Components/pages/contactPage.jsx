@@ -1,9 +1,7 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import { Mail, Phone, MapPin } from "lucide-react";
-import { FaWhatsapp } from "react-icons/fa"; // WhatsApp icon
-import Navbar from "../Navbar";
-import Footer from "../Footer";
+import { FaWhatsapp } from "react-icons/fa"; 
 import { motion } from "framer-motion";
 import heroImg from "../../assets/ContactPageHeader.png";
 

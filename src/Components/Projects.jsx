@@ -2,9 +2,9 @@ import React from "react";
 import { useNavigate } from 'react-router-dom';
 
 // Import project images (make sure these paths exist)
-import multiStoreyed from "../assets/Projects/MultiStoreyedBuilding.png";
-import mdCityHospital from "../assets/Projects/mdcityhospital.png";
-import hotelLandmark from "../assets/Projects/hotellandmark.png";
+import multiStoreyed from "../assets/Projects/MultiStoreyedBuilding.webp";
+import mdCityHospital from "../assets/Projects/mdcityhospital.webp";
+import hotelLandmark from "../assets/Projects/hotellandmark.webp";
 
 const featuredProjects = [
   {
