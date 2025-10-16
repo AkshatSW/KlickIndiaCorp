@@ -202,69 +202,75 @@ const ServicesPage = () => {
 
       {/* Services Sections */}
       {servicesData.map((service, index) => (
-        <section key={index} id={`service-${index}`} className="py-16 bg-white">
-          <div
-            className={`max-w-6xl mx-auto flex flex-col lg:flex-row items-start gap-8 px-4 sm:px-6 md:px-10 ${
-              index % 2 === 1 ? "lg:flex-row-reverse" : ""
-            }`}
-          >
-            {/* Image Section */}
-            <motion.div
-              initial={{ opacity: 0, x: index % 2 === 1 ? -60 : 60 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="w-full lg:w-1/3 flex justify-center items-center"
-            >
-              <div
-                className="w-full h-[200px] sm:h-[240px] md:h-[280px] lg:h-[340px] max-w-full overflow-hidden"
-                style={{
-                  WebkitMaskImage: getNumberMask(index + 1),
-                  WebkitMaskRepeat: "no-repeat",
-                  WebkitMaskSize: "contain",
-                  WebkitMaskPosition: "center",
-                  maskImage: getNumberMask(index + 1),
-                  maskRepeat: "no-repeat",
-                  maskSize: "contain",
-                  maskPosition: "center",
-                }}
-              >
-                <img src={service.img} alt={service.title} className="w-full h-full object-cover max-w-full" />
-              </div>
-            </motion.div>
+  <section key={index} id={`service-${index}`} className="py-16 bg-white">
+    <div
+      className={`max-w-6xl mx-auto flex flex-col lg:flex-row items-start gap-8 px-4 sm:px-6 md:px-10 ${
+        index % 2 === 1 ? "lg:flex-row-reverse" : ""
+      }`}
+    >
+      {/* Image Section (background + mask) */}
+      <motion.div
+        initial={{ opacity: 0, x: index % 2 === 1 ? -60 : 60 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="w-full lg:w-1/3 flex justify-center items-center"
+      >
+        <div
+          className="w-full h-[200px] sm:h-[260px] md:h-[320px] lg:h-[380px] bg-center bg-cover"
+          style={{
+            backgroundImage: `url(${service.img})`,
+            WebkitMaskImage: getNumberMask(index + 1),
+            WebkitMaskRepeat: "no-repeat",
+            WebkitMaskSize: "cover",
+            WebkitMaskPosition: "center",
+            maskImage: getNumberMask(index + 1),
+            maskRepeat: "no-repeat",
+            maskSize: "cover",
+            maskPosition: "center",
+          }}
+        />
+      </motion.div>
 
-            {/* Text Section */}
-            <motion.div
-              initial={{ opacity: 0, x: index % 2 === 1 ? 60 : -60 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="w-full lg:w-2/3 space-y-4 max-w-full"
-            >
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-[#11132c] text-center lg:text-left" style={{ fontFamily: "'Playfair Display', serif" }}>
-                {service.title}
-              </h2>
-              <p className="text-[#444] text-justify leading-relaxed break-words" style={{ fontFamily: "'Poppins', sans-serif" }}>
-                {service.description}
-              </p>
-              <motion.ul
-                variants={listContainer}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                className="list-disc pl-6 space-y-2 text-[#444] leading-relaxed break-words"
-                style={{ fontFamily: "'Poppins', sans-serif" }}
-              >
-                {service.points.map((point, i) => (
-                  <motion.li key={i} variants={listItem}>
-                    {point}
-                  </motion.li>
-                ))}
-              </motion.ul>
-            </motion.div>
-          </div>
-        </section>
-      ))}
+      {/* Text Section (unchanged) */}
+      <motion.div
+        initial={{ opacity: 0, x: index % 2 === 1 ? 60 : -60 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="w-full lg:w-2/3 space-y-4 max-w-full"
+      >
+        <h2
+          className="text-xl sm:text-2xl md:text-3xl font-semibold text-[#11132c] text-center lg:text-left"
+          style={{ fontFamily: "'Playfair Display', serif" }}
+        >
+          {service.title}
+        </h2>
+        <p
+          className="text-[#444] text-justify leading-relaxed break-words"
+          style={{ fontFamily: "'Poppins', sans-serif" }}
+        >
+          {service.description}
+        </p>
+        <motion.ul
+          variants={listContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="list-disc pl-6 space-y-2 text-[#444] leading-relaxed break-words"
+          style={{ fontFamily: "'Poppins', sans-serif" }}
+        >
+          {service.points.map((point, i) => (
+            <motion.li key={i} variants={listItem}>
+              {point}
+            </motion.li>
+          ))}
+        </motion.ul>
+      </motion.div>
+    </div>
+  </section>
+))}
+
 
       {/* WhatsApp CTA */}
       <section className="py-20 text-center bg-[#EEF6FC] px-4 sm:px-6 md:px-10">
