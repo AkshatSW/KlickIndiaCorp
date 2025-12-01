@@ -227,7 +227,7 @@ const Footer = () => {
             >
               Address
             </p> 
-            <a  href="https://maps.app.goo.gl/24BzqMgkCwAr4dG57"
+            <a  href="https://maps.app.goo.gl/abjd3q8CcD5Fv3Jk8"
               target="_blank"
               rel="noopener noreferrer"
               style={{
@@ -236,7 +236,7 @@ const Footer = () => {
                 margin: 0,
               }}
             >
-              R-138, Second Floor, GK-1, Delhi-110048
+              Flat No H-1201, AVJ Heights, Zeta-1, Greater Noida, Uttar Pradesh
             </a>
           </div>
         </motion.div>

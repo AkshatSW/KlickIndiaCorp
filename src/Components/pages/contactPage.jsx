@@ -43,12 +43,12 @@ const contactMethods = [
     title: "Location",
     info: (
       <a
-        href="https://maps.app.goo.gl/24BzqMgkCwAr4dG57"
+        href="https://maps.app.goo.gl/abjd3q8CcD5Fv3Jk8"
         target="_blank"
         rel="noopener noreferrer"
         className="hover:text-[#31487a]"
       >
-        New Delhi, India
+        Greater Noida, Uttar Pradesh
       </a>
     ),
   },
@@ -174,7 +174,7 @@ const ContactPage = () => {
                   : method.title === "WhatsApp"
                   ? "https://wa.me/919873693425?text=Hello!%20I'm%20interested%20in%20your%20architectural%20design%20services."
                   : method.title === "Location"
-                  ? "https://maps.app.goo.gl/24BzqMgkCwAr4dG57"
+                  ? "https://maps.app.goo.gl/abjd3q8CcD5Fv3Jk8"
                   : "#"
               }
               target={
@@ -240,9 +240,9 @@ const ContactPage = () => {
                     className="text-[#555]"
                     style={{ fontFamily: "'Poppins', sans-serif" }}
                   >
-                    R-138, Second Floor, Greater Kailash-1,
+                   Flat No H-1201, AVJ Heights, Zeta-1,
                     <br />
-                    New Delhi - 110048
+                    Greater Noida, Uttar Pradesh
                   </p>
                 </div>
               </div>
@@ -282,7 +282,7 @@ const ContactPage = () => {
             className="overflow-hidden rounded-xl shadow-lg"
           >
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3504.675721897131!2d77.24204637549781!3d28.549465175710214!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjjCsDMyJzU4LjEiTiA3N8KwMTQnNDAuNiJF!5e0!3m2!1sen!2sin!4v1760454530282!5m2!1sen!2sin"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3506.348669979116!2d77.51770397495187!3d28.49915569012592!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ceaf10000003b%3A0x452f1c131893cbe4!2sAVJ%20Heights!5e0!3m2!1sen!2sin!4v1764617640251!5m2!1sen!2sin"
               width="100%"
               height="100%"
               style={{ border: 0 }}
