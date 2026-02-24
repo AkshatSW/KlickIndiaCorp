@@ -144,6 +144,31 @@ function App() {
         <Route path="/servicepage" element={<><ServicesPage /><Footer /></>} />
         <Route path="/projects" element={<><ProjectsPage /><Footer /></>} />
         <Route path="/contact" element={<><ContactPage /><Footer /></>} />
+
+        <Route
+          path="/health"
+          element={
+            <div style={{ fontFamily: 'monospace', padding: '2rem', maxWidth: '600px', margin: '5rem auto' }}>
+              <h1 style={{ color: '#31487a', marginBottom: '1rem' }}>Site Status</h1>
+              <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+                <tbody>
+                  {[
+                    ['Status', 'OK'],
+                    ['Site', 'klickindiacorporation.com'],
+                    ['Version', '1.0.0'],
+                    ['Build', import.meta.env.MODE],
+                    ['Timestamp', new Date().toISOString()],
+                  ].map(([key, value]) => (
+                    <tr key={key} style={{ borderBottom: '1px solid #eee' }}>
+                      <td style={{ padding: '0.5rem 1rem 0.5rem 0', fontWeight: 600, color: '#11132c' }}>{key}</td>
+                      <td style={{ padding: '0.5rem 0', color: '#555' }}>{value}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          }
+        />
       </Routes>
     </Router>
   );

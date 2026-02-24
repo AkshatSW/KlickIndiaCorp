@@ -42,6 +42,7 @@ Developed from scratch using React and Vite with Tailwind CSS for styling and Fr
 | `/servicepage` | Services   | Detailed breakdown of all 7 service categories                              |
 | `/projects`    | Projects   | Full project portfolio with lazy-loaded image grid                          |
 | `/contact`     | Contact    | Contact methods (email, phone, WhatsApp, map) and office information        |
+| `/health`      | Health     | Deployment check page showing site status, version, build mode, and timestamp |
 
 ---
 
