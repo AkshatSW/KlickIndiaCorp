@@ -1,6 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import heroImg from "../../assets/1.webp";
 import sampleImg from "../../assets/WhyChoose.webp";
 
@@ -146,12 +146,45 @@ const ServicesPage = () => {
   return (
     <div className="overflow-x-hidden">
       <Helmet>
-        <title>Our Services | Architecture & Design Solutions | Klick India</title>
+        <title>Our Services | Architecture & Design Solutions | Klick India Corporation</title>
         <meta
           name="description"
-          content="Comprehensive architectural services including master planning, interior design, MEP engineering, and project management. Expert solutions for all your design needs."
+          content="Comprehensive architectural services including master planning, building design, interior design, landscape design, MEP engineering, and project management by Klick India Corporation."
         />
-        <link rel="canonical" href="https://klickindiacorporation.com/servicesPage" />
+        <meta
+          name="keywords"
+          content="architecture services, master planning, interior design, landscape design, MEP engineering, project management, building design India"
+        />
+        <link rel="canonical" href="https://klickindiacorporation.com/servicepage" />
+        <meta property="og:title" content="Our Services | Klick India Corporation" />
+        <meta property="og:description" content="End-to-end architectural services: master planning, building design, interiors, landscape, MEP engineering, and project management." />
+        <meta property="og:url" content="https://klickindiacorporation.com/servicepage" />
+        <meta property="og:image" content="https://klickindiacorporation.com/favicon_io/android-chrome-512x512.png" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "provider": {
+              "@type": "Organization",
+              "name": "Klick India Corporation"
+            },
+            "serviceType": "Architectural Design Services",
+            "areaServed": { "@type": "Country", "name": "India" },
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Architectural Services",
+              "itemListElement": [
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Architecture & Masterplanning" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Building Planning & Design" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Interior Design" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Landscape Design" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "MEP Engineering" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Project Planning & Control" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Specialized Services" } }
+              ]
+            }
+          })}
+        </script>
       </Helmet>
 
       {/* Hero Section */}

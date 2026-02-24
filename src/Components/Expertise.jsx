@@ -53,7 +53,7 @@ const expertiseList = [
 ];
 
 const Expertise = () => {
-  const navigate = useNavigate(); // ✅ Initialize navigate
+  const navigate = useNavigate();
 
   return (
     <section className="py-20" style={{ backgroundColor: "#31487a" }}>
@@ -102,7 +102,7 @@ const Expertise = () => {
               color: "#314870",
               fontFamily: "'Poppins', sans-serif",
             }}
-            onClick={() => navigate("/projects")} // ✅ Navigate to /projects
+            onClick={() => navigate("/projects")}
           >
             Explore Our Projects
           </button>

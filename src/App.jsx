@@ -22,65 +22,102 @@ import ServicesPage from './Components/pages/servicesPage';
 import ProjectsPage from './Components/pages/projectsPage';
 import ContactPage from './Components/pages/contactPage';
 
+const SITE_URL = 'https://klickindiacorporation.com';
+const OG_IMAGE = `${SITE_URL}/favicon_io/android-chrome-512x512.png`;
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "ArchitecturalFirm",
+  "name": "Klick India Corporation",
+  "url": SITE_URL,
+  "logo": `${SITE_URL}/favicon_io/android-chrome-512x512.png`,
+  "description": "Leading architectural firm offering innovative design solutions since 1992. Experts in architecture, interior design, and project planning.",
+  "foundingDate": "1992",
+  "founder": {
+    "@type": "Person",
+    "name": "Mr. Suneet Pasricha"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Flat No H-1201, AVJ Heights, Zeta-1",
+    "addressLocality": "Greater Noida",
+    "addressRegion": "Uttar Pradesh",
+    "addressCountry": "IN"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+91-98736-93425",
+    "contactType": "customer service",
+    "email": "klickindiacorp@gmail.com",
+    "availableLanguage": ["English", "Hindi"]
+  },
+  "sameAs": [],
+  "areaServed": {
+    "@type": "Country",
+    "name": "India"
+  },
+  "knowsAbout": [
+    "Architecture",
+    "Interior Design",
+    "Master Planning",
+    "Building Design",
+    "Landscape Design",
+    "MEP Engineering",
+    "Project Management"
+  ]
+};
+
 function App() {
   return (
     <Router>
-     <Helmet>
-  {/* Basic Meta */}
-  <meta charSet="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Klick India Corporation | Architecture & Design Excellence</title>
-  <meta
-    name="description"
-    content="Leading architectural firm in Delhi offering innovative design solutions since 1992. Experts in architecture, interior design, and project planning."
-  />
-  <meta
-    name="keywords"
-    content="architecture, interior design, construction, delhi architects, commercial buildings, residential design"
-  />
-  <meta name="theme-color" content="#31487a" />
-  <meta name="author" content="Klick India Corporation" />
-  <meta name="robots" content="index, follow" />
+      <Helmet>
+        {/* Basic Meta */}
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Klick India Corporation | Architecture & Design Excellence</title>
+        <meta
+          name="description"
+          content="Leading architectural firm offering innovative design solutions since 1992. Experts in architecture, interior design, landscape design, MEP engineering, and project planning across India."
+        />
+        <meta
+          name="keywords"
+          content="architecture firm India, interior design Delhi, commercial building architects, residential design, master planning, MEP engineering, landscape design, project management, Klick India Corporation"
+        />
+        <meta name="theme-color" content="#31487a" />
+        <meta name="author" content="Klick India Corporation" />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 
-  {/* Favicons */}
-  <link rel="apple-touch-icon" sizes="180x180" href="/favicon_io/apple-touch-icon.png" />
-  <link rel="icon" type="image/x-icon" href="/favicon_io/favicon.ico" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon_io/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon_io/favicon-16x16.png" />
-  <link rel="manifest" href="/favicon_io/site.webmanifest" />
-  <link rel="mask-icon" href="/favicon_io/safari-pinned-tab.svg" color="#5bbad5" />
-  <meta name="msapplication-TileColor" content="#2b5797" />
+        {/* Favicons */}
+        <link rel="apple-touch-icon" sizes="180x180" href="/favicon_io/apple-touch-icon.png" />
+        <link rel="icon" type="image/x-icon" href="/favicon_io/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon_io/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon_io/favicon-16x16.png" />
+        <link rel="manifest" href="/favicon_io/site.webmanifest" />
 
-  {/* Open Graph (Facebook, LinkedIn, etc.) */}
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://klickindiacorporation.com/" />
-  <meta
-    property="og:title"
-    content="Klick India Corporation | Architecture & Design Excellence"
-  />
-  <meta
-    property="og:description"
-    content="Leading architectural firm in Delhi offering innovative design solutions since 1992. Experts in architecture, interior design, and project planning."
-  />
-  <meta property="og:image" content="/favicon_io/og-image.jpg" />
+        {/* Open Graph (Facebook, LinkedIn, etc.) */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={`${SITE_URL}/`} />
+        <meta property="og:title" content="Klick India Corporation | Architecture & Design Excellence" />
+        <meta property="og:description" content="Leading architectural firm offering innovative design solutions since 1992. Experts in architecture, interior design, and project planning across India." />
+        <meta property="og:image" content={OG_IMAGE} />
+        <meta property="og:site_name" content="Klick India Corporation" />
+        <meta property="og:locale" content="en_IN" />
 
-  {/* Twitter Card */}
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:url" content="https://klickindiacorporation.com/" />
-  <meta
-    name="twitter:title"
-    content="Klick India Corporation | Architecture & Design Excellence"
-  />
-  <meta
-    name="twitter:description"
-    content="Leading architectural firm in Delhi offering innovative design solutions since 1992. Experts in architecture, interior design, and project planning."
-  />
-  <meta name="twitter:image" content="/favicon_io/og-image.jpg" />
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content={`${SITE_URL}/`} />
+        <meta name="twitter:title" content="Klick India Corporation | Architecture & Design Excellence" />
+        <meta name="twitter:description" content="Leading architectural firm offering innovative design solutions since 1992. Experts in architecture, interior design, and project planning across India." />
+        <meta name="twitter:image" content={OG_IMAGE} />
 
-  {/* Canonical URL */}
-  <link rel="canonical" href="https://klickindiacorporation.com/" />
-</Helmet>
+        {/* Canonical URL */}
+        <link rel="canonical" href={`${SITE_URL}/`} />
 
+        {/* Structured Data - Organization */}
+        <script type="application/ld+json">
+          {JSON.stringify(organizationSchema)}
+        </script>
+      </Helmet>
 
       <ScrollToTop />
       <Navbar />

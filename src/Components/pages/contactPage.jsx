@@ -2,7 +2,7 @@ import React from "react";
 import { Helmet } from "react-helmet";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa"; 
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import heroImg from "../../assets/ContactPageHeader.webp";
 
 const contactMethods = [
@@ -25,7 +25,7 @@ const contactMethods = [
     ),
   },
   {
-    icon: <FaWhatsapp className="h-8 w-8 text-[#31487a]" />, // Changed to blue
+    icon: <FaWhatsapp className="h-8 w-8 text-[#31487a]" />,
     title: "WhatsApp",
     info: (
       <a
@@ -60,26 +60,41 @@ const ContactPage = () => {
 
       {/* SEO Helmet */}
       <Helmet>
-        <title>Contact Us | Klick India Corporation</title>
+        <title>Contact Us | Klick India Corporation - Architecture & Design</title>
         <meta
           name="description"
-          content="Get in touch with Klick India Corporation. Visit our office in Greater Kailash-1, New Delhi or connect via phone, email, or WhatsApp for your architectural needs."
+          content="Get in touch with Klick India Corporation. Visit our office in Greater Noida or connect via phone, email, or WhatsApp for your architectural design needs."
         />
         <meta
           name="keywords"
-          content="contact architect delhi, architectural consultation, design services contact, klick india location"
+          content="contact architect India, architectural consultation, design services contact, Klick India Corporation"
         />
-        <meta
-          property="og:title"
-          content="Contact Klick India Corporation | Architecture & Design Services"
-        />
-        <meta
-          property="og:description"
-          content="Connect with Delhi's leading architectural firm. Schedule a consultation for your project today."
-        />
-        <meta property="og:image" content="/path-to-contact-page-image.jpg" />
-        <meta property="og:url" content="https://klickindiacorporation.com/contactPage" />
-        <link rel="canonical" href="https://klickindiacorporation.com/contactPage" />
+        <meta property="og:title" content="Contact Us | Klick India Corporation" />
+        <meta property="og:description" content="Connect with Klick India Corporation for architectural design consultations. Phone, email, WhatsApp, or visit us." />
+        <meta property="og:url" content="https://klickindiacorporation.com/contact" />
+        <meta property="og:image" content="https://klickindiacorporation.com/favicon_io/android-chrome-512x512.png" />
+        <link rel="canonical" href="https://klickindiacorporation.com/contact" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ContactPage",
+            "name": "Contact Klick India Corporation",
+            "url": "https://klickindiacorporation.com/contact",
+            "mainEntity": {
+              "@type": "Organization",
+              "name": "Klick India Corporation",
+              "telephone": "+91-98736-93425",
+              "email": "klickindiacorp@gmail.com",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Flat No H-1201, AVJ Heights, Zeta-1",
+                "addressLocality": "Greater Noida",
+                "addressRegion": "Uttar Pradesh",
+                "addressCountry": "IN"
+              }
+            }
+          })}
+        </script>
       </Helmet>
 
       {/* Hero Section */}

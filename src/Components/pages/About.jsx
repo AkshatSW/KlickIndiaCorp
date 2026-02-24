@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { Helmet } from "react-helmet";
 import { Award, Lightbulb, CheckCircle, Users, Globe, Layers, ChevronDown } from "lucide-react";
 import img3 from "../../assets/AboutMain.webp";
@@ -51,8 +51,28 @@ const About = () => {
   return (
     <div className="overflow-x-hidden">
       <Helmet>
-        <title>About Us | Klick India Corporation</title>
+        <title>About Us | Klick India Corporation - Architecture Since 1992</title>
+        <meta name="description" content="Learn about Klick India Corporation, led by Mr. Suneet Pasricha since 1992. Over 100+ homes and 200+ factories designed across India with expertise in architecture, interiors, and planning." />
         <link rel="canonical" href="https://klickindiacorporation.com/about" />
+        <meta property="og:title" content="About Us | Klick India Corporation" />
+        <meta property="og:description" content="Over three decades of architectural excellence. 100+ homes and 200+ factories designed across India." />
+        <meta property="og:url" content="https://klickindiacorporation.com/about" />
+        <meta property="og:image" content="https://klickindiacorporation.com/favicon_io/android-chrome-512x512.png" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "AboutPage",
+            "name": "About Klick India Corporation",
+            "description": "Learn about Klick India Corporation, led by Mr. Suneet Pasricha since 1992.",
+            "url": "https://klickindiacorporation.com/about",
+            "mainEntity": {
+              "@type": "Organization",
+              "name": "Klick India Corporation",
+              "foundingDate": "1992",
+              "founder": { "@type": "Person", "name": "Mr. Suneet Pasricha" }
+            }
+          })}
+        </script>
       </Helmet>
 
       {/* Hero Section */}

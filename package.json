@@ -1,7 +1,8 @@
 {
-  "name": "sample",
+  "name": "klick-india-corporation",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "Official website for Klick India Corporation - Architecture & Design Excellence since 1992",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -20,7 +21,8 @@
     "react-helmet": "^6.1.0",
     "react-icons": "^5.5.0",
     "react-router-dom": "^7.9.4",
-    "tailwindcss": "^4.1.14"
+    "tailwindcss": "^4.1.14",
+    "web-vitals": "^5.1.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.36.0",

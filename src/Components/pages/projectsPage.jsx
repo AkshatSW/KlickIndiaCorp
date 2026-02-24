@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { Helmet } from "react-helmet";
 
 // Import project images
@@ -42,7 +42,7 @@ const cardVariants = {
   visible: { opacity: 1, y: 0 },
 };
 
-// 🌀 Shimmer placeholder
+// Shimmer placeholder
 const Shimmer = () => (
   <div className="absolute inset-0 animate-pulse bg-gradient-to-r from-gray-200 via-gray-100 to-gray-200" />
 );
@@ -51,15 +51,20 @@ const ProjectsPage = () => {
   return (
     <>
       <Helmet>
-        <title>Our Projects | Portfolio | Klick India Corporation</title>
+        <title>Our Projects | Architecture Portfolio | Klick India Corporation</title>
         <meta
           name="description"
-          content="Explore our diverse portfolio of architectural projects across India. From commercial buildings to healthcare facilities, discover our landmark designs."
+          content="Explore our diverse portfolio of architectural projects across India. From commercial buildings and hospitals to residential towers, discover our landmark designs since 1992."
         />
         <meta
           name="keywords"
-          content="architecture portfolio, delhi projects, commercial buildings, healthcare architecture, residential projects"
+          content="architecture portfolio, Delhi projects, commercial buildings, healthcare architecture, residential projects, Klick India Corporation"
         />
+        <link rel="canonical" href="https://klickindiacorporation.com/projects" />
+        <meta property="og:title" content="Our Projects | Klick India Corporation" />
+        <meta property="og:description" content="Explore landmark architectural projects across India by Klick India Corporation." />
+        <meta property="og:url" content="https://klickindiacorporation.com/projects" />
+        <meta property="og:image" content="https://klickindiacorporation.com/favicon_io/android-chrome-512x512.png" />
       </Helmet>
 
       <div className="bg-[#11132c]">
@@ -136,7 +141,7 @@ const ProjectsPage = () => {
                       <img
                         src={project.image}
                         alt={project.title}
-                        loading="lazy" // ✅ Lazy load
+                        loading="lazy"
                         onLoad={() => setLoaded(true)}
                         className={`w-full h-full object-cover transition-transform duration-700 hover:scale-110 ${
                           loaded ? "opacity-100" : "opacity-0"

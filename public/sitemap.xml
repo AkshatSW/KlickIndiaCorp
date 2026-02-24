@@ -2,31 +2,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://klickindiacorporation.com/</loc>
-    <lastmod>2023-10-14</lastmod>
+    <lastmod>2025-02-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://klickindiacorporation.com/about</loc>
-    <lastmod>2023-10-14</lastmod>
+    <lastmod>2025-02-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://klickindiacorporation.com/servicesPage</loc>
-    <lastmod>2023-10-14</lastmod>
+    <loc>https://klickindiacorporation.com/servicepage</loc>
+    <lastmod>2025-02-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://klickindiacorporation.com/projectsPage</loc>
-    <lastmod>2023-10-14</lastmod>
+    <loc>https://klickindiacorporation.com/projects</loc>
+    <lastmod>2025-02-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://klickindiacorporation.com/contactPage</loc>
-    <lastmod>2023-10-14</lastmod>
+    <loc>https://klickindiacorporation.com/contact</loc>
+    <lastmod>2025-02-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

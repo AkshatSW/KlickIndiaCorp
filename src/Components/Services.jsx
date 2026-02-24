@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom"; // ✅ Add this
+import { useNavigate } from "react-router-dom";
 import img1 from "../assets/services/img1.png";
 import img2 from "../assets/services/img2.png";
 import img3 from "../assets/services/img3.png";
@@ -17,7 +17,7 @@ const servicesData = [
 ];
 
 const Services = () => {
-  const navigate = useNavigate(); // ✅ Initialize navigation
+  const navigate = useNavigate();
 
   return (
     <section id="services" className="bg-white py-20">
@@ -59,7 +59,7 @@ const Services = () => {
               color: "#ffffff",
               fontFamily: "'Poppins', sans-serif"
             }}
-            onClick={() => navigate("/servicepage")} // ✅ Navigate to /servicepage
+            onClick={() => navigate("/servicepage")}
           >
             Discover More
           </button>
