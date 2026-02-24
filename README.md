@@ -154,15 +154,15 @@ npm run preview
 
 | Tool               | Purpose                                      | Status    |
 |--------------------|----------------------------------------------|-----------|
-| Google Analytics 4 | Traffic, user behavior, page views, conversions | Active (G-ZZTHJ9P2S5) |
-| Microsoft Clarity  | Heatmaps, session recordings, UX insights    | Placeholder (replace `CLARITY_PROJECT_ID` in `index.html`) |
+| Google Analytics 4 | Traffic, user behavior, page views, conversions | Active (`G-ZZTHJ9P2S5`) |
+| Microsoft Clarity  | Heatmaps, session recordings, UX insights    | Active (`vmf2lki2qn`) |
 | Web Vitals         | Core Web Vitals (CLS, INP, FCP, LCP, TTFB) reported to GA4 | Active |
 
-### Activating Clarity
+### Accessing Analytics
 
-1. Go to https://clarity.microsoft.com and create a new project
-2. Copy your project ID
-3. In `index.html`, replace `CLARITY_PROJECT_ID` with your actual ID
+- **GA4 Dashboard:** Sign in at [analytics.google.com](https://analytics.google.com) with the account that owns the `G-ZZTHJ9P2S5` property
+- **Clarity Dashboard:** Sign in at [clarity.microsoft.com](https://clarity.microsoft.com) to view heatmaps, session recordings, and UX insights for project `vmf2lki2qn`
+- **Health Check:** Visit [klickindiacorporation.com/health](https://klickindiacorporation.com/health) to verify the site is live (shows status, version, build mode, and timestamp)
 
 ---
 
