@@ -13,6 +13,7 @@ const Home = () => {
   const [prevImageIndex, setPrevImageIndex] = useState(null);
   const [images, setImages] = useState(backgroundImages);
   const [aboutImg, setAboutImg] = useState(null);
+  const isFirstRender = useRef(true);
 
   // Dynamically load remaining hero images after mount
   useEffect(() => {
@@ -30,6 +31,7 @@ const Home = () => {
   // Slide change interval — only advance if next image is loaded
   useEffect(() => {
     const interval = setInterval(() => {
+      isFirstRender.current = false;
       setCurrentImageIndex((prev) => {
         const next = (prev + 1) % images.length;
         if (!images[next]) return prev; // skip if not loaded yet
@@ -81,7 +83,7 @@ const Home = () => {
               transition={{ duration: 1.2, ease: [0.25, 0.1, 0.25, 1] }}
             />
           )}
-          {/* Current image (fading in) */}
+          {/* Current image (fading in, or instant on first render) */}
           <motion.div
             key={`curr-${currentImageIndex}`}
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -89,9 +91,9 @@ const Home = () => {
               backgroundImage: `url(${images[currentImageIndex]})`,
               zIndex: 1,
             }}
-            initial={{ opacity: 0 }}
+            initial={{ opacity: isFirstRender.current ? 1 : 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 1.2, ease: [0.25, 0.1, 0.25, 1] }}
+            transition={isFirstRender.current ? { duration: 0 } : { duration: 1.2, ease: [0.25, 0.1, 0.25, 1] }}
           />
 
           {/* DARK BLUE GRADIENT OVERLAY */}
