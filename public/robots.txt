@@ -1,4 +1,12 @@
+# Klick India Corporation
+# https://klickindiacorporation.com
+
 User-agent: *
 Allow: /
+Disallow: /health
 
+# Sitemap
 Sitemap: https://klickindiacorporation.com/sitemap.xml
+
+# Crawl-delay (optional, respected by some bots)
+Crawl-delay: 1

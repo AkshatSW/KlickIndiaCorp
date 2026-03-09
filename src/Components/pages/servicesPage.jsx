@@ -156,10 +156,19 @@ const ServicesPage = () => {
           content="architecture services, master planning, interior design, landscape design, MEP engineering, project management, building design India"
         />
         <link rel="canonical" href="https://klickindiacorporation.com/servicepage" />
-        <meta property="og:title" content="Our Services | Klick India Corporation" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Our Services | Architecture & Design Solutions | Klick India Corporation" />
         <meta property="og:description" content="End-to-end architectural services: master planning, building design, interiors, landscape, MEP engineering, and project management." />
         <meta property="og:url" content="https://klickindiacorporation.com/servicepage" />
         <meta property="og:image" content="https://klickindiacorporation.com/favicon_io/android-chrome-512x512.png" />
+        <meta property="og:image:alt" content="Klick India Corporation Logo" />
+        <meta property="og:site_name" content="Klick India Corporation" />
+        <meta property="og:locale" content="en_IN" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Our Services | Architecture & Design Solutions | Klick India Corporation" />
+        <meta name="twitter:description" content="End-to-end architectural services: master planning, building design, interiors, landscape, MEP engineering, and project management." />
+        <meta name="twitter:image" content="https://klickindiacorporation.com/favicon_io/android-chrome-512x512.png" />
+        <meta name="twitter:image:alt" content="Klick India Corporation Logo" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -183,6 +192,16 @@ const ServicesPage = () => {
                 { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Specialized Services" } }
               ]
             }
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://klickindiacorporation.com/" },
+              { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://klickindiacorporation.com/servicepage" }
+            ]
           })}
         </script>
       </Helmet>

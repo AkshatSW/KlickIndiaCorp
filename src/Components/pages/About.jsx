@@ -53,11 +53,21 @@ const About = () => {
       <Helmet>
         <title>About Us | Klick India Corporation - Architecture Since 1992</title>
         <meta name="description" content="Learn about Klick India Corporation, led by Mr. Suneet Pasricha since 1992. Over 100+ homes and 200+ factories designed across India with expertise in architecture, interiors, and planning." />
+        <meta name="keywords" content="about Klick India Corporation, architecture firm history, Suneet Pasricha architect, architecture company India, design firm since 1992" />
         <link rel="canonical" href="https://klickindiacorporation.com/about" />
-        <meta property="og:title" content="About Us | Klick India Corporation" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="About Us | Klick India Corporation - Architecture Since 1992" />
         <meta property="og:description" content="Over three decades of architectural excellence. 100+ homes and 200+ factories designed across India." />
         <meta property="og:url" content="https://klickindiacorporation.com/about" />
         <meta property="og:image" content="https://klickindiacorporation.com/favicon_io/android-chrome-512x512.png" />
+        <meta property="og:image:alt" content="Klick India Corporation Logo" />
+        <meta property="og:site_name" content="Klick India Corporation" />
+        <meta property="og:locale" content="en_IN" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="About Us | Klick India Corporation - Architecture Since 1992" />
+        <meta name="twitter:description" content="Over three decades of architectural excellence. 100+ homes and 200+ factories designed across India." />
+        <meta name="twitter:image" content="https://klickindiacorporation.com/favicon_io/android-chrome-512x512.png" />
+        <meta name="twitter:image:alt" content="Klick India Corporation Logo" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -71,6 +81,16 @@ const About = () => {
               "foundingDate": "1992",
               "founder": { "@type": "Person", "name": "Mr. Suneet Pasricha" }
             }
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://klickindiacorporation.com/" },
+              { "@type": "ListItem", "position": 2, "name": "About Us", "item": "https://klickindiacorporation.com/about" }
+            ]
           })}
         </script>
       </Helmet>

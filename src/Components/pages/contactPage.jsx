@@ -67,13 +67,22 @@ const ContactPage = () => {
         />
         <meta
           name="keywords"
-          content="contact architect India, architectural consultation, design services contact, Klick India Corporation"
+          content="contact architect India, architectural consultation, design services contact, Klick India Corporation, architect Greater Noida"
         />
-        <meta property="og:title" content="Contact Us | Klick India Corporation" />
+        <link rel="canonical" href="https://klickindiacorporation.com/contact" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Contact Us | Klick India Corporation - Architecture & Design" />
         <meta property="og:description" content="Connect with Klick India Corporation for architectural design consultations. Phone, email, WhatsApp, or visit us." />
         <meta property="og:url" content="https://klickindiacorporation.com/contact" />
         <meta property="og:image" content="https://klickindiacorporation.com/favicon_io/android-chrome-512x512.png" />
-        <link rel="canonical" href="https://klickindiacorporation.com/contact" />
+        <meta property="og:image:alt" content="Klick India Corporation Logo" />
+        <meta property="og:site_name" content="Klick India Corporation" />
+        <meta property="og:locale" content="en_IN" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Contact Us | Klick India Corporation - Architecture & Design" />
+        <meta name="twitter:description" content="Connect with Klick India Corporation for architectural design consultations. Phone, email, WhatsApp, or visit us." />
+        <meta name="twitter:image" content="https://klickindiacorporation.com/favicon_io/android-chrome-512x512.png" />
+        <meta name="twitter:image:alt" content="Klick India Corporation Logo" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -90,9 +99,26 @@ const ContactPage = () => {
                 "streetAddress": "Flat No H-1201, AVJ Heights, Zeta-1",
                 "addressLocality": "Greater Noida",
                 "addressRegion": "Uttar Pradesh",
+                "postalCode": "201306",
                 "addressCountry": "IN"
+              },
+              "openingHoursSpecification": {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+                "opens": "09:00",
+                "closes": "18:00"
               }
             }
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://klickindiacorporation.com/" },
+              { "@type": "ListItem", "position": 2, "name": "Contact Us", "item": "https://klickindiacorporation.com/contact" }
+            ]
           })}
         </script>
       </Helmet>

@@ -61,10 +61,57 @@ const ProjectsPage = () => {
           content="architecture portfolio, Delhi projects, commercial buildings, healthcare architecture, residential projects, Klick India Corporation"
         />
         <link rel="canonical" href="https://klickindiacorporation.com/projects" />
-        <meta property="og:title" content="Our Projects | Klick India Corporation" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Our Projects | Architecture Portfolio | Klick India Corporation" />
         <meta property="og:description" content="Explore landmark architectural projects across India by Klick India Corporation." />
         <meta property="og:url" content="https://klickindiacorporation.com/projects" />
         <meta property="og:image" content="https://klickindiacorporation.com/favicon_io/android-chrome-512x512.png" />
+        <meta property="og:image:alt" content="Klick India Corporation Logo" />
+        <meta property="og:site_name" content="Klick India Corporation" />
+        <meta property="og:locale" content="en_IN" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Our Projects | Architecture Portfolio | Klick India Corporation" />
+        <meta name="twitter:description" content="Explore landmark architectural projects across India by Klick India Corporation." />
+        <meta name="twitter:image" content="https://klickindiacorporation.com/favicon_io/android-chrome-512x512.png" />
+        <meta name="twitter:image:alt" content="Klick India Corporation Logo" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            "name": "Architectural Projects Portfolio",
+            "description": "Explore our diverse portfolio of architectural projects across India since 1992.",
+            "url": "https://klickindiacorporation.com/projects",
+            "mainEntity": {
+              "@type": "ItemList",
+              "name": "Klick India Corporation Projects",
+              "numberOfItems": 12,
+              "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "Kailash Nursing Home, Delhi" },
+                { "@type": "ListItem", "position": 2, "name": "Hotel Landmark, Kanpur" },
+                { "@type": "ListItem", "position": 3, "name": "Commercial Building, Nehru Place, Delhi" },
+                { "@type": "ListItem", "position": 4, "name": "Dakshini Apartments, Pitampura, Delhi" },
+                { "@type": "ListItem", "position": 5, "name": "Baldev Plaza, Gorakhpur" },
+                { "@type": "ListItem", "position": 6, "name": "Multi Storeyed Commercial Building, Tolstoy Marg, Delhi" },
+                { "@type": "ListItem", "position": 7, "name": "Multi Storeyed Building, Connaught Place, Delhi" },
+                { "@type": "ListItem", "position": 8, "name": "MD City Hospital, Model Town, Delhi" },
+                { "@type": "ListItem", "position": 9, "name": "SomDutt Plaza, Kanpur" },
+                { "@type": "ListItem", "position": 10, "name": "Pragati Tower, Rajander Nagar, Delhi" },
+                { "@type": "ListItem", "position": 11, "name": "Multi Storeyed Commercial Building, Prithvi Raj Road, Delhi" },
+                { "@type": "ListItem", "position": 12, "name": "Multi Storeyed Tower, Janak Puri, Delhi" }
+              ]
+            }
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://klickindiacorporation.com/" },
+              { "@type": "ListItem", "position": 2, "name": "Projects", "item": "https://klickindiacorporation.com/projects" }
+            ]
+          })}
+        </script>
       </Helmet>
 
       <div className="bg-[#11132c]">

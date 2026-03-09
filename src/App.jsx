@@ -74,14 +74,14 @@ function App() {
         {/* Basic Meta */}
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Klick India Corporation | Architecture & Design Excellence</title>
+        <title>Klick India Corporation | Architecture & Design Excellence Since 1992</title>
         <meta
           name="description"
           content="Leading architectural firm offering innovative design solutions since 1992. Experts in architecture, interior design, landscape design, MEP engineering, and project planning across India."
         />
         <meta
           name="keywords"
-          content="architecture firm India, interior design Delhi, commercial building architects, residential design, master planning, MEP engineering, landscape design, project management, Klick India Corporation"
+          content="architecture firm India, interior design Delhi, commercial building architects, residential design, master planning, MEP engineering, landscape design, project management, Klick India Corporation, architect Greater Noida"
         />
         <meta name="theme-color" content="#31487a" />
         <meta name="author" content="Klick India Corporation" />
@@ -97,18 +97,22 @@ function App() {
         {/* Open Graph (Facebook, LinkedIn, etc.) */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content={`${SITE_URL}/`} />
-        <meta property="og:title" content="Klick India Corporation | Architecture & Design Excellence" />
+        <meta property="og:title" content="Klick India Corporation | Architecture & Design Excellence Since 1992" />
         <meta property="og:description" content="Leading architectural firm offering innovative design solutions since 1992. Experts in architecture, interior design, and project planning across India." />
         <meta property="og:image" content={OG_IMAGE} />
+        <meta property="og:image:width" content="512" />
+        <meta property="og:image:height" content="512" />
+        <meta property="og:image:alt" content="Klick India Corporation Logo" />
         <meta property="og:site_name" content="Klick India Corporation" />
         <meta property="og:locale" content="en_IN" />
 
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:url" content={`${SITE_URL}/`} />
-        <meta name="twitter:title" content="Klick India Corporation | Architecture & Design Excellence" />
+        <meta name="twitter:title" content="Klick India Corporation | Architecture & Design Excellence Since 1992" />
         <meta name="twitter:description" content="Leading architectural firm offering innovative design solutions since 1992. Experts in architecture, interior design, and project planning across India." />
         <meta name="twitter:image" content={OG_IMAGE} />
+        <meta name="twitter:image:alt" content="Klick India Corporation Logo" />
 
         {/* Canonical URL */}
         <link rel="canonical" href={`${SITE_URL}/`} />
@@ -116,6 +120,17 @@ function App() {
         {/* Structured Data - Organization */}
         <script type="application/ld+json">
           {JSON.stringify(organizationSchema)}
+        </script>
+
+        {/* Structured Data - WebSite */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "Klick India Corporation",
+            "url": SITE_URL,
+            "description": "Architecture & Design Excellence Since 1992"
+          })}
         </script>
       </Helmet>
 
