@@ -2,8 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'motion/react';
 import { useNavigate } from 'react-router-dom';
 
-// Only import the first visible hero image statically
-import img1 from '../assets/2.webp';
+// First hero image served from public/ so the browser can preload it via <link rel="preload">
+const img1 = '/hero-bg.webp';
 
 const backgroundImages = [img1, null, null, null];
 
