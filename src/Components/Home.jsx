@@ -11,9 +11,10 @@ import img4 from '../assets/4.webp';
 // Import About Us image
 import aboutImg from '../assets/AboutUs.webp';
 
+const backgroundImages = [img1, img2, img3, img4];
+
 const Home = () => {
   const navigate = useNavigate();
-  const backgroundImages = [img1, img2, img3, img4];
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   // Preload all images
@@ -35,16 +36,18 @@ const Home = () => {
   // Ref and state for About Us text height
   const textRef = useRef(null);
   const [textHeight, setTextHeight] = useState('auto');
+  const [isMdScreen, setIsMdScreen] = useState(window.innerWidth >= 768);
 
   useEffect(() => {
-    const updateHeight = () => {
+    const updateLayout = () => {
+      setIsMdScreen(window.innerWidth >= 768);
       if (textRef.current) {
         setTextHeight(textRef.current.offsetHeight + 'px');
       }
     };
-    updateHeight();
-    window.addEventListener('resize', updateHeight);
-    return () => window.removeEventListener('resize', updateHeight);
+    updateLayout();
+    window.addEventListener('resize', updateLayout);
+    return () => window.removeEventListener('resize', updateLayout);
   }, []);
 
   return (
@@ -169,7 +172,7 @@ const Home = () => {
                 alt="About Us"
                 className="w-full rounded-2xl shadow-md object-cover"
                 style={{
-                  height: window.innerWidth >= 768 ? textHeight : 'auto',
+                  height: isMdScreen ? textHeight : 'auto',
                   maxWidth: '100%',
                 }}
               />

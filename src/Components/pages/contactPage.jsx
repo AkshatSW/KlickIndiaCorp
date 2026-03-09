@@ -48,7 +48,7 @@ const contactMethods = [
         rel="noopener noreferrer"
         className="hover:text-[#31487a]"
       >
-        Greater Noida, Uttar Pradesh
+        Greater Noida, Uttar Pradesh
       </a>
     ),
   },
@@ -283,7 +283,7 @@ const ContactPage = () => {
                   >
                    Flat No H-1201, AVJ Heights, Zeta-1,
                     <br />
-                    Greater Noida, Uttar Pradesh
+                    Greater Noida, Uttar Pradesh
                   </p>
                 </div>
               </div>

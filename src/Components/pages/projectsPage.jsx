@@ -47,6 +47,39 @@ const Shimmer = () => (
   <div className="absolute inset-0 animate-pulse bg-gradient-to-r from-gray-200 via-gray-100 to-gray-200" />
 );
 
+const ProjectCard = ({ project, idx }) => {
+  const [loaded, setLoaded] = useState(false);
+  return (
+    <motion.div
+      key={idx}
+      className="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl cursor-pointer transition-shadow duration-300"
+      variants={cardVariants}
+      whileHover={{ scale: 1.03 }}
+    >
+      <div className="relative overflow-hidden h-64">
+        {!loaded && <Shimmer />}
+        <img
+          src={project.image}
+          alt={project.title}
+          loading="lazy"
+          onLoad={() => setLoaded(true)}
+          className={`w-full h-full object-cover transition-transform duration-700 hover:scale-110 ${
+            loaded ? "opacity-100" : "opacity-0"
+          }`}
+        />
+      </div>
+      <div className="p-5">
+        <h3 className="text-xl font-semibold text-[#11132c] mb-2 font-[Playfair_Display]">
+          {project.title}
+        </h3>
+        <p className="text-[#555] font-[Poppins]">
+          {project.location}
+        </p>
+      </div>
+    </motion.div>
+  );
+};
+
 const ProjectsPage = () => {
   return (
     <>
@@ -174,38 +207,9 @@ const ProjectsPage = () => {
             viewport={{ once: true }}
           >
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-              {projects.map((project, idx) => {
-                const [loaded, setLoaded] = useState(false);
-                return (
-                  <motion.div
-                    key={idx}
-                    className="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl cursor-pointer transition-shadow duration-300"
-                    variants={cardVariants}
-                    whileHover={{ scale: 1.03 }}
-                  >
-                    <div className="relative overflow-hidden h-64">
-                      {!loaded && <Shimmer />}
-                      <img
-                        src={project.image}
-                        alt={project.title}
-                        loading="lazy"
-                        onLoad={() => setLoaded(true)}
-                        className={`w-full h-full object-cover transition-transform duration-700 hover:scale-110 ${
-                          loaded ? "opacity-100" : "opacity-0"
-                        }`}
-                      />
-                    </div>
-                    <div className="p-5">
-                      <h3 className="text-xl font-semibold text-[#11132c] mb-2 font-[Playfair_Display]">
-                        {project.title}
-                      </h3>
-                      <p className="text-[#555] font-[Poppins]">
-                        {project.location}
-                      </p>
-                    </div>
-                  </motion.div>
-                );
-              })}
+              {projects.map((project, idx) => (
+                <ProjectCard key={idx} project={project} idx={idx} />
+              ))}
             </div>
           </motion.section>
 

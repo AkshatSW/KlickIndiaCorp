@@ -14,20 +14,15 @@ const features = [
 
 const WhyChooseUs = () => {
   const boxesRef = useRef(null);
-  const dividerRef = useRef(null);
   const [boxesHeight, setBoxesHeight] = useState("auto");
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
-      const mobile = window.innerWidth < 768;
-      setIsMobile(mobile);
+      setIsMobile(window.innerWidth < 768);
 
       if (boxesRef.current) {
         setBoxesHeight(boxesRef.current.offsetHeight);
-        if (dividerRef.current && !mobile) {
-          dividerRef.current.style.height = `${boxesRef.current.offsetHeight}px`;
-        }
       }
     };
 

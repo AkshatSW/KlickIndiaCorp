@@ -236,7 +236,7 @@ const Footer = () => {
                 margin: 0,
               }}
             >
-              Flat No H-1201, AVJ Heights, Zeta-1, Greater Noida, Uttar Pradesh
+              Flat No H-1201, AVJ Heights, Zeta-1, Greater Noida, Uttar Pradesh
             </a>
           </div>
         </motion.div>
@@ -253,7 +253,7 @@ const Footer = () => {
           color: '#bcc3d3',
         }}
       >
-        © 2025 Klick India Corporation. All rights reserved.
+        © {new Date().getFullYear()} Klick India Corporation. All rights reserved.
       </div>
     </footer>
   );
