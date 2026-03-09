@@ -1,9 +1,9 @@
 // src/App.jsx
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
-// Components
+// Components (homepage - eagerly loaded)
 import Navbar from './Components/Navbar';
 import Home from './Components/Home';
 import USP from './Components/USP';
@@ -16,11 +16,11 @@ import Services from './Components/Services';
 import Footer from './Components/Footer';
 import ScrollToTop from './Components/ScrollToTop';
 
-// Pages
-import About from './Components/pages/About';
-import ServicesPage from './Components/pages/servicesPage';
-import ProjectsPage from './Components/pages/projectsPage';
-import ContactPage from './Components/pages/contactPage';
+// Pages (lazy-loaded for code splitting)
+const About = lazy(() => import('./Components/pages/About'));
+const ServicesPage = lazy(() => import('./Components/pages/servicesPage'));
+const ProjectsPage = lazy(() => import('./Components/pages/projectsPage'));
+const ContactPage = lazy(() => import('./Components/pages/contactPage'));
 
 const SITE_URL = 'https://klickindiacorporation.com';
 const OG_IMAGE = `${SITE_URL}/favicon_io/android-chrome-512x512.png`;
@@ -155,10 +155,10 @@ function App() {
           }
         />
 
-        <Route path="/about" element={<><About /><Footer /></>} />
-        <Route path="/servicepage" element={<><ServicesPage /><Footer /></>} />
-        <Route path="/projects" element={<><ProjectsPage /><Footer /></>} />
-        <Route path="/contact" element={<><ContactPage /><Footer /></>} />
+        <Route path="/about" element={<Suspense fallback={null}><About /><Footer /></Suspense>} />
+        <Route path="/servicepage" element={<Suspense fallback={null}><ServicesPage /><Footer /></Suspense>} />
+        <Route path="/projects" element={<Suspense fallback={null}><ProjectsPage /><Footer /></Suspense>} />
+        <Route path="/contact" element={<Suspense fallback={null}><ContactPage /><Footer /></Suspense>} />
 
         <Route
           path="/health"

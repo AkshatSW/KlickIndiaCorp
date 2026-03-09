@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 import { motion } from "motion/react";
-import whychooseImg from "../assets/WhyChoose.png";
+import whychooseImg from "../assets/WhyChoose.webp";
 import { CheckCircle } from "lucide-react";
 
 const features = [

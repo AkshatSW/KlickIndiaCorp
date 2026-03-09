@@ -2,36 +2,43 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'motion/react';
 import { useNavigate } from 'react-router-dom';
 
-// Import all your home images
-import img2 from '../assets/1.webp';
+// Only import the first visible hero image statically
 import img1 from '../assets/2.webp';
-import img3 from '../assets/3.webp';
-import img4 from '../assets/4.webp';
 
-// Import About Us image
-import aboutImg from '../assets/AboutUs.webp';
-
-const backgroundImages = [img1, img2, img3, img4];
+const backgroundImages = [img1, null, null, null];
 
 const Home = () => {
   const navigate = useNavigate();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [prevImageIndex, setPrevImageIndex] = useState(null);
+  const [images, setImages] = useState(backgroundImages);
+  const [aboutImg, setAboutImg] = useState(null);
 
-  // Preload all images
+  // Dynamically load remaining hero images after mount
   useEffect(() => {
-    backgroundImages.forEach((src) => {
-      const img = new Image();
-      img.src = src;
+    Promise.all([
+      import('../assets/1.webp'),
+      import('../assets/3.webp'),
+      import('../assets/4.webp'),
+    ]).then(([mod2, mod3, mod4]) => {
+      setImages([img1, mod2.default, mod3.default, mod4.default]);
     });
+    // Load about image lazily (below the fold)
+    import('../assets/AboutUs.webp').then((mod) => setAboutImg(mod.default));
   }, []);
 
-  // Slide change interval
+  // Slide change interval — only advance if next image is loaded
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentImageIndex((prev) => (prev + 1) % backgroundImages.length);
+      setCurrentImageIndex((prev) => {
+        const next = (prev + 1) % images.length;
+        if (!images[next]) return prev; // skip if not loaded yet
+        setPrevImageIndex(prev);
+        return next;
+      });
     }, 5000);
     return () => clearInterval(interval);
-  }, []);
+  }, [images]);
 
   // Ref and state for About Us text height
   const textRef = useRef(null);
@@ -60,19 +67,32 @@ const Home = () => {
       >
         {/* BACKGROUND IMAGES + OVERLAY */}
         <div className="absolute inset-0 overflow-hidden">
-          {backgroundImages.map((src, index) => (
+          {/* Previous image (fading out) */}
+          {prevImageIndex !== null && prevImageIndex !== currentImageIndex && (
             <motion.div
-              key={index}
+              key={`prev-${prevImageIndex}`}
               className="absolute inset-0 bg-cover bg-center bg-no-repeat"
               style={{
-                backgroundImage: `url(${src})`,
-                zIndex: index === currentImageIndex ? 1 : 0,
+                backgroundImage: `url(${images[prevImageIndex]})`,
+                zIndex: 0,
               }}
-              initial={{ opacity: index === currentImageIndex ? 0 : 1 }}
-              animate={{ opacity: index === currentImageIndex ? 1 : 0 }}
+              initial={{ opacity: 1 }}
+              animate={{ opacity: 0 }}
               transition={{ duration: 1.2, ease: [0.25, 0.1, 0.25, 1] }}
             />
-          ))}
+          )}
+          {/* Current image (fading in) */}
+          <motion.div
+            key={`curr-${currentImageIndex}`}
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{
+              backgroundImage: `url(${images[currentImageIndex]})`,
+              zIndex: 1,
+            }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1.2, ease: [0.25, 0.1, 0.25, 1] }}
+          />
 
           {/* DARK BLUE GRADIENT OVERLAY */}
           <div
@@ -93,8 +113,8 @@ const Home = () => {
               initial={{ opacity: 0, y: 100, scale: 0.8 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{
-                duration: 1.2,
-                delay: 0.3,
+                duration: 0.6,
+                delay: 0,
                 type: 'spring',
                 stiffness: 100,
                 damping: 15,
@@ -110,7 +130,7 @@ const Home = () => {
               <motion.span
                 initial={{ opacity: 0, x: -50 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.5 }}
+                transition={{ duration: 0.4, delay: 0 }}
               >
                 Designing India's Best
               </motion.span>
@@ -118,7 +138,7 @@ const Home = () => {
               <motion.span
                 initial={{ opacity: 0, x: 50 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.7 }}
+                transition={{ duration: 0.4, delay: 0.1 }}
               >
                 Homes & Businesses
               </motion.span>
@@ -126,7 +146,7 @@ const Home = () => {
               <motion.span
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.9 }}
+                transition={{ duration: 0.4, delay: 0.2 }}
               >
                 Since 1992
               </motion.span>
@@ -135,7 +155,7 @@ const Home = () => {
             <motion.div
               initial={{ opacity: 0, y: 50, scale: 0.8 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ duration: 0.8, delay: 1.3, type: 'spring', stiffness: 100 }}
+              transition={{ duration: 0.5, delay: 0.3, type: 'spring', stiffness: 100 }}
             >
               <motion.button
                 className="group relative overflow-hidden brand-button px-8 py-4 text-lg font-semibold rounded-lg"
@@ -168,8 +188,9 @@ const Home = () => {
               transition={{ duration: 0.8 }}
             >
               <img
-                src={aboutImg}
+                src={aboutImg || ''}
                 alt="About Us"
+                loading="lazy"
                 className="w-full rounded-2xl shadow-md object-cover"
                 style={{
                   height: isMdScreen ? textHeight : 'auto',
